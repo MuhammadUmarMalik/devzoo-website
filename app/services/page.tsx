@@ -189,7 +189,7 @@ export default function ServicesPage() {
                       <div className="mt-6 flex flex-wrap gap-4">
                         {service.extras.map((extra) => (
                           <div key={extra.label} className="rounded-btn border border-surface-dark/10 bg-surface-dark/5 px-3 py-1.5">
-                            <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-surface-dark/40">{extra.label}: </span>
+                            <span className="text-[11px] font-semibold uppercase tracking-widest text-surface-dark/40">{extra.label}: </span>
                             <span className="text-xs text-surface-dark/65">{extra.value}</span>
                           </div>
                         ))}

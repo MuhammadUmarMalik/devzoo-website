@@ -235,7 +235,7 @@ export default function HomePage() {
               <AnimateIn key={step.number} delay={i * 120} className="relative">
                 <div className="group relative h-full overflow-hidden rounded-card border border-surface-dark/8 bg-surface-warm p-8 transition-all duration-300 hover:border-brand/20 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.14)]">
                   {/* Ghost step number */}
-                  <span className="pointer-events-none absolute right-5 top-2 select-none font-heading text-[88px] font-extrabold leading-none text-surface-dark/[0.045]">
+                  <span className="pointer-events-none absolute right-5 top-2 select-none font-heading text-[88px] font-extrabold leading-none text-surface-dark/4.5">
                     {step.number}
                   </span>
                   {/* Step badge */}

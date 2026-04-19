@@ -116,7 +116,7 @@ export default function PricingPage() {
                 <article
                   className={`relative h-full overflow-hidden rounded-card p-8 transition-all duration-300 ${
                     tier.highlighted
-                      ? "border-2 border-brand bg-surface-dark shadow-[0_16px_48px_-16px_rgb(232_71_10_/_0.35)]"
+                      ? "border-2 border-brand bg-surface-dark shadow-[0_16px_48px_-16px_rgb(232_71_10/0.35)]"
                       : "border border-surface-dark/10 bg-surface-warm hover:border-brand/25 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.1)]"
                   }`}
                 >

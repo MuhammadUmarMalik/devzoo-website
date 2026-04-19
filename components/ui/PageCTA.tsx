@@ -23,7 +23,7 @@ export default function PageCTA({
   return (
     <section className="bg-surface-warm px-6 py-24 md:py-32">
       <AnimateIn className="mx-auto max-w-7xl">
-        <div className="final-cta-shell relative overflow-hidden rounded-[32px] border border-white/8 bg-surface-dark px-6 py-16 text-center shadow-[0_35px_90px_-52px_rgba(7,9,12,0.82)] md:px-10 md:py-20">
+        <div className="final-cta-shell relative overflow-hidden rounded-4xl border border-white/8 bg-surface-dark px-6 py-16 text-center shadow-[0_35px_90px_-52px_rgba(7,9,12,0.82)] md:px-10 md:py-20">
           <div className="final-cta-texture" aria-hidden="true" />
           <div className="final-cta-glow" aria-hidden="true" />
 

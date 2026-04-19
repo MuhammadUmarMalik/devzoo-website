@@ -133,7 +133,7 @@ export default function AboutPage() {
                 the right fit from the start.&rdquo;
               </blockquote>
               {/* Decorative quote mark */}
-              <span className="pointer-events-none absolute bottom-4 right-6 select-none font-heading text-[80px] font-extrabold leading-none text-white/[0.04]">
+              <span className="pointer-events-none absolute bottom-4 right-6 select-none font-heading text-[80px] font-extrabold leading-none text-white/4">
                 &rdquo;
               </span>
             </aside>
