@@ -105,7 +105,7 @@ function AccordionItem({
         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <div className="px-6 pb-6 pl-[4.25rem]">
+          <div className="px-6 pb-6 pl-17">
             <p
               className={cn(
                 "text-sm leading-relaxed",

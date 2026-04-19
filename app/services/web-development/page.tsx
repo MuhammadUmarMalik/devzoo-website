@@ -68,11 +68,11 @@ export default function WebDevelopmentPage() {
             <aside className="mt-8 rounded-section border border-surface-dark/8 bg-surface-warm px-7 py-5">
               <div className="flex flex-wrap gap-6 text-sm">
                 <div>
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-surface-dark/40">Tech Stack: </span>
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-surface-dark/40">Tech Stack: </span>
                   <span className="text-surface-dark/70">WordPress · Webflow · React / Next.js</span>
                 </div>
                 <div>
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-surface-dark/40">Turnaround: </span>
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-surface-dark/40">Turnaround: </span>
                   <span className="text-surface-dark/70">Standard 5-page website: 14 days</span>
                 </div>
               </div>

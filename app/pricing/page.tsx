@@ -335,7 +335,7 @@ export default function PricingPage() {
                       {/* Connector line */}
                       {i < arr.length - 1 && (
                         <div
-                          className="absolute left-[17px] top-9 h-full w-px"
+                          className="absolute left-4.25 top-9 h-full w-px"
                           style={{ background: "linear-gradient(to bottom, rgba(232,71,10,0.3), transparent)" }}
                           aria-hidden="true"
                         />
