@@ -161,7 +161,7 @@ export default function Footer() {
 
             <Link
               href="/contact"
-              className="mt-6 inline-flex cursor-pointer items-center gap-1.5 rounded-btn border border-brand/25 bg-brand/10 px-4 py-2 text-sm font-medium text-brand transition-all duration-200 hover:border-brand/50 hover:bg-brand/20"
+              className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-btn border border-brand/25 bg-brand/10 px-4 py-2 text-sm font-medium text-brand transition-all duration-200 hover:border-brand/50 hover:bg-brand/20 sm:w-auto"
             >
               Book a Free Call
               <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
@@ -177,7 +177,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col gap-3 text-xs text-white/28 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2025 Devzoo. All rights reserved.</p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
             <span className="cursor-default select-none transition-colors duration-200 hover:text-white/50">
               Privacy Policy
             </span>

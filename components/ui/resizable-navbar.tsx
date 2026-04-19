@@ -86,7 +86,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
-        maxWidth: visible ? 860 : 1180,
+        maxWidth: visible ? "860px" : "1180px",
         y: visible ? 4 : 0,
         borderRadius: visible ? 28 : 20,
         backgroundColor: visible ? navbarScrolledColor : navbarBaseColor,
@@ -160,7 +160,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
-        maxWidth: visible ? 420 : 480,
+        maxWidth: visible ? "420px" : "480px",
         y: visible ? 4 : 0,
         borderRadius: visible ? 24 : 20,
         backgroundColor: visible ? navbarScrolledColor : navbarBaseColor,

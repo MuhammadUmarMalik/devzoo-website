@@ -63,9 +63,10 @@ function AccordionItem({
       />
 
       <button
+        type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex w-full cursor-pointer items-start gap-4 px-6 py-5 text-left"
+        className="flex w-full cursor-pointer items-start gap-3 px-5 py-5 text-left sm:gap-4 sm:px-6"
       >
         {/* Number badge */}
         <span
@@ -105,7 +106,7 @@ function AccordionItem({
         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <div className="px-6 pb-6 pl-17">
+          <div className="px-5 pb-5 pl-5 sm:px-6 sm:pb-6 sm:pl-17">
             <p
               className={cn(
                 "text-sm leading-relaxed",

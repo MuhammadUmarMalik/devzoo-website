@@ -21,36 +21,36 @@ export default function PageCTA({
   secondaryHref,
 }: PageCTAProps) {
   return (
-    <section className="bg-surface-warm px-6 py-24 md:py-32">
+    <section className="bg-surface-warm px-4 py-20 sm:px-6 md:py-32">
       <AnimateIn className="mx-auto max-w-7xl">
-        <div className="final-cta-shell relative overflow-hidden rounded-4xl border border-white/8 bg-surface-dark px-6 py-16 text-center shadow-[0_35px_90px_-52px_rgba(7,9,12,0.82)] md:px-10 md:py-20">
+        <div className="final-cta-shell relative overflow-hidden rounded-[28px] border border-white/8 bg-surface-dark px-5 py-12 text-center shadow-[0_35px_90px_-52px_rgba(7,9,12,0.82)] sm:px-6 sm:py-14 md:rounded-4xl md:px-10 md:py-20">
           <div className="final-cta-texture" aria-hidden="true" />
           <div className="final-cta-glow" aria-hidden="true" />
 
           <div className="relative z-10 mx-auto max-w-3xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
+            <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm sm:px-4">
               <span className="h-2 w-2 animate-pulse rounded-full bg-brand" aria-hidden="true" />
-              <span className="text-xs font-medium uppercase tracking-[0.14em] text-white/72">
+              <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-white/72 sm:text-xs sm:tracking-[0.14em]">
                 {badge}
               </span>
             </div>
 
             {/* Heading */}
-            <h2 className="mt-6 font-heading text-[34px] font-bold leading-[1.06] text-white md:text-[56px]">
+            <h2 className="mt-5 font-heading text-[16vw] font-bold leading-[0.98] text-white sm:mt-6 sm:text-[34px] sm:leading-[1.06] md:text-[56px]">
               {heading}
             </h2>
 
             {/* Subtext */}
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
+            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-7 text-white/60 sm:mt-5 sm:max-w-2xl sm:text-base sm:leading-relaxed md:text-lg">
               {subtext}
             </p>
 
             {/* Actions */}
-            <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-4 sm:mt-9 sm:flex-row sm:items-center">
               <Link
                 href={primaryHref}
-                className="inline-flex min-w-52 cursor-pointer items-center justify-center rounded-full bg-brand px-7 py-3.5 text-base font-semibold text-white shadow-[0_18px_40px_-18px_rgb(232_71_10/0.7)] transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_20px_48px_-16px_rgb(232_71_10/0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2"
+                className="inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-brand px-6 py-3.5 text-base font-semibold text-white shadow-[0_18px_40px_-18px_rgb(232_71_10/0.7)] transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_20px_48px_-16px_rgb(232_71_10/0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 sm:min-w-52 sm:w-auto sm:px-7"
               >
                 {primaryLabel}
               </Link>
@@ -58,7 +58,7 @@ export default function PageCTA({
               {secondaryLabel && secondaryHref && (
                 <Link
                   href={secondaryHref}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-white/75 transition-all duration-200 hover:gap-3 hover:text-white"
+                  className="inline-flex items-center justify-center gap-2 text-sm font-medium text-white/75 transition-all duration-200 hover:gap-3 hover:text-white"
                 >
                   {secondaryLabel}
                   <svg

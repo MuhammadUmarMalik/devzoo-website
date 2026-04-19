@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Button from "@/components/ui/Button";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
@@ -53,10 +52,9 @@ export default async function CaseStudyPage({ params }: Props) {
             </svg>
             Back to Portfolio
           </Link>
-          <br />
-          <br/>
-            
-          <SectionLabel>Case Study</SectionLabel>
+          <div className="mt-10">
+            <SectionLabel>Case Study</SectionLabel>
+          </div>
           <h1 className="font-heading text-[36px] font-extrabold leading-[1.05] text-white md:text-[60px]">
             {cs.client}
           </h1>
@@ -354,7 +352,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </h2>
           </AnimateIn>
 
-          <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {cs.results.map((result, i) => (
               <AnimateIn key={result.label} delay={i * 80} variant="scale-up">
                 <div className="group relative overflow-hidden rounded-card border border-surface-dark/10 bg-surface-warm p-6 text-center transition-all duration-300 hover:border-brand/25 hover:shadow-[0_8px_32px_-8px_rgba(232,71,10,0.14)]">

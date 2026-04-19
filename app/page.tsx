@@ -285,7 +285,7 @@ export default function HomePage() {
                   {testimonials.map((testimonial, index) => (
                     <article
                       key={`${testimonial.client}-${groupIndex}-${index}`}
-                      className="testimonial-card group relative flex min-h-72.5 w-[320px] shrink-0 flex-col justify-between overflow-hidden rounded-card border border-white/10 bg-surface-dark text-white shadow-[0_30px_80px_-45px_rgba(7,9,12,0.8)] hover:border-brand/35 hover:bg-surface-dark-3 hover:shadow-[0_34px_90px_-42px_rgba(232,71,10,0.34)] p-6 md:w-90 md:p-7"
+                      className="testimonial-card group relative flex min-h-[23rem] w-[86vw] max-w-[320px] shrink-0 flex-col justify-between overflow-hidden rounded-card border border-white/10 bg-surface-dark p-5 text-white shadow-[0_30px_80px_-45px_rgba(7,9,12,0.8)] hover:border-brand/35 hover:bg-surface-dark-3 hover:shadow-[0_34px_90px_-42px_rgba(232,71,10,0.34)] sm:w-[320px] sm:p-6 md:min-h-72.5 md:w-90 md:p-7"
                     >
                       <div
                         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,71,10,0.2),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -316,13 +316,13 @@ export default function HomePage() {
                         </div>
 
                         <blockquote
-                          className="mt-6 text-base leading-8 text-white/74 transition-colors duration-300 group-hover:text-white/84 md:text-[17px]"
+                          className="mt-5 text-[15px] leading-7 text-white/74 transition-colors duration-300 group-hover:text-white/84 sm:mt-6 sm:text-base sm:leading-8 md:text-[17px]"
                         >
                           &ldquo;{testimonial.quote}&rdquo;
                         </blockquote>
                       </div>
 
-                      <div className="relative z-10 mt-7 border-t border-white/8 pt-5 transition-colors duration-300 group-hover:border-brand/20">
+                      <div className="relative z-10 mt-6 border-t border-white/8 pt-4 transition-colors duration-300 group-hover:border-brand/20 sm:mt-7 sm:pt-5">
                         <p
                           className="font-heading text-base font-bold text-white transition-colors duration-300"
                         >

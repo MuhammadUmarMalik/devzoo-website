@@ -26,14 +26,14 @@ type LogoLoopProps = {
 
 const LogoLoop = _LogoLoop as ComponentType<LogoLoopProps>;
 
-// Replace these src paths with your actual client logo files in /public/logos/
 const clientLogos = [
-  { src: '/logos/client-1.png', alt: 'Client 1' },
-  { src: '/logos/client-2.png', alt: 'Client 2' },
-  { src: '/logos/client-3.png', alt: 'Client 3' },
-  { src: '/logos/client-4.png', alt: 'Client 4' },
-  { src: '/logos/client-5.png', alt: 'Client 5' },
-  { src: '/logos/client-6.png', alt: 'Client 6' },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Startups</span>, ariaLabel: 'Startups' },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Creators</span>, ariaLabel: 'Creators' },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Small Business</span>, ariaLabel: 'Small Business' },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">USA</span>, ariaLabel: 'USA' },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">UK</span>, ariaLabel: 'UK' },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">UAE</span>, ariaLabel: 'UAE' },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Pakistan</span>, ariaLabel: 'Pakistan' },
 ];
 
 export default function ClientLogoLoop() {

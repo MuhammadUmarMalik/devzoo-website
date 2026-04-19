@@ -73,8 +73,8 @@ function ServiceCard({ service }: { service: ServiceItem }) {
       />
 
       {/* ── Header row ── */}
-      <div className="relative z-10 flex items-center justify-between gap-6 border-b border-white/8 px-8 py-5 md:px-10">
-        <div className="flex items-center gap-4">
+      <div className="relative z-10 flex flex-col items-start gap-4 border-b border-white/8 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 md:px-10">
+        <div className="flex min-w-0 items-center gap-4">
           {/* Step badge */}
           <span className="font-mono text-xs font-bold tracking-widest text-brand/50">
             {num}
@@ -84,7 +84,7 @@ function ServiceCard({ service }: { service: ServiceItem }) {
             {service.icon}
           </div>
           {/* Title */}
-          <h2 className="font-heading text-xl font-bold text-white md:text-2xl">
+          <h2 className="font-heading text-lg font-bold text-white sm:text-xl md:text-2xl">
             {service.title}
           </h2>
         </div>
@@ -103,10 +103,10 @@ function ServiceCard({ service }: { service: ServiceItem }) {
       </div>
 
       {/* ── Body ── */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_280px]">
+      <div className="relative z-10 grid grid-cols-1 xl:grid-cols-[1fr_280px]">
 
         {/* Left: description + includes */}
-        <div className="px-8 py-8 md:px-10 md:py-10">
+        <div className="px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10">
           <p className="text-base leading-relaxed text-white/60">
             {service.body}
           </p>
@@ -145,7 +145,7 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         </div>
 
         {/* Right: CTA panel */}
-        <div className="relative flex flex-col justify-between overflow-hidden border-t border-white/8 bg-surface-dark-3 px-8 py-8 lg:border-l lg:border-t-0">
+        <div className="relative flex flex-col justify-between overflow-hidden border-t border-white/8 bg-surface-dark-3 px-5 py-6 sm:px-8 sm:py-8 md:px-10 xl:border-l xl:border-t-0">
           {/* Vertical brand line */}
           <div
             className="pointer-events-none absolute left-0 inset-y-8 w-px rounded-full"
@@ -204,7 +204,7 @@ export default function StackingCards({ services }: StackingCardsProps) {
       {services.map((service, i) => (
         <div
           key={service.href}
-          className="sticky mb-4"
+          className="mb-4 lg:sticky"
           style={{
             top: `${NAVBAR_H + i * PEEK}px`,
             zIndex: 10 + i,
