@@ -264,86 +264,131 @@ export default function HomePage() {
             <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
               Real Results. Real Clients. Real Words.
             </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-surface-dark/62">
+              Honest feedback from businesses that wanted sharp work, clear
+              communication, and a smoother launch.
+            </p>
           </AnimateIn>
+        </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-4 lg:grid-cols-5">
-            {/* Featured testimonial */}
-            <AnimateIn delay={0} className="lg:col-span-3">
-              <article className="flex h-full flex-col rounded-card bg-surface-dark p-8 md:p-10">
-                <div className="mb-6 flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-brand">
-                      <path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clipRule="evenodd" />
-                    </svg>
+        <AnimateIn delay={120} className="mt-16">
+          <div className="testimonial-marquee-shell mx-auto max-w-350">
+            <div className="testimonial-marquee-track">
+              {Array.from({ length: 2 }).map((_, groupIndex) => (
+                <div
+                  key={groupIndex}
+                  className="testimonial-marquee-group"
+                  aria-hidden={groupIndex === 1}
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <article
+                      key={`${testimonial.client}-${groupIndex}-${index}`}
+                      className="testimonial-card group relative flex min-h-72.5 w-[320px] shrink-0 flex-col justify-between overflow-hidden rounded-card border border-white/10 bg-surface-dark text-white shadow-[0_30px_80px_-45px_rgba(7,9,12,0.8)] hover:border-brand/35 hover:bg-surface-dark-3 hover:shadow-[0_34px_90px_-42px_rgba(232,71,10,0.34)] p-6 md:w-90 md:p-7"
+                    >
+                      <div
+                        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,71,10,0.2),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        aria-hidden="true"
+                      />
+                      <div
+                        className="pointer-events-none absolute inset-x-6 top-0 h-px bg-white/18 transition-colors duration-300 group-hover:bg-brand/40"
+                        aria-hidden="true"
+                      />
+
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-1 text-brand" aria-label="5 star review">
+                          {Array.from({ length: 5 }).map((_, starIndex) => (
+                            <svg
+                              key={starIndex}
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              className="h-4 w-4"
+                              aria-hidden="true"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          ))}
+                        </div>
+
+                        <blockquote
+                          className="mt-6 text-base leading-8 text-white/74 transition-colors duration-300 group-hover:text-white/84 md:text-[17px]"
+                        >
+                          &ldquo;{testimonial.quote}&rdquo;
+                        </blockquote>
+                      </div>
+
+                      <div className="relative z-10 mt-7 border-t border-white/8 pt-5 transition-colors duration-300 group-hover:border-brand/20">
+                        <p
+                          className="font-heading text-base font-bold text-white transition-colors duration-300"
+                        >
+                          {testimonial.client}
+                        </p>
+                        <p
+                          className="text-sm text-white/42 transition-colors duration-300 group-hover:text-white/54"
+                        >
+                          {testimonial.role}
+                        </p>
+                      </div>
+                    </article>
                   ))}
                 </div>
-                <blockquote className="flex-1 font-body text-base leading-relaxed text-white/75 md:text-lg">
-                  &ldquo;{testimonials[0].quote}&rdquo;
-                </blockquote>
-                <div className="mt-8 flex items-center gap-4 border-t border-white/8 pt-6">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand/15 font-heading text-lg font-bold text-brand">
-                    {testimonials[0].client[0]}
-                  </div>
-                  <div>
-                    <p className="font-heading text-base font-bold text-white">{testimonials[0].client}</p>
-                    <p className="text-sm text-white/45">{testimonials[0].role}</p>
-                  </div>
-                </div>
-              </article>
-            </AnimateIn>
-
-            {/* Two smaller testimonials */}
-            <div className="flex flex-col gap-4 lg:col-span-2">
-              {testimonials.slice(1).map((t, i) => (
-                <AnimateIn key={t.client} delay={(i + 1) * 100}>
-                  <article className="flex h-full flex-col rounded-card bg-white p-7">
-                    <div className="mb-4 flex gap-0.5">
-                      {[...Array(5)].map((_, j) => (
-                        <svg key={j} viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5 text-brand">
-                          <path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clipRule="evenodd" />
-                        </svg>
-                      ))}
-                    </div>
-                    <blockquote className="flex-1 text-sm leading-relaxed text-surface-dark/70">
-                      &ldquo;{t.quote}&rdquo;
-                    </blockquote>
-                    <div className="mt-5 border-t border-surface-dark/8 pt-4">
-                      <p className="font-heading text-sm font-bold text-surface-dark">{t.client}</p>
-                      <p className="text-xs text-surface-dark/50">{t.role}</p>
-                    </div>
-                  </article>
-                </AnimateIn>
               ))}
             </div>
           </div>
-        </div>
+        </AnimateIn>
       </section>
 
       {/* ── FINAL CTA ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-surface-dark px-6 py-24 md:py-32">
-        {/* Orange glow blob */}
-        <div
-          className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/15"
-          style={{ filter: "blur(96px)" }}
-          aria-hidden="true"
-        />
-        <AnimateIn className="relative z-10 mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-            Ready to Build Something Great?
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-white/55">
-            Book a free 30-minute discovery call. No sales pressure. Just a
-            real conversation about your business and how we can help it grow.
-          </p>
-          <div className="mt-9">
-            <Button href="/contact" size="lg">Book Your Free Call</Button>
+      <section className="bg-surface-warm px-6 py-24 md:py-32">
+        <AnimateIn className="mx-auto max-w-7xl">
+          <div className="final-cta-shell relative overflow-hidden rounded-[32px] border border-white/8 bg-surface-dark px-6 py-16 text-center shadow-[0_35px_90px_-52px_rgba(7,9,12,0.82)] md:px-10 md:py-20">
+            <div className="final-cta-texture" aria-hidden="true" />
+            <div className="final-cta-glow" aria-hidden="true" />
+
+            <div className="relative z-10 mx-auto max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
+                <span className="h-2 w-2 rounded-full bg-brand" />
+                <span className="text-xs font-medium uppercase tracking-[0.14em] text-white/72">
+                  Ready to Grow Online?
+                </span>
+              </div>
+
+              <h2 className="mt-6 font-heading text-[38px] font-bold leading-[1.04] text-white md:text-[62px]">
+                Don&apos;t let your business get left behind.
+              </h2>
+
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
+                Clean websites, sharper branding, and smarter marketing built
+                to move your business forward.
+              </p>
+
+              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Button
+                  href="/contact"
+                  size="lg"
+                  className="min-w-56 rounded-full px-7 py-3.5 text-base shadow-[0_18px_40px_-18px_rgb(232_71_10/0.7)]"
+                >
+                  Book a Free Call
+                </Button>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-all duration-200 hover:gap-3 hover:text-white"
+                >
+                  Learn more
+                  <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                    <path
+                      fillRule="evenodd"
+                      d="M11.28 4.22a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H4.75a.75.75 0 0 1 0-1.5h9.75l-3.22-3.22a.75.75 0 0 1 0-1.06Z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
           </div>
-          <p className="mt-5 text-sm text-white/35">
-            Or email us at{" "}
-            <a href="mailto:info@thedevzoo.com" className="text-white/60 transition-colors duration-200 hover:text-brand">
-              info@thedevzoo.com
-            </a>
-          </p>
         </AnimateIn>
       </section>
     </>

@@ -101,7 +101,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         damping: 28,
       }}
       className={cn(
-        "relative hidden min-h-16 w-full max-w-[1180px] items-center justify-between overflow-hidden border border-white/14 px-3 lg:flex before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-white/30 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03)_35%,rgba(255,255,255,0.02)_100%)]",
+        "relative hidden min-h-16 w-full max-w-295 items-center justify-between overflow-hidden border border-white/14 px-3 lg:flex before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-white/30 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03)_35%,rgba(255,255,255,0.02)_100%)]",
         className,
       )}
     >
@@ -175,7 +175,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 28,
       }}
       className={cn(
-        "relative flex w-full max-w-[480px] flex-col overflow-hidden border border-white/14 px-4 py-3 lg:hidden before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-white/28 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03)_35%,rgba(255,255,255,0.02)_100%)]",
+        "relative flex w-full max-w-120 flex-col overflow-hidden border border-white/14 px-4 py-3 lg:hidden before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-white/28 after:pointer-events-none after:absolute after:inset-0 after:bg-[linear-gradient(180deg,rgba(255,255,255,0.12),rgba(255,255,255,0.03)_35%,rgba(255,255,255,0.02)_100%)]",
         className,
       )}
     >

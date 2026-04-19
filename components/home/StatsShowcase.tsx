@@ -117,7 +117,7 @@ export default function StatsShowcase({ stats }: StatsShowcaseProps) {
                   <motion.div
                     key={point.title}
                     variants={itemVariants}
-                    className="group flex items-start gap-4 rounded-card border border-white/8 bg-white/[0.03] px-4 py-4 transition-colors duration-200 hover:border-brand/28 hover:bg-white/[0.05]"
+                    className="group flex items-start gap-4 rounded-card border border-white/8 bg-white/3 px-4 py-4 transition-colors duration-200 hover:border-brand/28 hover:bg-white/5"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand/22 bg-brand/10">
                       <span
