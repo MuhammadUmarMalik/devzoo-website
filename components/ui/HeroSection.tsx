@@ -13,7 +13,7 @@ export default function HeroSection({ children, className = "" }: HeroSectionPro
     >
       {/* WebGL canvas — CSS filter pushes CPPN output to brand orange #E8470A */}
       <div
-        className="absolute inset-0 [filter:sepia(1)_saturate(4)_hue-rotate(-20deg)]"
+        className="absolute inset-0 filter-[sepia(1)_saturate(4)_hue-rotate(-20deg)]"
         aria-hidden="true"
       >
         <DarkVeil

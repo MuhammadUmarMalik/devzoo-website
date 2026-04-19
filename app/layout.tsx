@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo is a modern digital agency delivering clean websites, digital marketing, graphic design, and video editing for startups and small businesses. No shortcuts. No jargon. Just results.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

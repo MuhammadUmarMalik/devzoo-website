@@ -117,10 +117,7 @@ export default function HomePage() {
         </div>
       </HeroSection>
 
-      <section className="bg-surface-warm overflow-hidden py-10">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.12em] text-surface-dark/45 md:text-sm">
-          Trusted by businesses in USA, UK, UAE &amp; Pakistan
-        </p>
+      <section className="overflow-hidden py-10">
         <ClientLogoLoop />
       </section>
 
