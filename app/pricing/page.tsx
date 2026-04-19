@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 
 export const metadata: Metadata = {
   title: {
@@ -114,33 +115,33 @@ export default function PricingPage() {
             {tiers.map((tier, i) => (
               <AnimateIn key={tier.name} delay={i * 100} variant="scale-up">
                 <article
-                  className={`relative h-full overflow-hidden rounded-card p-8 transition-all duration-300 ${
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-card p-8 transition-all duration-300 ${
                     tier.highlighted
-                      ? "border-2 border-brand bg-surface-dark shadow-[0_16px_48px_-16px_rgb(232_71_10/0.35)]"
-                      : "border border-surface-dark/10 bg-surface-warm hover:border-brand/25 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.1)]"
+                      ? "border-2 border-brand bg-surface-dark shadow-[0_16px_48px_-16px_rgb(232_71_10/0.35)] hover:-translate-y-2 hover:shadow-[0_24px_56px_-12px_rgba(232,71,10,0.45)]"
+                      : "border border-surface-dark/10 bg-surface-warm hover:-translate-y-2 hover:border-brand/30 hover:shadow-[0_16px_40px_-12px_rgba(232,71,10,0.14)]"
                   }`}
                 >
                   {tier.highlighted && (
                     <>
-                      {/* Glow layer */}
+                      {/* Glow layer — brightens on card hover */}
                       <div
-                        className="pointer-events-none absolute inset-0 opacity-40"
-                        style={{ background: "radial-gradient(circle at top right, rgba(232,71,10,0.22), transparent 55%)" }}
+                        className="pointer-events-none absolute inset-0 opacity-40 transition-opacity duration-300 group-hover:opacity-65"
+                        style={{ background: "radial-gradient(circle at top right, rgba(232,71,10,0.26), transparent 55%)" }}
                         aria-hidden="true"
                       />
                       {/* Top shimmer */}
                       <div
                         className="pointer-events-none absolute inset-x-0 top-0 h-px"
-                        style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.7) 50%, transparent)" }}
+                        style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.8) 50%, transparent)" }}
                         aria-hidden="true"
                       />
                     </>
                   )}
 
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-1 flex-col">
                     {tier.highlighted && (
-                      <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-brand">
-                        <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
+                      <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-brand/30 bg-brand/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-brand">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand" aria-hidden="true" />
                         Most Popular
                       </span>
                     )}
@@ -169,8 +170,15 @@ export default function PricingPage() {
                       <span className="font-semibold">Best for:</span> {tier.bestFor}
                     </p>
 
+                    {/* Divider */}
+                    <div
+                      className={`my-6 h-px ${
+                        tier.highlighted ? "bg-white/10" : "bg-surface-dark/8"
+                      }`}
+                    />
+
                     {/* Feature list */}
-                    <ul className="mt-6 space-y-2.5">
+                    <ul className="space-y-2.5">
                       {tier.includes.map((item) => (
                         <li
                           key={item}
@@ -179,10 +187,10 @@ export default function PricingPage() {
                           }`}
                         >
                           <span
-                            className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+                            className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-colors duration-200 ${
                               tier.highlighted
                                 ? "border border-brand/30 bg-brand/15 text-brand"
-                                : "border border-brand/20 bg-brand/8 text-brand"
+                                : "border border-brand/20 bg-brand/8 text-brand group-hover:bg-brand/15"
                             }`}
                           >
                             <CheckIcon />
@@ -192,20 +200,32 @@ export default function PricingPage() {
                       ))}
                     </ul>
 
-                    <div className="mt-8">
-                      <Button
+                    {/* Button pushed to bottom */}
+                    <div className="mt-auto pt-8">
+                      <a
                         href="/contact"
-                        variant={tier.highlighted ? "primary" : "secondary"}
-                        className={
+                        className={`group/btn inline-flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-btn px-6 py-3 font-body text-base font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 ${
                           tier.highlighted
-                            ? "w-full justify-center"
-                            : "w-full justify-center border-surface-dark/20 text-surface-dark hover:border-brand hover:text-brand"
-                        }
+                            ? "bg-brand text-white hover:bg-brand-hover hover:shadow-[0_0_28px_rgba(232,71,10,0.5)]"
+                            : "border border-surface-dark/20 bg-transparent text-surface-dark hover:border-brand hover:text-brand"
+                        }`}
                       >
-                        {tier.name === "Enterprise"
-                          ? "Get a Custom Quote"
-                          : "Book a Free Call"}
-                      </Button>
+                        <span>
+                          {tier.name === "Enterprise" ? "Get a Custom Quote" : "Book a Free Call"}
+                        </span>
+                        {/* Arrow slides in on hover */}
+                        <svg
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-4 w-4 -translate-x-1 opacity-0 transition-all duration-200 group-hover/btn:translate-x-0 group-hover/btn:opacity-100"
+                          aria-hidden="true"
+                        >
+                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" />
+                        </svg>
+                      </a>
                     </div>
                   </div>
                 </article>
@@ -216,55 +236,194 @@ export default function PricingPage() {
       </section>
 
       {/* ── Referral ─────────────────────────────────────────────── */}
-      <section className="grain-overlay bg-surface-dark px-6 py-24 md:py-28">
-        <AnimateIn>
-          <div className="mx-auto max-w-4xl rounded-section border border-brand/20 bg-surface-dark-2 p-10 text-center">
-            <SectionLabel>Referral Program</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-              Know Someone Who Needs Us? Earn 10%.
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/62">
-              Refer a friend or colleague to Devzoo and earn 10% commission when
-              they sign up for any service. No cap. No expiry. It&apos;s our way of
-              saying thank you for spreading the word.
-            </p>
-            <p className="mt-8 text-sm text-white/60">
-              Start Referring Today — Email us at{" "}
-              <a
-                href="mailto:info@thedevzoo.com"
-                className="text-brand transition-colors duration-200 hover:text-brand-hover"
-              >
-                info@thedevzoo.com
-              </a>
-            </p>
-          </div>
-        </AnimateIn>
+      <section className="bg-surface-warm px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <AnimateIn>
+            {/* Outer card */}
+            <div className="relative overflow-hidden rounded-section bg-surface-dark">
+              {/* Ambient glow */}
+              <div
+                className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full opacity-20"
+                style={{ background: "radial-gradient(circle, #E8470A 0%, transparent 70%)" }}
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full opacity-10"
+                style={{ background: "radial-gradient(circle, #E8470A 0%, transparent 70%)" }}
+                aria-hidden="true"
+              />
+
+              {/* Top shimmer line */}
+              <div
+                className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.5) 50%, transparent)" }}
+                aria-hidden="true"
+              />
+
+              <div className="relative z-10 grid grid-cols-1 gap-0 lg:grid-cols-2">
+
+                {/* ── Left: headline + cta ── */}
+                <div className="flex flex-col justify-center border-b border-white/8 px-8 py-14 lg:border-b-0 lg:border-r lg:px-14 lg:py-16">
+                  <SectionLabel>Referral Program</SectionLabel>
+
+                  {/* Big 10% anchor */}
+                  <div className="mt-6 flex items-end gap-3">
+                    <span
+                      className="font-heading text-[80px] font-extrabold leading-none md:text-[96px]"
+                      style={{ color: "#E8470A" }}
+                    >
+                      10%
+                    </span>
+                    <span className="mb-3 font-heading text-xl font-bold text-white/50">
+                      commission
+                    </span>
+                  </div>
+
+                  <h2 className="mt-4 font-heading text-[26px] font-bold leading-[1.2] text-white md:text-[32px]">
+                    Know someone who needs us?{" "}
+                    <span className="text-brand">You get paid.</span>
+                  </h2>
+
+                  <p className="mt-4 text-sm leading-relaxed text-white/55">
+                    Refer any friend or business to Devzoo. When they sign a project,
+                    you earn 10% of the invoice — no cap, no expiry, no catch.
+                  </p>
+
+                  <a
+                    href="mailto:info@thedevzoo.com"
+                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-btn bg-brand px-6 py-3 font-heading text-sm font-bold text-white transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_0_24px_rgba(232,71,10,0.4)]"
+                  >
+                    Start Referring
+                    <svg viewBox="0 0 16 16" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" />
+                    </svg>
+                  </a>
+
+                  <p className="mt-4 text-xs text-white/35">
+                    Email{" "}
+                    <a href="mailto:info@thedevzoo.com" className="text-white/55 underline underline-offset-2 hover:text-brand">
+                      info@thedevzoo.com
+                    </a>{" "}
+                    with your referral details
+                  </p>
+                </div>
+
+                {/* ── Right: 3-step flow ── */}
+                <div className="flex flex-col justify-center gap-0 px-8 py-14 lg:px-14 lg:py-16">
+                  <p className="mb-8 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/35">
+                    How it works
+                  </p>
+
+                  {[
+                    {
+                      step: "01",
+                      title: "You refer someone",
+                      desc: "Send us their name and email — or have them mention you when they reach out.",
+                    },
+                    {
+                      step: "02",
+                      title: "They sign a project",
+                      desc: "Once your referral books any Devzoo service, we confirm the commission.",
+                    },
+                    {
+                      step: "03",
+                      title: "You get paid",
+                      desc: "We send 10% of their invoice to you via Wise, Payoneer, or bank transfer.",
+                    },
+                  ].map((item, i, arr) => (
+                    <div key={item.step} className="relative flex gap-5">
+                      {/* Connector line */}
+                      {i < arr.length - 1 && (
+                        <div
+                          className="absolute left-[17px] top-9 h-full w-px"
+                          style={{ background: "linear-gradient(to bottom, rgba(232,71,10,0.3), transparent)" }}
+                          aria-hidden="true"
+                        />
+                      )}
+
+                      {/* Step badge */}
+                      <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand/30 bg-brand/10 font-mono text-xs font-bold text-brand">
+                        {item.step}
+                      </div>
+
+                      <div className="pb-8">
+                        <p className="font-heading text-base font-bold text-white">
+                          {item.title}
+                        </p>
+                        <p className="mt-1.5 text-sm leading-relaxed text-white/50">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Perks strip */}
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {["No cap", "No expiry", "Any service", "Paid fast"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/50"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </AnimateIn>
+        </div>
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="bg-surface-warm px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-4xl">
-          <AnimateIn className="mx-auto max-w-3xl text-center">
-            <SectionLabel>FAQ</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
-              Common questions, clear answers.
-            </h2>
-          </AnimateIn>
-          <div className="mt-14 space-y-3">
-            {faqs.map((faq, i) => (
-              <AnimateIn key={faq.question} delay={i * 60}>
-                <article className="group relative overflow-hidden rounded-card border border-surface-dark/8 bg-white px-7 py-6 transition-all duration-200 hover:border-brand/20 hover:shadow-sm">
-                  {/* Left accent bar */}
-                  <div className="absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-brand/0 transition-colors duration-200 group-hover:bg-brand/60" aria-hidden="true" />
-                  <h3 className="font-heading text-lg font-bold text-surface-dark">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-surface-dark/65">
-                    {faq.answer}
-                  </p>
-                </article>
-              </AnimateIn>
-            ))}
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+
+            {/* ── Left: sticky label + cta ── */}
+            <AnimateIn className="lg:sticky lg:top-28 lg:self-start">
+              <SectionLabel>FAQ</SectionLabel>
+              <h2 className="mt-4 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[40px]">
+                Common questions,{" "}
+                <span className="text-brand">clear answers.</span>
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-white/55">
+                Can&apos;t find what you&apos;re looking for? Reach out and we&apos;ll
+                reply within one business day.
+              </p>
+
+              {/* Decorative stat strip */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {[
+                  { value: "50%", label: "upfront only" },
+                  { value: "24h", label: "reply guarantee" },
+                  { value: "2×", label: "free revisions" },
+                  { value: "0", label: "hidden fees" },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-card border border-white/8 bg-surface-dark-2 px-4 py-3"
+                  >
+                    <p className="font-heading text-2xl font-extrabold text-brand">
+                      {s.value}
+                    </p>
+                    <p className="mt-0.5 text-xs text-white/50">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <Button href="/contact" variant="primary">
+                  Ask a Question
+                </Button>
+              </div>
+            </AnimateIn>
+
+            {/* ── Right: accordion ── */}
+            <AnimateIn delay={100}>
+              <FaqAccordion faqs={faqs} />
+            </AnimateIn>
           </div>
         </div>
       </section>
