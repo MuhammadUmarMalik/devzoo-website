@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { headerNavLinks } from "@/libs/navigation";
 
 const services = [
   { label: "Website Development", href: "/services/web-development" },
@@ -7,12 +8,7 @@ const services = [
   { label: "Video Editing", href: "/services/video-editing" },
 ];
 
-const company = [
-  { label: "About", href: "/about" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Contact", href: "/contact" },
-];
+const company = headerNavLinks.filter((item) => item.href !== "/services");
 
 export default function Footer() {
   return (

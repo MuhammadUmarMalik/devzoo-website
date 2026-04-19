@@ -12,9 +12,9 @@
   --color-text-muted: #8A8F9E;
 
   /* Typography */
-  --font-heading: var(--font-syne);
-  --font-body: var(--font-dm-sans);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-heading: var(--font-syne), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 
   /* Border radius */
   --radius-chip: 8px;
@@ -23,8 +23,52 @@
   --radius-section: 24px;
 }
 
+html {
+  scroll-padding-top: 96px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: var(--font-body), sans-serif;
   background-color: var(--color-surface-light);
   color: var(--color-surface-dark);
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis-weight: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+p,
+a,
+li,
+label,
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-body), sans-serif;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono), monospace;
 }
