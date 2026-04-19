@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import DarkVeil from "@/components/ui/DarkVeil";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ClientLogoLoop from "@/components/ui/ClientLogoLoop";
 import AnimateIn from "@/components/ui/AnimateIn";
@@ -114,27 +114,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────── */}
-      <section className="hero-section relative flex min-h-svh items-center bg-surface-dark px-6 py-24">
-        {/* DarkVeil WebGL background layers */}
-        <div className="hero-section__veil" aria-hidden="true">
-          <div className="hero-section__base" />
-          <div className="hero-section__glow" />
-          <div className="hero-section__canvas">
-            <DarkVeil
-              hueShift={0}
-              noiseIntensity={0.06}
-              scanlineIntensity={0.07}
-              speed={0.28}
-              scanlineFrequency={1.5}
-              warpAmount={0.18}
-              resolutionScale={1}
-            />
-          </div>
-          <div className="hero-section__tint" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 w-full">
+      <HeroSection className="flex min-h-svh items-center py-24">
         <div className="mx-auto max-w-5xl text-center">
           {/* Badge */}
           <div className="reveal-fade-in inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
@@ -169,8 +149,7 @@ export default function HomePage() {
           </div>
 
         </div>
-        </div>
-      </section>
+      </HeroSection>
 
       {/* ── TRUST BAR ──────────────────────────────────────────── */}
       <section className="overflow-hidden bg-surface-warm py-10">
@@ -199,7 +178,7 @@ export default function HomePage() {
               <AnimateIn key={service.href} delay={i * 80} variant="scale-up" className={service.span}>
                 <Link
                   href={service.href}
-                  className="bento-card group flex h-full cursor-pointer flex-col rounded-card border border-white/8 bg-surface-dark-2 p-7 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_8px_32px_-8px_rgb(232_71_10_/_0.2)]"
+                  className="bento-card group flex h-full cursor-pointer flex-col rounded-card border border-white/8 bg-surface-dark-2 p-7 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[0_8px_32px_-8px_rgb(232_71_10/0.2)]"
                 >
                   <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-section border border-brand/20 bg-brand/10 text-brand transition-colors duration-300 group-hover:bg-brand/20">
                     {service.icon}

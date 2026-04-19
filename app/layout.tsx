@@ -51,7 +51,10 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-surface-light font-body text-surface-dark">
+      <body
+        suppressHydrationWarning
+        className="flex min-h-full flex-col bg-surface-light font-body text-surface-dark"
+      >
         <CustomCursor />
         <Header />
         <main className="flex-1">{children}</main>

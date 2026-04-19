@@ -36,7 +36,7 @@ export default function Button({
   type = "button",
   className = "",
 }: ButtonProps) {
-  const base = `inline-flex items-center justify-center font-body font-medium rounded-btn transition-all duration-200 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  const base = `inline-flex cursor-pointer items-center justify-center font-body font-medium rounded-btn transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   if (href) {
     return (

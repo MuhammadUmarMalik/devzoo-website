@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
+import AnimateIn from "@/components/ui/AnimateIn";
 
 export const metadata: Metadata = {
   title: {
@@ -90,13 +91,13 @@ export default function PricingPage() {
       <section className="bg-surface-light px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {tiers.map((tier) => (
+            {tiers.map((tier, i) => (
+              <AnimateIn key={tier.name} delay={i * 100} variant="scale-up">
               <article
-                key={tier.name}
-                className={`rounded-card p-8 ${
+                className={`h-full rounded-card p-8 transition-all duration-300 ${
                   tier.highlighted
-                    ? "border-2 border-brand bg-surface-dark"
-                    : "border border-surface-dark/10 bg-surface-warm"
+                    ? "border-2 border-brand bg-surface-dark shadow-[0_8px_32px_-8px_rgb(232_71_10_/_0.3)]"
+                    : "border border-surface-dark/10 bg-surface-warm hover:border-brand/30 hover:shadow-lg"
                 }`}
               >
                 {tier.highlighted ? (
@@ -148,12 +149,14 @@ export default function PricingPage() {
                   </Button>
                 </div>
               </article>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
       <section className="bg-surface-dark px-6 py-24 md:py-28">
+        <AnimateIn>
         <div className="mx-auto max-w-4xl rounded-section border border-brand/20 bg-surface-dark-2 p-10 text-center">
           <SectionLabel>Referral Program</SectionLabel>
           <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
@@ -174,26 +177,29 @@ export default function PricingPage() {
             </a>
           </p>
         </div>
+        </AnimateIn>
       </section>
 
       <section className="bg-surface-warm px-6 py-24 md:py-32">
         <div className="mx-auto max-w-4xl">
-          <div className="mx-auto max-w-3xl text-center">
+          <AnimateIn className="mx-auto max-w-3xl text-center">
             <SectionLabel>FAQ</SectionLabel>
             <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
               Common questions, clear answers.
             </h2>
-          </div>
-          <div className="mt-16 space-y-5">
-            {faqs.map((faq) => (
-              <article key={faq.question} className="rounded-card bg-white p-6">
-                <h3 className="font-heading text-xl font-bold text-surface-dark">
-                  {faq.question}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-surface-dark/68">
-                  {faq.answer}
-                </p>
-              </article>
+          </AnimateIn>
+          <div className="mt-16 space-y-4">
+            {faqs.map((faq, i) => (
+              <AnimateIn key={faq.question} delay={i * 60}>
+                <article className="rounded-card bg-white p-6 transition-shadow duration-200 hover:shadow-md">
+                  <h3 className="font-heading text-xl font-bold text-surface-dark">
+                    {faq.question}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-surface-dark/68">
+                    {faq.answer}
+                  </p>
+                </article>
+              </AnimateIn>
             ))}
           </div>
         </div>
