@@ -3,171 +3,200 @@ import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: {
+    absolute:
+      "About Devzoo - The Digital Agency Built for Startups & Small Businesses",
+  },
   description:
-    "Meet the Devzoo team — a small group of focused builders helping startups and small businesses grow online.",
+    "Meet the team behind Devzoo. Founded by Ehtasham ul Haq and Muhammad Umar Malik, we're a modern digital agency delivering clean, reliable digital solutions with zero shortcuts.",
 };
 
-const values = [
+const pillars = [
   {
-    title: "Clarity over complexity",
-    description:
-      "We strip away the noise. Every decision — design, copy, strategy — has a reason you can understand.",
+    title: "Our Mission",
+    body:
+      "To simplify digital product development for businesses while delivering top-notch quality. No complexities, no compromises - just high-quality digital solutions designed to support your success.",
   },
   {
-    title: "Ownership, not excuses",
-    description:
-      "If something goes wrong, we fix it. No finger-pointing, no ticket queues, no extra invoice.",
+    title: "Our Vision",
+    body:
+      "To simplify digital solutions, deliver glitch-free products, and build lifelong partnerships with clients built on trust, transparency, and real results.",
   },
   {
-    title: "Speed without shortcuts",
-    description:
-      "Fast delivery doesn't mean sloppy work. We move quickly because we've built efficient systems.",
-  },
-  {
-    title: "Client-first, always",
-    description:
-      "Your goals come before our preferences. We're advisors, not artists with an agenda.",
+    title: "Our Values",
+    body:
+      "Trust - We earn it by delivering on every promise, every time. Passion - We love what we do, and it shows in every project. Adaptability - The digital world moves fast. So do we. Quality - No shortcuts. Only solutions that actually work.",
   },
 ];
 
 const team = [
   {
     name: "Ehtasham ul Haq",
-    role: "CEO & Founder",
-    bio: "Leads strategy and client relationships. Obsessed with helping businesses grow through smart digital work.",
+    role: "Founder & CEO",
+    bio:
+      "Ehtasham leads Devzoo's strategy, client relationships, and product vision. With a sharp eye for quality and an obsession for delivering results, he makes sure every project that leaves Devzoo is something both the client and the team are proud of.",
   },
   {
     name: "Muhammad Umar Malik",
-    role: "CTO & Co-Founder",
-    bio: "Runs product and engineering. Builds the systems that make every project ship on time and on spec.",
+    role: "Co-Founder & COO",
+    bio:
+      "Umar drives Devzoo's operations, delivery standards, and team execution. He's the one making sure projects are running on time, communication is clear, and clients always know exactly where their project stands.",
   },
-  {
-    name: "Awais Hassan",
-    role: "COO & Co-Founder",
-    bio: "Manages operations and creative delivery. Keeps quality high and projects moving.",
-  },
+];
+
+const reasons = [
+  "Mockups before we build - you see it before it's built.",
+  "Weekly project updates - you always know what's happening.",
+  "Client feedback goes to the CEO - your voice shapes our work.",
+  "Zero jargon - we explain everything in plain English.",
+  "One agency, all services - no juggling multiple vendors.",
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>About Devzoo</SectionLabel>
-          <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
-            We built the agency we always wished existed
+          <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
+            We&apos;re Not a Typical Agency.
           </h1>
-          <p className="mt-6 text-base md:text-lg font-body text-white/60 leading-relaxed">
-            No bloated retainers. No mysterious deliverables. No waiting three
-            weeks for a reply. Just focused people doing great work.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            No inflated quotes. No disappearing after the deposit. No
+            copy-paste solutions. Just clean, precise digital work - built
+            around your business, not our convenience.
           </p>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="bg-surface-light py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto">
-          <SectionLabel>Our Story</SectionLabel>
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2 mb-8">
-            The Kate problem
-          </h2>
-          <div className="space-y-5 font-body text-base text-surface-dark/70 leading-relaxed">
-            <p>
-              Imagine Kate. She runs a small shoe store and finally decides to
-              take her business online. She approaches three agencies. The first
-              ghosts her after the proposal. The second quotes $12,000 for a
-              five-page website. The third delivers something, but Kate can't
-              update a single product without paying a monthly retainer.
-            </p>
-            <p>
-              Kate's story isn't unusual — it's the default. Most small
-              businesses get pushed toward enterprise solutions they don't need,
-              at prices they can't afford, with results they can't control.
-            </p>
-            <p>
-              Devzoo exists to fix that. We deliver clean, fast, reliable
-              digital work at prices that make sense for businesses that are
-              still growing. We explain everything in plain English. We hand
-              over everything you own. And we stick around.
-            </p>
+      <section className="bg-surface-light px-6 py-24 md:py-32">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:items-start">
+          <div>
+            <SectionLabel>Why We Started</SectionLabel>
+            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
+              Not Every Solution Fits Every Business - Just Like Shoes.
+            </h2>
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-surface-dark/72">
+              <p>
+                Kate went to the market looking for the perfect pair. She found
+                one that fit just right, but it was too expensive. So she
+                settled for a cheaper alternative. At first, it seemed like a
+                great choice - comfortable and durable. But over time, she
+                started experiencing ankle pain. The problem? The shoe lacked
+                the right support.
+              </p>
+              <p>
+                The same happens with digital solutions. Many businesses settle
+                for cheaper or generic options, only to face issues later -
+                poor performance, lack of scalability, or work that simply
+                doesn&apos;t fit their needs.
+              </p>
+              <p>
+                That&apos;s where Devzoo comes in. We take the time to understand
+                your unique challenges and deliver high-quality digital
+                solutions tailored specifically to you. No one-size-fits-all
+                approach - just smart, effective work that actually fits.
+              </p>
+            </div>
           </div>
+          <aside className="rounded-section bg-surface-warm p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand">
+              Pull Quote
+            </p>
+            <p className="mt-5 font-heading text-2xl font-bold leading-tight text-surface-dark">
+              &quot;With Devzoo, you won&apos;t have to settle or struggle. You&apos;ll get
+              the right fit from the start.&quot;
+            </p>
+          </aside>
         </div>
       </section>
 
-      {/* Mission & Values */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <SectionLabel>What We Stand For</SectionLabel>
-            <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white mt-2">
-              Four values we actually live by
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionLabel>Mission, Vision & Values</SectionLabel>
+            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
+              Built on trust, clarity, and quality.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((v) => (
-              <div
-                key={v.title}
-                className="bg-surface-dark-2 rounded-card p-8"
-              >
-                <h3 className="font-heading font-bold text-xl text-white mb-3">
-                  {v.title}
+          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {pillars.map((pillar) => (
+              <article key={pillar.title} className="rounded-card bg-surface-dark-2 p-8">
+                <div className="mb-5 h-10 w-10 rounded-section bg-brand/10" />
+                <h3 className="font-heading text-2xl font-bold text-white">
+                  {pillar.title}
                 </h3>
-                <p className="text-sm font-body text-white/60 leading-relaxed">
-                  {v.description}
+                <p className="mt-4 text-sm leading-relaxed text-white/62">
+                  {pillar.body}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="bg-surface-warm py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <SectionLabel>The Team</SectionLabel>
-            <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2">
-              Three people. Full ownership.
+      <section className="bg-surface-warm px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionLabel>Meet the Team</SectionLabel>
+            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
+              Two Founders. One Mission. Your Success.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
             {team.map((member) => (
-              <div key={member.name} className="bg-surface-light rounded-card p-8">
-                <div className="w-14 h-14 rounded-section bg-brand/10 flex items-center justify-center mb-6">
-                  <span className="text-brand font-heading font-bold text-xl">
-                    {member.name[0]}
-                  </span>
+              <article key={member.name} className="rounded-card bg-surface-dark p-8">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-section bg-brand/12 font-heading text-2xl font-bold text-brand">
+                  {member.name[0]}
                 </div>
-                <h3 className="font-heading font-bold text-xl text-surface-dark mb-1">
+                <h3 className="font-heading text-2xl font-bold text-white">
                   {member.name}
                 </h3>
-                <p className="text-xs font-body font-semibold uppercase tracking-wider text-brand mb-4">
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand">
                   {member.role}
                 </p>
-                <p className="text-sm font-body text-surface-dark/60 leading-relaxed">
+                <p className="mt-5 text-sm leading-relaxed text-white/65">
                   {member.bio}
                 </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-surface-light px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionLabel>Why Devzoo</SectionLabel>
+            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
+              Why Businesses Choose Devzoo
+            </h2>
+          </div>
+          <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
+            {reasons.map((reason) => (
+              <div
+                key={reason}
+                className="rounded-card border border-surface-dark/10 bg-surface-warm p-6 text-sm leading-relaxed text-surface-dark/75"
+              >
+                {reason}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white">
-            Let&apos;s work together
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
+            Let&apos;s Build Something That Actually Works.
           </h2>
-          <p className="mt-4 text-base font-body text-white/60 leading-relaxed">
-            Book a free 30-minute call. We&apos;ll listen, ask the right
-            questions, and tell you exactly what we think you need.
+          <p className="mt-4 text-base leading-relaxed text-white/60">
+            Tell us about your business and we&apos;ll tell you exactly how we can
+            help.
           </p>
           <div className="mt-8">
             <Button href="/contact" size="lg">
-              Book a Free Call
+              Book a Free Discovery Call
             </Button>
           </div>
         </div>

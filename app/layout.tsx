@@ -30,11 +30,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Devzoo — Digital Magic. Web Wonders. Design Dreams.",
+    default: "Devzoo - Website Development, Digital Marketing & Design Agency",
     template: "%s | Devzoo",
   },
   description:
-    "Clean, fast, and reliable digital solutions for startups, creators, and small businesses. No jargon, no shortcuts.",
+    "Devzoo is a modern digital agency delivering clean websites, digital marketing, graphic design, and video editing for startups and small businesses. No shortcuts. No jargon. Just results.",
 };
 
 export default function RootLayout({
@@ -47,7 +47,7 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-surface-light text-surface-dark font-body">
+      <body className="flex min-h-full flex-col bg-surface-light font-body text-surface-dark">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

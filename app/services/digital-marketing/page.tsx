@@ -3,105 +3,72 @@ import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing",
+  title: {
+    absolute: "Digital Marketing Services - SEO, Social Media & PPC | Devzoo",
+  },
   description:
-    "SEO, paid ads, social media, and content marketing that brings the right people to your business.",
+    "Devzoo's digital marketing services include SEO, social media management, PPC advertising, and content strategy for startups and small businesses. Real leads. Real growth.",
 };
 
-const channels = [
-  {
-    title: "Search Engine Optimization",
-    description:
-      "Keyword research, on-page fixes, technical SEO, and link building that move you up in Google.",
-  },
-  {
-    title: "Google & Meta Ads",
-    description:
-      "Paid campaigns set up to hit your cost-per-lead target — not just spend your budget.",
-  },
-  {
-    title: "Social Media Management",
-    description:
-      "Consistent, brand-right content on the platforms where your audience actually is.",
-  },
-  {
-    title: "Content Marketing",
-    description:
-      "Blog posts, email sequences, and lead magnets that build trust and drive organic traffic.",
-  },
+const included = [
+  "SEO (on-page + technical + local)",
+  "Social Media Management",
+  "PPC Advertising (Google + Meta)",
+  "Content Strategy",
+  "Monthly Performance Reports",
+  "Competitor Analysis",
 ];
 
 export default function DigitalMarketingPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Digital Marketing</SectionLabel>
-          <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
-            Get found by the people who want to buy from you
+          <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
+            Stop Being Invisible Online.
           </h1>
-          <p className="mt-6 text-base md:text-lg font-body text-white/60 leading-relaxed">
-            We run campaigns that make sense for your budget and your goals —
-            no vanity metrics, no fluff reports.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            In a crowded digital world, the businesses that win are the ones
+            that show up - consistently, strategically, and in the right
+            places. We build marketing strategies that cut through the noise,
+            connect with your audience, and turn clicks into real customers. No
+            guesswork. No vanity metrics. Just growth.
           </p>
-          <div className="mt-10">
-            <Button href="/contact" size="lg">Get a Marketing Audit</Button>
-          </div>
         </div>
       </section>
 
-      {/* Channels */}
-      <section className="bg-surface-light py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <SectionLabel>What We Cover</SectionLabel>
-            <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2">
-              Four channels. All measurable.
+      <section className="bg-surface-light px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionLabel>What&apos;s Included</SectionLabel>
+            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
+              Strategy, execution, and reporting that all connect.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {channels.map((c) => (
-              <div key={c.title} className="bg-surface-warm rounded-card p-8">
-                <h3 className="font-heading font-bold text-xl text-surface-dark mb-3">
-                  {c.title}
-                </h3>
-                <p className="text-sm font-body text-surface-dark/60 leading-relaxed">
-                  {c.description}
-                </p>
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {included.map((item) => (
+              <div key={item} className="rounded-card bg-surface-warm p-6">
+                <p className="text-sm leading-relaxed text-surface-dark/75">{item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How we report */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <SectionLabel>Reporting</SectionLabel>
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white mt-2 mb-6">
-            You always know what&apos;s working
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
+            Grow Your Business Online.
           </h2>
-          <p className="text-base font-body text-white/60 leading-relaxed">
-            Monthly reports in plain English — traffic, leads, cost-per-click,
-            conversions. We show you the numbers that matter and what we&apos;re
-            doing about the ones that don&apos;t.
-          </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-warm py-24 md:py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark">
-            Start with a free audit
-          </h2>
-          <p className="mt-4 text-base font-body text-surface-dark/60 leading-relaxed">
-            We&apos;ll review your current digital presence and tell you exactly
-            where the opportunities are — no pitch, just insight.
+          <p className="mt-4 text-base leading-relaxed text-white/60">
+            Book a free call and we&apos;ll show you where better visibility can
+            turn into better leads.
           </p>
           <div className="mt-8">
-            <Button href="/contact" size="lg">Get a Free Audit</Button>
+            <Button href="/contact" size="lg">
+              Book a Free Call
+            </Button>
           </div>
         </div>
       </section>

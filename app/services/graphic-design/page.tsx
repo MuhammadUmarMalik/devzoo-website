@@ -3,90 +3,72 @@ import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 export const metadata: Metadata = {
-  title: "Graphic Design",
+  title: {
+    absolute:
+      "Graphic Design Services - Logo, Brand Identity & Visual Design | Devzoo",
+  },
   description:
-    "Brand identity, social graphics, and marketing materials that make your business look the part.",
+    "Devzoo creates logos, brand identities, social media graphics, and marketing materials for startups and small businesses. Visuals that make your brand impossible to ignore.",
 };
 
-const deliverables = [
-  { title: "Logo & Brand Identity", description: "Primary logo, color palette, typography, and usage guidelines — everything you need to look consistent everywhere." },
-  { title: "Social Media Graphics", description: "Post templates, story formats, and cover images sized right for each platform." },
-  { title: "Marketing Materials", description: "Flyers, brochures, pitch decks, and banners built to your spec." },
-  { title: "Brand Style Guide", description: "A clear reference doc so your whole team stays on-brand, every time." },
+const included = [
+  "Logo Design",
+  "Full Brand Identity (colors, fonts, guidelines)",
+  "Social Media Graphic Templates",
+  "Marketing Materials (flyers, brochures, presentations)",
+  "Packaging Design",
 ];
 
 export default function GraphicDesignPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Graphic Design</SectionLabel>
-          <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
-            Look like a business people trust
+          <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
+            Make Your Brand Impossible to Ignore.
           </h1>
-          <p className="mt-6 text-base md:text-lg font-body text-white/60 leading-relaxed">
-            Sharp, clean design that reflects what you actually are —
-            professional, reliable, and worth hiring.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            Inconsistent visuals damage trust. A poorly designed logo tells
+            clients you don&apos;t take your business seriously. At Devzoo, we
+            create visual identities that make people stop, look, and remember.
+            From your logo to your social media graphics to your marketing
+            materials - everything designed with purpose.
           </p>
-          <div className="mt-10">
-            <Button href="/contact" size="lg">Start a Design Project</Button>
-          </div>
         </div>
       </section>
 
-      {/* Deliverables */}
-      <section className="bg-surface-light py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <SectionLabel>What We Deliver</SectionLabel>
-            <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2">
-              Assets you&apos;ll actually use
+      <section className="bg-surface-light px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionLabel>What&apos;s Included</SectionLabel>
+            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
+              Design systems that make your business look serious.
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {deliverables.map((d) => (
-              <div key={d.title} className="bg-surface-warm rounded-card p-8">
-                <h3 className="font-heading font-bold text-xl text-surface-dark mb-3">
-                  {d.title}
-                </h3>
-                <p className="text-sm font-body text-surface-dark/60 leading-relaxed">
-                  {d.description}
-                </p>
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {included.map((item) => (
+              <div key={item} className="rounded-card bg-surface-warm p-6">
+                <p className="text-sm leading-relaxed text-surface-dark/75">{item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto">
-          <SectionLabel>Our Approach</SectionLabel>
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white mt-2 mb-6">
-            Clean, flat, purposeful
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
+            Brand Your Business.
           </h2>
-          <p className="text-base font-body text-white/60 leading-relaxed">
-            We design for clarity, not awards. No gradients, no clutter, no
-            trends that age in six months. Every visual decision has a reason —
-            usually to make you look more credible, more approachable, or easier
-            to choose.
-          </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-warm py-24 md:py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark">
-            Ready to level up your visuals?
-          </h2>
-          <p className="mt-4 text-base font-body text-surface-dark/60 leading-relaxed">
-            Share what you have and where you want to go — we&apos;ll scope a
-            design package that fits.
+          <p className="mt-4 text-base leading-relaxed text-white/60">
+            Book a free call and we&apos;ll shape the visual identity your business
+            should have had from day one.
           </p>
           <div className="mt-8">
-            <Button href="/contact" size="lg">Get a Quote</Button>
+            <Button href="/contact" size="lg">
+              Book a Free Call
+            </Button>
           </div>
         </div>
       </section>

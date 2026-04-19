@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { headerNavLinks } from "@/libs/navigation";
 
 const services = [
   { label: "Website Development", href: "/services/web-development" },
@@ -8,30 +7,51 @@ const services = [
   { label: "Video Editing", href: "/services/video-editing" },
 ];
 
-const company = headerNavLinks.filter((item) => item.href !== "/services");
+const company = [
+  { label: "About Us", href: "/about" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Contact", href: "/contact" },
+];
+
+const socials = [
+  { label: "LinkedIn", href: "https://linkedin.com/company/thedevzoo" },
+  { label: "Facebook", href: "https://facebook.com/thedevzoo" },
+  { label: "Instagram", href: "https://instagram.com/thedevzoo" },
+  { label: "WhatsApp", href: "https://wa.me/" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-dark border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="border-t border-white/5 bg-surface-dark">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           <div>
-            <Link href="/" className="font-heading font-bold text-xl text-white">
+            <Link href="/" className="font-heading text-xl font-bold text-white">
               Dev<span className="text-brand">zoo</span>
             </Link>
-            <p className="mt-3 text-sm font-body text-white/50 leading-relaxed">
-              Digital Magic. Web Wonders. Design Dreams.
+            <p className="mt-3 text-sm leading-relaxed text-white/65">
+              We Build. You Grow.
             </p>
-            <a
-              href="mailto:info@thedevzoo.com"
-              className="mt-2 block text-sm font-body text-white/50 hover:text-white transition-colors duration-200"
-            >
-              info@thedevzoo.com
-            </a>
+            <p className="mt-4 text-sm leading-relaxed text-white/50">
+              A modern digital agency delivering clean, fast, and reliable
+              digital solutions for startups, creators, and small businesses.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3 text-sm text-white/55">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  className="transition-colors duration-200 hover:text-brand"
+                >
+                  {social.label}
+                </a>
+              ))}
+            </div>
           </div>
 
           <div>
-            <h4 className="text-xs font-heading font-semibold uppercase tracking-widest text-white/30 mb-4">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-white/35">
               Services
             </h4>
             <ul className="space-y-2">
@@ -39,7 +59,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm font-body text-white/60 hover:text-white transition-colors duration-200"
+                    className="text-sm text-white/60 transition-colors duration-200 hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -49,7 +69,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-heading font-semibold uppercase tracking-widest text-white/30 mb-4">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-white/35">
               Company
             </h4>
             <ul className="space-y-2">
@@ -57,7 +77,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm font-body text-white/60 hover:text-white transition-colors duration-200"
+                    className="text-sm text-white/60 transition-colors duration-200 hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -67,24 +87,36 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-heading font-semibold uppercase tracking-widest text-white/30 mb-4">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-white/35">
               Get in Touch
             </h4>
-            <p className="text-sm font-body text-white/60 leading-relaxed">
-              Book a free discovery call and get a proposal within 48 hours.
-            </p>
+            <a
+              href="mailto:info@thedevzoo.com"
+              className="block text-sm text-white/60 transition-colors duration-200 hover:text-white"
+            >
+              info@thedevzoo.com
+            </a>
+            <a
+              href="https://www.thedevzoo.com"
+              className="mt-2 block text-sm text-white/60 transition-colors duration-200 hover:text-white"
+            >
+              www.thedevzoo.com
+            </a>
             <Link
               href="/contact"
-              className="inline-block mt-4 text-sm font-body font-medium text-brand hover:text-brand-hover transition-colors duration-200"
+              className="mt-5 inline-flex text-sm font-medium text-brand transition-colors duration-200 hover:text-brand-hover"
             >
-              Book a call →
+              Book a Free Call -&gt;
             </Link>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-body text-white/30">
-          <p>© {new Date().getFullYear()} Devzoo. All rights reserved.</p>
-          <p>Pakistan · USA · UK · UAE</p>
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-6 text-xs text-white/35 md:flex-row md:items-center md:justify-between">
+          <p>Copyright © 2025 Devzoo. All rights reserved.</p>
+          <div className="flex gap-4">
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+          </div>
         </div>
       </div>
     </footer>
