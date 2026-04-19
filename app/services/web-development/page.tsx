@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ const included = [
 export default function WebDevelopmentPage() {
   return (
     <>
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
+      <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Website Development</SectionLabel>
           <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
@@ -38,7 +39,7 @@ export default function WebDevelopmentPage() {
             designed to turn visitors into customers.
           </p>
         </div>
-      </section>
+      </HeroSection>
 
       <section className="bg-surface-light px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">

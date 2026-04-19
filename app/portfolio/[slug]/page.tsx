@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Link from "next/link";
 
@@ -20,8 +21,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
+      <HeroSection>
         <div className="max-w-4xl mx-auto">
           <Link
             href="/portfolio"
@@ -34,7 +34,7 @@ export default async function CaseStudyPage({ params }: Props) {
             {title}
           </h1>
         </div>
-      </section>
+      </HeroSection>
 
       {/* Content placeholder */}
       <section className="bg-surface-light py-24 md:py-32 px-6">

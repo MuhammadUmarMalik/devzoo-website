@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 const services = [
@@ -22,8 +23,7 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
+      <HeroSection>
         <div className="max-w-3xl mx-auto text-center">
           <SectionLabel>Get in Touch</SectionLabel>
           <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
@@ -40,7 +40,7 @@ export default function ContactPage() {
             </a>
           </p>
         </div>
-      </section>
+      </HeroSection>
 
       {/* Form + Info */}
       <section className="bg-surface-light py-24 md:py-32 px-6">

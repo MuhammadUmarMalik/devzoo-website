@@ -72,3 +72,60 @@ kbd,
 samp {
   font-family: var(--font-mono), monospace;
 }
+
+.hero-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-section__veil,
+.hero-section__base,
+.hero-section__glow,
+.hero-section__canvas,
+.hero-section__tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-section__base {
+  background:
+    radial-gradient(circle at top, rgb(232 71 10 / 0.18), transparent 40%),
+    linear-gradient(180deg, #252830 0%, #1a1c22 46%, #111318 100%);
+}
+
+.hero-section__glow {
+  inset: -12% -10%;
+  background:
+    radial-gradient(circle at 18% 24%, rgb(232 71 10 / 0.24), transparent 30%),
+    radial-gradient(circle at 78% 18%, rgb(232 71 10 / 0.12), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgb(255 255 255 / 0.08), transparent 34%);
+  filter: blur(18px);
+  opacity: 0.9;
+}
+
+.hero-section__canvas {
+  inset: -8%;
+  opacity: 0.42;
+  mix-blend-mode: screen;
+}
+
+.hero-section__tint {
+  background:
+    linear-gradient(180deg, rgb(26 28 34 / 0.16) 0%, rgb(26 28 34 / 0.74) 100%),
+    linear-gradient(120deg, rgb(232 71 10 / 0.18) 0%, transparent 44%);
+}
+
+@media (max-width: 768px) {
+  .hero-section__canvas {
+    inset: -18%;
+    opacity: 0.32;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section__canvas {
+    opacity: 0.22;
+  }
+}

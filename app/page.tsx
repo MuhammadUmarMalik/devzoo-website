@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
+import ClientLogoLoop from "@/components/ui/ClientLogoLoop";
 
 export const metadata: Metadata = {
   title: {
@@ -93,7 +95,7 @@ const testimonials = [
 export default function HomePage() {
   return (
     <>
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
+      <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Digital agency for startups</SectionLabel>
           <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
@@ -113,26 +115,13 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
-      </section>
+      </HeroSection>
 
-      <section className="bg-surface-warm px-6 py-6">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.12em] text-surface-dark/45 md:text-sm">
-            Trusted by businesses in USA, UK, UAE & Pakistan
-          </p>
-          <div className="mt-4 grid grid-cols-2 gap-3 text-center text-sm text-surface-dark/60 sm:grid-cols-3 md:grid-cols-5">
-            {["Client Logo 1", "Client Logo 2", "Client Logo 3", "Client Logo 4", "Client Logo 5"].map(
-              (item) => (
-                <div
-                  key={item}
-                  className="rounded-chip border border-surface-dark/10 bg-white px-3 py-3"
-                >
-                  {item}
-                </div>
-              ),
-            )}
-          </div>
-        </div>
+      <section className="bg-surface-warm overflow-hidden py-10">
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.12em] text-surface-dark/45 md:text-sm">
+          Trusted by businesses in USA, UK, UAE &amp; Pakistan
+        </p>
+        <ClientLogoLoop />
       </section>
 
       <section className="bg-surface-dark px-6 py-24 md:py-32">

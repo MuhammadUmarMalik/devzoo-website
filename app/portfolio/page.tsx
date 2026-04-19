@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const categories = ["All", "Web Development", "Digital Marketing", "Graphic Design", "Video Editing"];
 
@@ -25,8 +26,7 @@ export default function PortfolioPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
+      <HeroSection>
         <div className="max-w-3xl mx-auto text-center">
           <SectionLabel>Portfolio</SectionLabel>
           <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
@@ -37,7 +37,7 @@ export default function PortfolioPage() {
             problem, the approach, and the result.
           </p>
         </div>
-      </section>
+      </HeroSection>
 
       {/* Filter + Grid */}
       <section className="bg-surface-light py-24 md:py-32 px-6">

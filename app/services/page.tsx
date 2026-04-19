@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 
 export const metadata: Metadata = {
@@ -58,7 +59,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
+      <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Services</SectionLabel>
           <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
@@ -75,7 +76,7 @@ export default function ServicesPage() {
             your goals seriously and deliver work that makes a real difference.
           </p>
         </div>
-      </section>
+      </HeroSection>
 
       <section className="bg-surface-light px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl space-y-8">
