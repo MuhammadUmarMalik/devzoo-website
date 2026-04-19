@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
+import PageCTA from "@/components/ui/PageCTA";
 
 const categories = ["All", "Web Development", "Digital Marketing", "Graphic Design", "Video Editing"];
 
@@ -127,19 +127,15 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-            Want results like these?
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-white/60">
-            Book a free call and tell us what you&apos;re building.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">Start a Project</Button>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        badge="Want Results Like These?"
+        heading="Let's build something you're proud to show off."
+        subtext="Book a free call and tell us what you're building. We'll show you exactly how we can help."
+        primaryLabel="Start a Project"
+        primaryHref="/contact"
+        secondaryLabel="View Pricing"
+        secondaryHref="/pricing"
+      />
     </>
   );
 }

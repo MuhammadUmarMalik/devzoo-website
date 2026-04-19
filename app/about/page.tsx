@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Button from "@/components/ui/Button";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
+import PageCTA from "@/components/ui/PageCTA";
 
 export const metadata: Metadata = {
   title: {
@@ -115,22 +115,34 @@ export default function AboutPage() {
               </p>
             </div>
           </AnimateIn>
+
           <AnimateIn delay={120}>
-            <aside className="rounded-section bg-surface-warm p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand">
+            {/* Dark pull-quote with brand accent */}
+            <aside className="relative overflow-hidden rounded-section bg-surface-dark p-8">
+              {/* Left brand line */}
+              <div
+                className="absolute left-0 top-10 bottom-10 w-0.5"
+                style={{ background: "linear-gradient(180deg, transparent, rgba(232,71,10,0.8) 40%, rgba(232,71,10,0.8) 60%, transparent)" }}
+                aria-hidden="true"
+              />
+              <p className="pl-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand">
                 The Devzoo Promise
               </p>
-              <p className="mt-5 font-heading text-2xl font-bold leading-tight text-surface-dark">
-                &quot;With Devzoo, you won&apos;t have to settle or struggle. You&apos;ll get
-                the right fit from the start.&quot;
-              </p>
+              <blockquote className="mt-5 pl-5 font-heading text-xl font-bold leading-snug text-white">
+                &ldquo;With Devzoo, you won&apos;t have to settle or struggle. You&apos;ll get
+                the right fit from the start.&rdquo;
+              </blockquote>
+              {/* Decorative quote mark */}
+              <span className="pointer-events-none absolute bottom-4 right-6 select-none font-heading text-[80px] font-extrabold leading-none text-white/[0.04]">
+                &rdquo;
+              </span>
             </aside>
           </AnimateIn>
         </div>
       </section>
 
       {/* ── Mission / Vision / Values ────────────────────────────── */}
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
+      <section className="grain-overlay bg-surface-dark px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
           <AnimateIn className="mx-auto max-w-3xl text-center">
             <SectionLabel>Mission, Vision &amp; Values</SectionLabel>
@@ -138,19 +150,23 @@ export default function AboutPage() {
               Built on trust, clarity, and quality.
             </h2>
           </AnimateIn>
-          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-3">
             {pillars.map((pillar, i) => (
               <AnimateIn key={pillar.title} delay={i * 100} variant="scale-up">
-                <article className="h-full rounded-card bg-surface-dark-2 p-8">
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-section border border-brand/20 bg-brand/10 text-brand">
-                    {pillar.icon}
+                <article className="group relative h-full overflow-hidden rounded-card border border-white/8 bg-surface-dark-2 p-8 transition-all duration-300 hover:border-brand/25 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.18)]">
+                  {/* Hover gradient */}
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(232,71,10,0.1),transparent_50%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
+                  <div className="relative z-10">
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-section border border-brand/20 bg-brand/10 text-brand transition-colors duration-300 group-hover:bg-brand/18">
+                      {pillar.icon}
+                    </div>
+                    <h3 className="font-heading text-2xl font-bold text-white">
+                      {pillar.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-relaxed text-white/58">
+                      {pillar.body}
+                    </p>
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-white">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-white/62">
-                    {pillar.body}
-                  </p>
                 </article>
               </AnimateIn>
             ))}
@@ -170,17 +186,31 @@ export default function AboutPage() {
           <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
             {team.map((member, i) => (
               <AnimateIn key={member.name} delay={i * 120}>
-                <article className="h-full rounded-card bg-surface-dark p-8">
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-section bg-brand/12 font-heading text-2xl font-bold text-brand">
-                    {member.name[0]}
+                <article className="relative h-full overflow-hidden rounded-card bg-surface-dark p-8 transition-all duration-300 hover:shadow-[0_12px_40px_-16px_rgba(7,9,12,0.5)]">
+                  {/* Subtle top accent */}
+                  <div
+                    className="absolute inset-x-8 top-0 h-px"
+                    style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.45), transparent)" }}
+                    aria-hidden="true"
+                  />
+                  <div className="flex items-start gap-5">
+                    {/* Avatar with glow ring */}
+                    <div className="relative shrink-0">
+                      <div className="absolute inset-0 rounded-full bg-brand/25 blur-md" aria-hidden="true" />
+                      <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-brand/35 bg-surface-dark-2 font-heading text-2xl font-bold text-brand">
+                        {member.name[0]}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-xl font-bold text-white">
+                        {member.name}
+                      </h3>
+                      <p className="mt-1 inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-brand">
+                        {member.role}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-white">
-                    {member.name}
-                  </h3>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand">
-                    {member.role}
-                  </p>
-                  <p className="mt-5 text-sm leading-relaxed text-white/65">
+                  <p className="mt-6 text-sm leading-relaxed text-white/62">
                     {member.bio}
                   </p>
                 </article>
@@ -199,13 +229,12 @@ export default function AboutPage() {
               Why Businesses Choose Devzoo
             </h2>
           </AnimateIn>
-          <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-2">
             {reasons.map((reason, i) => (
-              <AnimateIn key={reason} delay={i * 80}>
-                <div className="flex items-start gap-4 rounded-card border border-surface-dark/8 bg-surface-warm p-6">
-                  {/* SVG check icon */}
-                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand/10">
-                    <svg viewBox="0 0 16 16" fill="none" stroke="#E8470A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
+              <AnimateIn key={reason} delay={i * 70}>
+                <div className="group flex items-start gap-4 rounded-card border border-surface-dark/8 bg-surface-warm p-5 transition-all duration-200 hover:border-brand/20 hover:bg-white">
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-brand/25 bg-brand/8 transition-colors duration-200 group-hover:bg-brand/14">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="#E8470A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
                       <path d="M3 8l3.5 3.5L13 5" />
                     </svg>
                   </div>
@@ -218,20 +247,15 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
-        <AnimateIn className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-            Let&apos;s Build Something That Actually Works.
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-white/60">
-            Tell us about your business and we&apos;ll tell you exactly how we can
-            help.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">Book a Free Discovery Call</Button>
-          </div>
-        </AnimateIn>
-      </section>
+      <PageCTA
+        badge="Ready to Work Together?"
+        heading="Let's Build Something That Actually Works."
+        subtext="Tell us about your business and we'll tell you exactly how we can help."
+        primaryLabel="Book a Free Discovery Call"
+        primaryHref="/contact"
+        secondaryLabel="See Our Work"
+        secondaryHref="/portfolio"
+      />
     </>
   );
 }

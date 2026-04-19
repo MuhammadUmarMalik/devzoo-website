@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Button from "@/components/ui/Button";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
+import AnimateIn from "@/components/ui/AnimateIn";
+import PageCTA from "@/components/ui/PageCTA";
 
 export const metadata: Metadata = {
   title: {
@@ -41,38 +42,38 @@ export default function GraphicDesignPage() {
 
       <section className="bg-surface-light px-6 py-24 md:py-32">
         <div className="mx-auto max-w-5xl">
-          <div className="mx-auto max-w-3xl text-center">
+          <AnimateIn className="mx-auto max-w-3xl text-center">
             <SectionLabel>What&apos;s Included</SectionLabel>
             <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
               Design systems that make your business look serious.
             </h2>
-          </div>
-          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {included.map((item) => (
-              <div key={item} className="rounded-card bg-surface-warm p-6">
-                <p className="text-sm leading-relaxed text-surface-dark/75">{item}</p>
-              </div>
+          </AnimateIn>
+          <div className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {included.map((item, i) => (
+              <AnimateIn key={item} delay={i * 50}>
+                <div className="group flex items-start gap-3.5 rounded-card border border-surface-dark/8 bg-surface-warm px-5 py-4 transition-all duration-200 hover:border-brand/20 hover:bg-white">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-brand/25 bg-brand/10 text-brand">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
+                      <path d="M3 8l3.5 3.5L13 5" />
+                    </svg>
+                  </span>
+                  <p className="text-sm leading-relaxed text-surface-dark/75">{item}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-            Brand Your Business.
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-white/60">
-            Book a free call and we&apos;ll shape the visual identity your business
-            should have had from day one.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">
-              Book a Free Call
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        badge="Ready to Brand?"
+        heading="Brand Your Business."
+        subtext="Book a free call and we'll shape the visual identity your business should have had from day one."
+        primaryLabel="Book a Free Call"
+        primaryHref="/contact"
+        secondaryLabel="See All Services"
+        secondaryHref="/services"
+      />
     </>
   );
 }

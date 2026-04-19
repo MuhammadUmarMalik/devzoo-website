@@ -6,6 +6,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import ClientLogoLoop from "@/components/ui/ClientLogoLoop";
 import AnimateIn from "@/components/ui/AnimateIn";
 import StatsShowcase from "@/components/home/StatsShowcase";
+import PageCTA from "@/components/ui/PageCTA";
 
 export const metadata: Metadata = {
   title: {
@@ -173,7 +174,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES BENTO ─────────────────────────────────────── */}
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
+      <section className="grain-overlay bg-surface-dark px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
           <AnimateIn className="mx-auto max-w-3xl text-center">
             <SectionLabel>What We Do</SectionLabel>
@@ -229,26 +230,27 @@ export default function HomePage() {
             </p>
           </AnimateIn>
 
-          <div className="relative mt-20">
-            {/* Connector line — desktop only */}
-            <div className="absolute left-0 right-0 top-7 hidden h-px bg-surface-dark/10 lg:block" aria-hidden="true" />
-
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-              {processSteps.map((step, i) => (
-                <AnimateIn key={step.number} delay={i * 120} className="relative">
+          <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
+            {processSteps.map((step, i) => (
+              <AnimateIn key={step.number} delay={i * 120} className="relative">
+                <div className="group relative h-full overflow-hidden rounded-card border border-surface-dark/8 bg-surface-warm p-8 transition-all duration-300 hover:border-brand/20 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.14)]">
+                  {/* Ghost step number */}
+                  <span className="pointer-events-none absolute right-5 top-2 select-none font-heading text-[88px] font-extrabold leading-none text-surface-dark/[0.045]">
+                    {step.number}
+                  </span>
                   {/* Step badge */}
-                  <div className="relative z-10 mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-brand/25 bg-surface-light">
-                    <span className="font-heading text-sm font-bold text-brand">{step.number}</span>
+                  <div className="relative z-10 mb-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand/30 bg-white font-heading text-sm font-bold text-brand shadow-sm">
+                    {step.number}
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-surface-dark">
+                  <h3 className="relative z-10 font-heading text-xl font-bold text-surface-dark">
                     {step.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-surface-dark/62">
+                  <p className="relative z-10 mt-3 text-sm leading-relaxed text-surface-dark/60">
                     {step.description}
                   </p>
-                </AnimateIn>
-              ))}
-            </div>
+                </div>
+              </AnimateIn>
+            ))}
           </div>
         </div>
       </section>
@@ -342,55 +344,15 @@ export default function HomePage() {
       </section>
 
       {/* ── FINAL CTA ──────────────────────────────────────────── */}
-      <section className="bg-surface-warm px-6 py-24 md:py-32">
-        <AnimateIn className="mx-auto max-w-7xl">
-          <div className="final-cta-shell relative overflow-hidden rounded-[32px] border border-white/8 bg-surface-dark px-6 py-16 text-center shadow-[0_35px_90px_-52px_rgba(7,9,12,0.82)] md:px-10 md:py-20">
-            <div className="final-cta-texture" aria-hidden="true" />
-            <div className="final-cta-glow" aria-hidden="true" />
-
-            <div className="relative z-10 mx-auto max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
-                <span className="h-2 w-2 rounded-full bg-brand" />
-                <span className="text-xs font-medium uppercase tracking-[0.14em] text-white/72">
-                  Ready to Grow Online?
-                </span>
-              </div>
-
-              <h2 className="mt-6 font-heading text-[38px] font-bold leading-[1.04] text-white md:text-[62px]">
-                Don&apos;t let your business get left behind.
-              </h2>
-
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
-                Clean websites, sharper branding, and smarter marketing built
-                to move your business forward.
-              </p>
-
-              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Button
-                  href="/contact"
-                  size="lg"
-                  className="min-w-56 rounded-full px-7 py-3.5 text-base shadow-[0_18px_40px_-18px_rgb(232_71_10/0.7)]"
-                >
-                  Book a Free Call
-                </Button>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-white/80 transition-all duration-200 hover:gap-3 hover:text-white"
-                >
-                  Learn more
-                  <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
-                    <path
-                      fillRule="evenodd"
-                      d="M11.28 4.22a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H4.75a.75.75 0 0 1 0-1.5h9.75l-3.22-3.22a.75.75 0 0 1 0-1.06Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </AnimateIn>
-      </section>
+      <PageCTA
+        badge="Ready to Grow Online?"
+        heading="Don't let your business get left behind."
+        subtext="Clean websites, sharper branding, and smarter marketing built to move your business forward."
+        primaryLabel="Book a Free Call"
+        primaryHref="/contact"
+        secondaryLabel="Learn more"
+        secondaryHref="/services"
+      />
     </>
   );
 }
