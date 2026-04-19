@@ -176,5 +176,12 @@ export default function DarkVeil({
     };
   }, [hueShift, noiseIntensity, resolutionScale, scanlineFrequency, scanlineIntensity, speed, warpAmount]);
 
-  return <canvas ref={ref} className="w-full h-full block" aria-hidden="true" />;
+  return (
+    <canvas
+      ref={ref}
+      className="w-full h-full block"
+      style={{ filter: "sepia(1) saturate(4) hue-rotate(-20deg)" }}
+      aria-hidden="true"
+    />
+  );
 }

@@ -27,6 +27,15 @@ html {
   scroll-padding-top: 96px;
 }
 
+/* Hide native cursor on pointer devices — custom cursor takes over */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -128,4 +137,61 @@ samp {
   .hero-section__canvas {
     opacity: 0.22;
   }
+}
+
+/* ── Scroll-reveal animations ─────────────────────────────── */
+@keyframes anim-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes anim-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes anim-scale-up {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.reveal-fade-up {
+  animation: anim-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+.reveal-fade-in {
+  animation: anim-fade-in 0.6s ease both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+.reveal-scale-up {
+  animation: anim-scale-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-fade-up,
+  .reveal-fade-in,
+  .reveal-scale-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ── Bento card hover glow ─────────────────────────────────── */
+.bento-card {
+  position: relative;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+}
+.bento-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgb(232 71 10 / 0.18), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.bento-card:hover::after {
+  opacity: 1;
 }

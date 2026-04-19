@@ -130,7 +130,7 @@ export default function ServicesPage() {
                   <div className="mt-8">
                     <Link
                       href={service.href}
-                      className="inline-flex items-center text-sm font-medium text-white transition-colors duration-200 hover:text-brand"
+                      className="inline-flex cursor-pointer items-center text-sm font-medium text-white transition-colors duration-200 hover:text-brand"
                     >
                       {service.cta}
                     </Link>
