@@ -15,7 +15,7 @@ const projects = [
     title: "PowerSchool",
     category: "Web Development",
     description:
-      "A unified platform website for the world's leading K-12 EdTech company — 60M+ students, 140+ countries.",
+      "A unified platform website for the world's leading K-12 EdTech company. 60M+ students, 140+ countries.",
     tags: ["EdTech", "SaaS", "AI Integration", "Enterprise"],
     thumbnail: null,
     accent: "#E8470A",

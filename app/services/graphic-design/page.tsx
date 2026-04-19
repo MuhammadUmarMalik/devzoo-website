@@ -7,7 +7,7 @@ import PageCTA from "@/components/ui/PageCTA";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Graphic Design Services - Logo, Brand Identity & Visual Design | Devzoo",
+      "Graphic Design Services | Logo, Brand Identity & Visual Design | Devzoo",
   },
   description:
     "Devzoo creates logos, brand identities, social media graphics, and marketing materials for startups and small businesses. Visuals that make your brand impossible to ignore.",
@@ -35,7 +35,7 @@ export default function GraphicDesignPage() {
             clients you don&apos;t take your business seriously. At Devzoo, we
             create visual identities that make people stop, look, and remember.
             From your logo to your social media graphics to your marketing
-            materials - everything designed with purpose.
+            materials, everything designed with purpose.
           </p>
         </div>
       </HeroSection>

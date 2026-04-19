@@ -7,7 +7,7 @@ import PageCTA from "@/components/ui/PageCTA";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "About Devzoo - The Digital Agency Built for Startups & Small Businesses",
+      "About Devzoo | The Digital Agency Built for Startups & Small Businesses",
   },
   description:
     "Meet the team behind Devzoo. Founded by Ehtasham ul Haq and Muhammad Umar Malik, we're a modern digital agency delivering clean, reliable digital solutions with zero shortcuts.",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const pillars = [
   {
     title: "Our Mission",
-    body: "To simplify digital product development for businesses while delivering top-notch quality. No complexities, no compromises - just high-quality digital solutions designed to support your success.",
+    body: "To simplify digital product development for businesses while delivering top-notch quality. No complexities, no compromises. Just high-quality digital solutions designed to support your success.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
         <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" />
@@ -37,7 +37,7 @@ const pillars = [
   },
   {
     title: "Our Values",
-    body: "Trust - We earn it by delivering on every promise, every time. Passion - We love what we do, and it shows in every project. Adaptability - The digital world moves fast. So do we. Quality - No shortcuts. Only solutions that actually work.",
+    body: "Trust: We earn it by delivering on every promise, every time. Passion: We love what we do, and it shows in every project. Adaptability: The digital world moves fast. So do we. Quality: No shortcuts. Only solutions that actually work.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
@@ -77,7 +77,7 @@ const whyItems = [
   {
     id: "02",
     title: "Weekly project updates",
-    desc: "You always know what's happening. No chasing, no guessing — clear status every step of the way.",
+    desc: "You always know what's happening. No chasing, no guessing. Clear status every step of the way.",
     featured: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
@@ -90,7 +90,7 @@ const whyItems = [
   {
     id: "03",
     title: "Feedback goes to the CEO",
-    desc: "Your voice reaches the top. Every piece of feedback shapes the work directly — no middlemen filtering your priorities.",
+    desc: "Your voice reaches the top. Every piece of feedback shapes the work directly. No middlemen filtering your priorities.",
     featured: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
@@ -114,7 +114,7 @@ const whyItems = [
   {
     id: "05",
     title: "One agency, all services",
-    desc: "Website, branding, marketing, and video — handled by one team with one shared context. No juggling vendors.",
+    desc: "Website, branding, marketing, and video, handled by one team with one shared context. No juggling vendors.",
     featured: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
@@ -140,7 +140,7 @@ export default function AboutPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
             No inflated quotes. No disappearing after the deposit. No
-            copy-paste solutions. Just clean, precise digital work — built
+            copy-paste solutions. Just clean, precise digital work, built
             around your business, not our convenience.
           </p>
         </div>
@@ -152,28 +152,28 @@ export default function AboutPage() {
           <AnimateIn>
             <SectionLabel>Why We Started</SectionLabel>
             <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
-              Not Every Solution Fits Every Business — Just Like Shoes.
+              Not Every Solution Fits Every Business. Just Like Shoes.
             </h2>
             <div className="mt-8 space-y-5 text-base leading-relaxed text-surface-dark/72">
               <p>
                 Kate went to the market looking for the perfect pair. She found
                 one that fit just right, but it was too expensive. So she
                 settled for a cheaper alternative. At first, it seemed like a
-                great choice — comfortable and durable. But over time, she
+                great choice, comfortable and durable. But over time, she
                 started experiencing ankle pain. The problem? The shoe lacked
                 the right support.
               </p>
               <p>
                 The same happens with digital solutions. Many businesses settle
-                for cheaper or generic options, only to face issues later —
-                poor performance, lack of scalability, or work that simply
+                for cheaper or generic options, only to face issues later.
+                Poor performance, lack of scalability, or work that simply
                 doesn&apos;t fit their needs.
               </p>
               <p>
                 That&apos;s where Devzoo comes in. We take the time to understand
                 your unique challenges and deliver high-quality digital
                 solutions tailored specifically to you. No one-size-fits-all
-                approach — just smart, effective work that actually fits.
+                approach. Just smart, effective work that actually fits.
               </p>
             </div>
           </AnimateIn>
@@ -293,7 +293,7 @@ export default function AboutPage() {
               <span className="text-brand">choose us</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/50">
-              Five things every client notices — usually within the first week of working with us.
+              Five things every client notices, usually within the first week of working with us.
             </p>
           </AnimateIn>
 

@@ -7,7 +7,7 @@ import PageCTA from "@/components/ui/PageCTA";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Website Development Services - Fast, Custom & Built to Convert | Devzoo",
+      "Website Development Services | Fast, Custom & Built to Convert | Devzoo",
   },
   description:
     "Devzoo builds fast, custom websites for startups and small businesses. No templates. Mobile-first. Optimised for speed, SEO, and conversions. Book a free call today.",
@@ -36,7 +36,7 @@ export default function WebDevelopmentPage() {
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
             Slow load times and clunky navigation cost you clients every day.
             We build websites that load fast, look clean, and are designed to
-            turn visitors into customers — no templates, no shortcuts.
+            turn visitors into customers. No templates, no shortcuts.
           </p>
         </div>
       </HeroSection>

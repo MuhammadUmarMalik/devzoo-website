@@ -4,10 +4,11 @@ import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import PageCTA from "@/components/ui/PageCTA";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Pricing - Flexible Digital Solutions for Every Budget | Devzoo",
+    absolute: "Pricing | Flexible Digital Solutions for Every Budget | Devzoo",
   },
   description:
     "Devzoo offers flexible pricing for website development, digital marketing, graphic design, and video editing. Book a free call and get a custom quote for your project.",
@@ -74,7 +75,7 @@ const faqs = [
   {
     question: "Will I be able to update my website myself after delivery?",
     answer:
-      "Yes. We build on platforms that are easy to manage - WordPress or Webflow. We also provide a short walkthrough video so you can update content confidently.",
+      "Yes. We build on platforms that are easy to manage. WordPress or Webflow. We also provide a short walkthrough video so you can update content confidently.",
   },
   {
     question: "Do you offer ongoing support after project delivery?",
@@ -103,7 +104,7 @@ export default function PricingPage() {
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
             We don&apos;t believe in one-size-fits-all pricing. Every business is
             different. Book a free 30-minute call and we&apos;ll give you a clear,
-            honest quote - no pressure, no hidden fees.
+            honest quote. No pressure, no hidden fees.
           </p>
         </div>
       </HeroSection>
@@ -286,7 +287,7 @@ export default function PricingPage() {
 
                   <p className="mt-4 text-sm leading-relaxed text-white/55">
                     Refer any friend or business to Devzoo. When they sign a project,
-                    you earn 10% of the invoice — no cap, no expiry, no catch.
+                    you earn 10% of the invoice. No cap, no expiry, no catch.
                   </p>
 
                   <a
@@ -318,7 +319,7 @@ export default function PricingPage() {
                     {
                       step: "01",
                       title: "You refer someone",
-                      desc: "Send us their name and email — or have them mention you when they reach out.",
+                      desc: "Send us their name and email, or have them mention you when they reach out.",
                     },
                     {
                       step: "02",
@@ -427,6 +428,16 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+
+      <PageCTA
+        badge="Still Have Questions?"
+        heading="Let's talk numbers. No pitch, no pressure."
+        subtext="Book a free 30-minute call and we'll recommend the right plan for your goals, timeline, and budget."
+        primaryLabel="Book a Free Call"
+        primaryHref="/contact"
+        secondaryLabel="View Services"
+        secondaryHref="/services"
+      />
     </>
   );
 }

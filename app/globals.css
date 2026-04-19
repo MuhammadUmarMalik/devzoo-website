@@ -12,8 +12,8 @@
   --color-text-muted: #8A8F9E;
 
   /* Typography */
-  --font-heading: var(--font-syne), sans-serif;
-  --font-body: var(--font-dm-sans), sans-serif;
+  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-manrope), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
 
   /* Border radius */
@@ -60,7 +60,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading), sans-serif;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 

@@ -37,7 +37,7 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "powerschool",
-    title: "PowerSchool — K-12 Education Platform",
+    title: "PowerSchool: K-12 Education Platform",
     client: "PowerSchool",
     service: "Web Development",
     timeline: "16 Weeks",
@@ -46,15 +46,15 @@ export const caseStudies: CaseStudy[] = [
     category: "Web Development",
     tags: ["EdTech", "SaaS Platform", "Multi-Product", "AI Integration", "Enterprise"],
     cardDescription:
-      "A unified web platform for the world's leading K-12 education technology company — serving 60M+ students across 70,000 school organizations in 140+ countries.",
+      "A unified web platform for the world's leading K-12 education technology company, serving 60M+ students across 70,000 school organizations in 140+ countries.",
     overview:
-      "PowerSchool isn't one product — it's fifteen. Student information systems, learning management, AI tutoring tools, financial operations, talent management, parent communications. The website's job was to make all of that feel coherent, not overwhelming, to a visitor who might be a superintendent, a classroom teacher, an IT director, or a school CFO. We built a platform that lets each of them find exactly what they need without wading through everything that's meant for someone else.",
+      "PowerSchool isn't one product. It's fifteen. Student information systems, learning management, AI tutoring tools, financial operations, talent management, parent communications. The website's job was to make all of that feel coherent, not overwhelming, to a visitor who might be a superintendent, a classroom teacher, an IT director, or a school CFO. We built a platform that lets each of them find exactly what they need without wading through everything that's meant for someone else.",
     challenge:
-      "Most enterprise SaaS websites pick one user and design for them. PowerSchool can't do that. A superintendent evaluating the platform has completely different questions than a curriculum director or a payroll manager. The product line spans seven solution categories and more than fifteen individual tools — each with its own buyers, its own value story, and its own compliance requirements. The previous site buried products in a flat list. Visitors couldn't tell which tools were connected, which were standalone, or which ones applied to their role. We needed to build an architecture that made the entire ecosystem feel like one integrated platform — without making any single buyer feel like they were in the wrong place.",
+      "Most enterprise SaaS websites pick one user and design for them. PowerSchool can't do that. A superintendent evaluating the platform has completely different questions than a curriculum director or a payroll manager. The product line spans seven solution categories and more than fifteen individual tools, each with its own buyers, its own value story, and its own compliance requirements. The previous site buried products in a flat list. Visitors couldn't tell which tools were connected, which were standalone, or which ones applied to their role. We needed to build an architecture that made the entire ecosystem feel like one integrated platform, without making any single buyer feel like they were in the wrong place.",
     approach: [
       {
         title: "Role-based navigation architecture",
-        body: "We restructured the entire site around how buyers actually think — by their role and their problem, not by product name. Superintendents, principals, teachers, IT directors, and CFOs each get a path that surfaces the tools relevant to them and frames value in their language. The product catalogue becomes a destination, not the entry point.",
+        body: "We restructured the entire site around how buyers actually think, by their role and their problem, not by product name. Superintendents, principals, teachers, IT directors, and CFOs each get a path that surfaces the tools relevant to them and frames value in their language. The product catalogue becomes a destination, not the entry point.",
         icon: (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
             <path d="M3 9h18M9 21V9m6 12V9M3 3h18v18H3z" />
@@ -63,7 +63,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Connected product storytelling",
-        body: "PowerSchool's biggest differentiator is integration — data flows between SIS, LMS, analytics, and communications without exports or manual syncs. We built product pages that show these connections explicitly: how attendance data in the SIS feeds the MTSS platform, how assessment results in Performance Matters appear in student analytics. The story isn't 'here are our products,' it's 'here is how your district runs on one platform.'",
+        body: "PowerSchool's biggest differentiator is integration. Data flows between SIS, LMS, analytics, and communications without exports or manual syncs. We built product pages that show these connections explicitly: how attendance data in the SIS feeds the MTSS platform, how assessment results in Performance Matters appear in student analytics. The story isn't 'here are our products,' it's 'here is how your district runs on one platform.'",
         icon: (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
             <circle cx="5" cy="12" r="2" />
@@ -75,7 +75,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "AI-forward positioning (PowerBuddy)",
-        body: "PowerBuddy is embedded across five product areas — assessments, career planning, data analysis, parent engagement, and learning delivery. The challenge was presenting AI as practical and already working, not as a roadmap promise. We built a dedicated AI layer in the navigation and product pages that shows exactly which workflows PowerBuddy touches, with specifics on what it does inside each tool.",
+        body: "PowerBuddy is embedded across five product areas: assessments, career planning, data analysis, parent engagement, and learning delivery. The challenge was presenting AI as practical and already working, not as a roadmap promise. We built a dedicated AI layer in the navigation and product pages that shows exactly which workflows PowerBuddy touches, with specifics on what it does inside each tool.",
         icon: (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
             <path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4Z" />
@@ -85,7 +85,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Trust and compliance content layer",
-        body: "K-12 districts handle student data under FERPA, COPPA, and state-level privacy laws. IT directors and data privacy officers evaluate vendors specifically on this. We built a dedicated security and compliance section surfacing PowerSchool's ISO 27001 certification, COPPA Safe Harbor status, and data handling practices — not buried in a legal footer, but built into the evaluation flow where procurement teams actually look.",
+        body: "K-12 districts handle student data under FERPA, COPPA, and state-level privacy laws. IT directors and data privacy officers evaluate vendors specifically on this. We built a dedicated security and compliance section surfacing PowerSchool's ISO 27001 certification, COPPA Safe Harbor status, and data handling practices. Not buried in a legal footer, but built into the evaluation flow where procurement teams actually look.",
         icon: (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
@@ -95,7 +95,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Data ecosystem and analytics hub",
-        body: "Connected Intelligence — PowerSchool's data-as-a-service layer — is the product that ties everything together for district leaders making strategic decisions. We built it its own hub page showing how data flows from individual tools into unified dashboards, how the Snowflake integration works for districts with existing data infrastructure, and how AI-readiness is built into the architecture from the ground up.",
+        body: "Connected Intelligence, PowerSchool's data-as-a-service layer, is the product that ties everything together for district leaders making strategic decisions. We built it its own hub page showing how data flows from individual tools into unified dashboards, how the Snowflake integration works for districts with existing data infrastructure, and how AI-readiness is built into the architecture from the ground up.",
         icon: (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
             <path d="M3 3v18h18" />
@@ -111,7 +111,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "15+", label: "Integrated product areas" },
     ],
     resultNarrative:
-      "PowerSchool now operates at a scale that makes it the default infrastructure for K-12 education across the English-speaking world and well beyond. The unified platform approach — one login, one data layer, connected tools across administration, instruction, and family engagement — is what separates it from point solutions. The website now makes that case clearly to every type of buyer who lands on it.",
+      "PowerSchool now operates at a scale that makes it the default infrastructure for K-12 education across the English-speaking world and well beyond. The unified platform approach, one login, one data layer, connected tools across administration, instruction, and family engagement, is what separates it from point solutions. The website now makes that case clearly to every type of buyer who lands on it.",
   },
   {
     slug: "field-engineer",

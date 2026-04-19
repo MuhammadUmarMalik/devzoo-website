@@ -10,7 +10,7 @@ import PageCTA from "@/components/ui/PageCTA";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Devzoo - Website Development, Digital Marketing & Design Agency",
+    absolute: "Devzoo | Website Development, Digital Marketing & Design Agency",
   },
   description:
     "Devzoo is a modern digital agency delivering clean websites, digital marketing, graphic design, and video editing for startups and small businesses. No shortcuts. No jargon. Just results.",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const services = [
   {
     title: "Website Development",
-    description: "Fast, clean, and built to convert. We build websites that work as hard as you do — no templates, no shortcuts.",
+    description: "Fast, clean, and built to convert. We build websites that work as hard as you do. No templates, no shortcuts.",
     href: "/services/web-development",
     linkText: "Explore Web Development",
     span: "lg:col-span-2",
@@ -55,7 +55,7 @@ const services = [
   },
   {
     title: "Video Editing",
-    description: "Reels, ads, and content that actually gets watched — and remembered.",
+    description: "Reels, ads, and content that actually gets watched and remembered.",
     href: "/services/video-editing",
     linkText: "Explore Video Editing",
     span: "lg:col-span-2",
@@ -148,7 +148,7 @@ export default function HomePage() {
           {/* Subline */}
           <p className="reveal-fade-up mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/55 [--reveal-delay:200ms] md:text-xl">
             Clean websites. Smart marketing. Sharp design. Devzoo handles
-            everything your business needs to grow online — fast, reliable,
+            everything your business needs to grow online. Fast, reliable,
             and without the jargon.
           </p>
 
@@ -179,7 +179,7 @@ export default function HomePage() {
           <AnimateIn className="mx-auto max-w-3xl text-center">
             <SectionLabel>What We Do</SectionLabel>
             <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-              Everything Your Business Needs — Under One Roof
+              Everything Your Business Needs. Under One Roof
             </h2>
             <p className="mt-5 text-base leading-relaxed text-white/55">
               From building your website to growing your audience, Devzoo

@@ -7,7 +7,7 @@ import PageCTA from "@/components/ui/PageCTA";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Our Services - Website Development, Digital Marketing, Design & Video | Devzoo",
+      "Our Services | Website Development, Digital Marketing, Design & Video | Devzoo",
   },
   description:
     "Devzoo offers website development, digital marketing, graphic design, and video editing for startups, creators, and small businesses. One agency. Everything digital. Done right.",
@@ -17,7 +17,7 @@ const services = [
   {
     title: "Website Development",
     body:
-      "Slow load times and clunky navigation cost you clients every day. Your website is your most important sales tool - and it needs to perform. We build websites that load fast, look clean, and are designed to turn visitors into customers.",
+      "Slow load times and clunky navigation cost you clients every day. Your website is your most important sales tool. It needs to perform. We build websites that load fast, look clean, and are designed to turn visitors into customers.",
     includes: [
       "Custom design (no templates)",
       "Mobile-first development",
@@ -43,7 +43,7 @@ const services = [
   {
     title: "Digital Marketing",
     body:
-      "In a crowded digital world, the businesses that win are the ones that show up - consistently, strategically, and in the right places. We build marketing strategies that cut through the noise, connect with your audience, and turn clicks into real customers. No guesswork. No vanity metrics. Just growth.",
+      "In a crowded digital world, the businesses that win are the ones that show up, consistently, strategically, and in the right places. We build marketing strategies that cut through the noise, connect with your audience, and turn clicks into real customers. No guesswork. No vanity metrics. Just growth.",
     includes: [
       "SEO (on-page + technical + local)",
       "Social Media Management",
@@ -63,7 +63,7 @@ const services = [
   {
     title: "Graphic Design",
     body:
-      "Inconsistent visuals damage trust. A poorly designed logo tells clients you don't take your business seriously. At Devzoo, we create visual identities that make people stop, look, and remember. From your logo to your social media graphics to your marketing materials - everything designed with purpose.",
+      "Inconsistent visuals damage trust. A poorly designed logo tells clients you don't take your business seriously. At Devzoo, we create visual identities that make people stop, look, and remember. From your logo to your social media graphics to your marketing materials, everything designed with purpose.",
     includes: [
       "Logo Design",
       "Full Brand Identity (colors, fonts, guidelines)",
@@ -82,7 +82,7 @@ const services = [
   {
     title: "Video Editing",
     body:
-      "Most businesses have footage sitting on a hard drive going nowhere. Video is the highest-performing content format on every platform - but only when it's edited well. We turn your raw footage into polished, engaging content that actually gets watched and drives action.",
+      "Most businesses have footage sitting on a hard drive going nowhere. Video is the highest-performing content format on every platform, but only when it's edited well. We turn your raw footage into polished, engaging content that actually gets watched and drives action.",
     includes: [
       "Instagram & TikTok Reels",
       "YouTube Long-Form Videos",
@@ -112,11 +112,11 @@ export default function ServicesPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
             From building your first website to managing your social media to
-            designing your brand identity - Devzoo handles every part of your
+            designing your brand identity. Devzoo handles every part of your
             digital presence, so you don&apos;t have to juggle vendors.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-white/50 md:text-base">
-            Our services are built for everyone - from day-one startups to
+            Our services are built for everyone, from day-one startups to
             established businesses ready to scale. No matter your size, we take
             your goals seriously and deliver work that makes a real difference.
           </p>

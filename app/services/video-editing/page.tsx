@@ -6,7 +6,7 @@ import PageCTA from "@/components/ui/PageCTA";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Video Editing Services - Reels, Ads & YouTube Content | Devzoo",
+    absolute: "Video Editing Services | Reels, Ads & YouTube Content | Devzoo",
   },
   description:
     "Devzoo edits reels, explainer videos, YouTube content, and ads for creators, coaches, and businesses. Content that gets watched, shared, and remembered.",

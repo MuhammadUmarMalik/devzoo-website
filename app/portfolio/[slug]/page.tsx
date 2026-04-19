@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
+import PageCTA from "@/components/ui/PageCTA";
 import { getCaseStudy, caseStudies } from "@/lib/case-studies";
 
 interface Props {
@@ -142,7 +143,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
                   <Image
                     src={cs.heroImage}
-                    alt={`${cs.client} platform — live screenshot`}
+                    alt={`${cs.client} platform, live screenshot`}
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 768px) 100vw, 1200px"
@@ -181,7 +182,7 @@ export default async function CaseStudyPage({ params }: Props) {
               How we built it
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/45">
-              {cs.approach.length} distinct layers — each solving a specific problem on the platform.
+              {cs.approach.length} distinct layers, each solving a specific problem on the platform.
             </p>
           </AnimateIn>
 
@@ -389,22 +390,15 @@ export default async function CaseStudyPage({ params }: Props) {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="bg-surface-dark px-6 py-24 md:py-32">
-        <AnimateIn>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-              Want results like this?
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/55">
-              Book a free discovery call and tell us what you&apos;re building. We&apos;ll show you exactly how we can help.
-            </p>
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <Button href="/contact" size="lg">Start a Project</Button>
-              <Button href="/portfolio" variant="secondary" size="lg">See More Work</Button>
-            </div>
-          </div>
-        </AnimateIn>
-      </section>
+      <PageCTA
+        badge="Want Results Like This?"
+        heading="Let's build something worth showing off."
+        subtext="Book a free discovery call and tell us what you're building. We'll show you exactly how we can help."
+        primaryLabel="Start a Project"
+        primaryHref="/contact"
+        secondaryLabel="See More Work"
+        secondaryHref="/portfolio"
+      />
     </>
   );
 }

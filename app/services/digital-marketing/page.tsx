@@ -6,7 +6,7 @@ import PageCTA from "@/components/ui/PageCTA";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Digital Marketing Services - SEO, Social Media & PPC | Devzoo",
+    absolute: "Digital Marketing Services | SEO, Social Media & PPC | Devzoo",
   },
   description:
     "Devzoo's digital marketing services include SEO, social media management, PPC advertising, and content strategy for startups and small businesses. Real leads. Real growth.",
@@ -32,7 +32,7 @@ export default function DigitalMarketingPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
             In a crowded digital world, the businesses that win are the ones
-            that show up - consistently, strategically, and in the right
+            that show up, consistently, strategically, and in the right
             places. We build marketing strategies that cut through the noise,
             connect with your audience, and turn clicks into real customers. No
             guesswork. No vanity metrics. Just growth.
