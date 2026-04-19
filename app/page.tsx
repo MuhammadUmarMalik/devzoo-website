@@ -5,6 +5,7 @@ import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ClientLogoLoop from "@/components/ui/ClientLogoLoop";
 import AnimateIn from "@/components/ui/AnimateIn";
+import StatsShowcase from "@/components/home/StatsShowcase";
 
 export const metadata: Metadata = {
   title: {
@@ -84,9 +85,21 @@ const processSteps = [
 ];
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "100%", label: "Client Satisfaction" },
-  { value: "14-Day", label: "Average Turnaround" },
+  {
+    value: "50+",
+    label: "Projects Delivered",
+    detail: "Web builds, campaigns, design systems, and content shipped with clear handoff.",
+  },
+  {
+    value: "100%",
+    label: "Client Satisfaction",
+    detail: "We keep communication simple, timelines clear, and revisions focused on what matters.",
+  },
+  {
+    value: "14-Day",
+    label: "Average Turnaround",
+    detail: "Fast enough to keep momentum, careful enough to avoid the usual agency mess.",
+  },
 ];
 
 const testimonials = [
@@ -241,23 +254,7 @@ export default function HomePage() {
       </section>
 
       {/* ── STATS ──────────────────────────────────────────────── */}
-      <section className="bg-surface-dark px-6 py-24 md:py-28">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 gap-px bg-white/6 md:grid-cols-3">
-            {stats.map((stat, i) => (
-              <AnimateIn key={stat.label} delay={i * 100} variant="scale-up"
-                className="flex flex-col items-center bg-surface-dark px-8 py-12 text-center first:rounded-l-card last:rounded-r-card">
-                <span className="font-heading text-5xl font-extrabold text-brand md:text-6xl">
-                  {stat.value}
-                </span>
-                <span className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/45">
-                  {stat.label}
-                </span>
-              </AnimateIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StatsShowcase stats={stats} />
 
       {/* ── TESTIMONIALS ───────────────────────────────────────── */}
       <section className="bg-surface-warm px-6 py-24 md:py-32">
