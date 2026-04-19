@@ -59,12 +59,74 @@ const team = [
   },
 ];
 
-const reasons = [
-  "Mockups before we build — you see it before it's built.",
-  "Weekly project updates — you always know what's happening.",
-  "Client feedback goes to the CEO — your voice shapes our work.",
-  "Zero jargon — we explain everything in plain English.",
-  "One agency, all services — no juggling multiple vendors.",
+const whyItems = [
+  {
+    id: "01",
+    title: "Mockups before we build",
+    desc: "You see exactly what you're getting before a single line of code is written. No surprises, no rework, no wasted money.",
+    featured: true,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+        <circle cx="12" cy="10" r="2.5" />
+        <path d="M6.5 10c1.2-2 3-3 5.5-3s4.3 1 5.5 3c-1.2 2-3 3-5.5 3s-4.3-1-5.5-3Z" />
+      </svg>
+    ),
+  },
+  {
+    id: "02",
+    title: "Weekly project updates",
+    desc: "You always know what's happening. No chasing, no guessing — clear status every step of the way.",
+    featured: false,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="18" rx="2" />
+        <path d="M16 2v4M8 2v4M3 10h18" />
+        <path d="M8 14l2.5 2.5L16 11" />
+      </svg>
+    ),
+  },
+  {
+    id: "03",
+    title: "Feedback goes to the CEO",
+    desc: "Your voice reaches the top. Every piece of feedback shapes the work directly — no middlemen filtering your priorities.",
+    featured: false,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
+        <path d="M20 2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4l4 4 4-4h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z" />
+        <path d="M8 10h8M8 14h5" />
+      </svg>
+    ),
+  },
+  {
+    id: "04",
+    title: "Zero jargon, plain English",
+    desc: "We explain everything in language you actually understand. No tech-speak, no acronyms, no confusion.",
+    featured: false,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" />
+        <path d="M8 9h8M8 13h5" />
+      </svg>
+    ),
+  },
+  {
+    id: "05",
+    title: "One agency, all services",
+    desc: "Website, branding, marketing, and video — handled by one team with one shared context. No juggling vendors.",
+    featured: false,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
+        <circle cx="12" cy="12" r="3" />
+        <circle cx="4" cy="6" r="2" />
+        <circle cx="20" cy="6" r="2" />
+        <circle cx="4" cy="18" r="2" />
+        <circle cx="20" cy="18" r="2" />
+        <path d="M6 6.5l4.5 4M17.5 6.5 13 10.5M6 17.5l4.5-4M17.5 17.5 13 13.5" />
+      </svg>
+    ),
+  },
 ];
 
 export default function AboutPage() {
@@ -221,25 +283,92 @@ export default function AboutPage() {
       </section>
 
       {/* ── Why Devzoo ───────────────────────────────────────────── */}
-      <section className="bg-surface-light px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-5xl">
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          {/* Header */}
           <AnimateIn className="mx-auto max-w-3xl text-center">
             <SectionLabel>Why Devzoo</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
-              Why Businesses Choose Devzoo
+            <h2 className="mt-4 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
+              Why businesses{" "}
+              <span className="text-brand">choose us</span>
             </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/50">
+              Five things every client notices — usually within the first week of working with us.
+            </p>
           </AnimateIn>
-          <div className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-2">
-            {reasons.map((reason, i) => (
-              <AnimateIn key={reason} delay={i * 70}>
-                <div className="group flex items-start gap-4 rounded-card border border-surface-dark/8 bg-surface-warm p-5 transition-all duration-200 hover:border-brand/20 hover:bg-white">
-                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-brand/25 bg-brand/8 transition-colors duration-200 group-hover:bg-brand/14">
-                    <svg viewBox="0 0 16 16" fill="none" stroke="#E8470A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
-                      <path d="M3 8l3.5 3.5L13 5" />
-                    </svg>
+
+          {/* Bento grid */}
+          <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {whyItems.map((item, i) => (
+              <AnimateIn
+                key={item.id}
+                delay={i * 80}
+                variant="scale-up"
+                className={item.featured ? "md:col-span-2 lg:col-span-2" : ""}
+              >
+                <article
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-card border transition-all duration-300 ${
+                    item.featured
+                      ? "border-brand/30 bg-surface-dark-2 hover:-translate-y-1 hover:border-brand/55 hover:shadow-[0_20px_60px_-16px_rgba(232,71,10,0.28)]"
+                      : "border-white/8 bg-surface-dark-2 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_12px_40px_-12px_rgba(232,71,10,0.16)]"
+                  } ${item.featured ? "p-8 md:p-10" : "p-7"}`}
+                >
+                  {/* Ambient glow — featured card only */}
+                  {item.featured && (
+                    <>
+                      <div
+                        className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-15 transition-opacity duration-300 group-hover:opacity-30"
+                        style={{ background: "radial-gradient(circle, #E8470A, transparent 70%)" }}
+                        aria-hidden="true"
+                      />
+                      <div
+                        className="pointer-events-none absolute inset-x-0 top-0 h-px transition-opacity duration-300 group-hover:opacity-100"
+                        style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.7) 50%, transparent)" }}
+                        aria-hidden="true"
+                      />
+                    </>
+                  )}
+
+                  <div className="relative z-10 flex flex-1 flex-col">
+                    {/* Top row: number + icon */}
+                    <div className="flex items-start justify-between">
+                      <div
+                        className={`flex items-center justify-center rounded-section border border-brand/20 bg-brand/10 text-brand transition-all duration-300 group-hover:bg-brand/18 group-hover:border-brand/40 ${
+                          item.featured ? "h-14 w-14" : "h-12 w-12"
+                        }`}
+                      >
+                        {item.icon}
+                      </div>
+                      <span className="font-mono text-[11px] font-bold tracking-widest text-white/20 group-hover:text-brand/40 transition-colors duration-300">
+                        {item.id}
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className={`flex flex-1 flex-col ${item.featured ? "mt-8" : "mt-6"}`}>
+                      <h3
+                        className={`font-heading font-bold leading-snug text-white ${
+                          item.featured ? "text-2xl md:text-3xl" : "text-xl"
+                        }`}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className={`mt-3 leading-relaxed text-white/52 ${
+                          item.featured ? "text-base" : "text-sm"
+                        }`}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+
+                    {/* Bottom accent line */}
+                    <div
+                      className="mt-6 h-px w-0 rounded-full bg-brand/50 transition-all duration-500 group-hover:w-full"
+                      aria-hidden="true"
+                    />
                   </div>
-                  <p className="text-sm leading-relaxed text-surface-dark/75">{reason}</p>
-                </div>
+                </article>
               </AnimateIn>
             ))}
           </div>
