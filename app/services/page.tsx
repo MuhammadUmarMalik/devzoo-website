@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
-import AnimateIn from "@/components/ui/AnimateIn";
+import StackingCards from "@/components/ui/StackingCards";
 import PageCTA from "@/components/ui/PageCTA";
 
 export const metadata: Metadata = {
@@ -102,22 +101,6 @@ const services = [
   },
 ];
 
-function CheckIcon({ dark }: { dark?: boolean }) {
-  return (
-    <span
-      className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
-        dark
-          ? "border-brand/25 bg-brand/12 text-brand"
-          : "border-brand/20 bg-brand/8 text-brand"
-      }`}
-    >
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
-        <path d="M3 8l3.5 3.5L13 5" />
-      </svg>
-    </span>
-  );
-}
-
 export default function ServicesPage() {
   return (
     <>
@@ -141,95 +124,9 @@ export default function ServicesPage() {
       </HeroSection>
 
       {/* ── Service cards ────────────────────────────────────────── */}
-      <section className="bg-surface-light px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-6xl space-y-6">
-          {services.map((service, index) => (
-            <AnimateIn key={service.href} delay={index * 80}>
-              <article
-                className={`overflow-hidden rounded-card border transition-all duration-300 ${
-                  index % 2 === 0
-                    ? "border-surface-dark/8 bg-surface-warm hover:border-brand/18 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.1)]"
-                    : "border-surface-dark/8 bg-white hover:border-brand/18 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.1)]"
-                }`}
-              >
-                <div className="grid gap-0 lg:grid-cols-[1fr_320px]">
-                  {/* Main content */}
-                  <div className="p-8 md:p-10">
-                    {/* Icon + title row */}
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-section border border-brand/20 bg-brand/10 text-brand">
-                        {service.icon}
-                      </div>
-                      <h2 className="font-heading text-[26px] font-bold text-surface-dark">
-                        {service.title}
-                      </h2>
-                    </div>
-
-                    <p className="mt-5 text-base leading-relaxed text-surface-dark/70">
-                      {service.body}
-                    </p>
-
-                    {/* Includes grid */}
-                    <div className="mt-7">
-                      <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-surface-dark/40">
-                        What&apos;s Included
-                      </p>
-                      <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                        {service.includes.map((item) => (
-                          <li key={item} className="flex items-start gap-2.5 text-sm text-surface-dark/70">
-                            <CheckIcon />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Extras (tech stack / turnaround) */}
-                    {service.extras && (
-                      <div className="mt-6 flex flex-wrap gap-4">
-                        {service.extras.map((extra) => (
-                          <div key={extra.label} className="rounded-btn border border-surface-dark/10 bg-surface-dark/5 px-3 py-1.5">
-                            <span className="text-[11px] font-semibold uppercase tracking-widest text-surface-dark/40">{extra.label}: </span>
-                            <span className="text-xs text-surface-dark/65">{extra.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Sidebar CTA */}
-                  <div className="relative flex flex-col justify-between overflow-hidden border-t border-surface-dark/8 bg-surface-dark p-8 lg:border-l lg:border-t-0">
-                    {/* Subtle top line */}
-                    <div
-                      className="pointer-events-none absolute inset-x-0 top-0 h-px"
-                      style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.4), transparent)" }}
-                      aria-hidden="true"
-                    />
-                    <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-brand">
-                        Dedicated page
-                      </p>
-                      <p className="mt-3 text-sm leading-relaxed text-white/55">
-                        This service has its own focused page with the same core
-                        message expanded for clients comparing options.
-                      </p>
-                    </div>
-                    <div className="mt-8">
-                      <Link
-                        href={service.href}
-                        className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-white transition-all duration-200 hover:gap-2.5 hover:text-brand"
-                      >
-                        {service.cta}
-                        <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
-                          <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd" />
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </AnimateIn>
-          ))}
+      <section className="px-6 pt-16 pb-48 md:pt-24">
+        <div className="mx-auto max-w-6xl">
+          <StackingCards services={services} />
         </div>
       </section>
 
