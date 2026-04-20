@@ -261,16 +261,16 @@ export default function PricingPage() {
                 aria-hidden="true"
               />
 
-              <div className="relative z-10 grid grid-cols-1 gap-0 lg:grid-cols-2">
+              <div className="relative z-10 grid grid-cols-1 gap-0 md:grid-cols-2">
 
                 {/* ── Left: headline + cta ── */}
-                <div className="flex flex-col justify-center border-b border-white/8 px-8 py-14 lg:border-b-0 lg:border-r lg:px-14 lg:py-16">
+                <div className="flex flex-col justify-center border-b border-white/8 px-8 py-14 md:border-b-0 md:border-r md:px-14 md:py-16">
                   <SectionLabel>Referral Program</SectionLabel>
 
                   {/* Big 10% anchor */}
                   <div className="mt-6 flex items-end gap-3">
                     <span
-                      className="font-heading text-[80px] font-extrabold leading-none md:text-[96px]"
+                      className="font-heading text-[72px] font-extrabold leading-none md:text-[88px] lg:text-[96px]"
                       style={{ color: "#E8470A" }}
                     >
                       10%
@@ -310,7 +310,7 @@ export default function PricingPage() {
                 </div>
 
                 {/* ── Right: 3-step flow ── */}
-                <div className="flex flex-col justify-center gap-0 px-8 py-14 lg:px-14 lg:py-16">
+                <div className="flex flex-col justify-center gap-0 px-8 py-14 md:px-14 md:py-16">
                   <p className="mb-8 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/35">
                     How it works
                   </p>

@@ -75,10 +75,10 @@ export default function StatsShowcase({ stats }: StatsShowcaseProps) {
             }
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.25fr]">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.35fr]">
             <motion.div
               variants={itemVariants}
-              className="relative border-b border-white/8 p-8 md:p-10 lg:border-b-0 lg:border-r"
+              className="relative border-b border-white/8 p-8 md:border-b-0 md:border-r md:p-10"
             >
               <motion.div
                 aria-hidden="true"

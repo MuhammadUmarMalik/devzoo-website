@@ -176,7 +176,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col gap-3 text-xs text-white/28 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2025 Devzoo. All rights reserved.</p>
+          <p>© 2026 Devzoo. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <span className="cursor-default select-none transition-colors duration-200 hover:text-white/50">
               Privacy Policy

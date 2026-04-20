@@ -148,7 +148,7 @@ export default function AboutPage() {
 
       {/* ── Kate Story ──────────────────────────────────────────── */}
       <section className="bg-surface-light px-6 py-24 md:py-32">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:items-start">
+        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1.35fr_0.65fr] md:items-start">
           <AnimateIn>
             <SectionLabel>Why We Started</SectionLabel>
             <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
@@ -212,7 +212,7 @@ export default function AboutPage() {
               Built on trust, clarity, and quality.
             </h2>
           </AnimateIn>
-          <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
             {pillars.map((pillar, i) => (
               <AnimateIn key={pillar.title} delay={i * 100} variant="scale-up">
                 <article className="group relative h-full overflow-hidden rounded-card border border-white/8 bg-surface-dark-2 p-8 transition-all duration-300 hover:border-brand/25 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.18)]">
@@ -245,7 +245,7 @@ export default function AboutPage() {
               Two Founders. One Mission. Your Success.
             </h2>
           </AnimateIn>
-          <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
             {team.map((member, i) => (
               <AnimateIn key={member.name} delay={i * 120}>
                 <article className="relative h-full overflow-hidden rounded-card bg-surface-dark p-8 transition-all duration-300 hover:shadow-[0_12px_40px_-16px_rgba(7,9,12,0.5)]">

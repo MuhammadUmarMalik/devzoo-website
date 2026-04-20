@@ -124,7 +124,7 @@ export default function ServicesPage() {
       </HeroSection>
 
       {/* ── Service cards ────────────────────────────────────────── */}
-      <section className="px-6 pt-16 pb-48 md:pt-24">
+      <section className="px-6 pt-16 pb-16 md:pt-24 lg:pb-48">
         <div className="mx-auto max-w-6xl">
           <StackingCards services={services} />
         </div>

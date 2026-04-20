@@ -7,6 +7,7 @@ import ClientLogoLoop from "@/components/ui/ClientLogoLoop";
 import AnimateIn from "@/components/ui/AnimateIn";
 import StatsShowcase from "@/components/home/StatsShowcase";
 import PageCTA from "@/components/ui/PageCTA";
+import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 
 export const metadata: Metadata = {
   title: {
@@ -139,7 +140,7 @@ export default function HomePage() {
           </div>
 
           {/* Headline */}
-          <h1 className="reveal-fade-up mt-8 font-heading text-[52px] font-extrabold leading-[1.04] text-white [--reveal-delay:80ms] md:text-[76px] lg:text-[92px]">
+          <h1 className="reveal-fade-up mt-8 font-heading text-[38px] font-extrabold leading-[1.04] text-white [--reveal-delay:80ms] sm:text-[52px] md:text-[76px] lg:text-[92px]">
             Your Business.{" "}
             <span className="text-white/35">Digitized.</span>{" "}
             Done Right.
@@ -153,7 +154,7 @@ export default function HomePage() {
           </p>
 
           {/* CTAs */}
-          <div className="reveal-fade-up mt-10 flex flex-col items-center justify-center gap-4 [--reveal-delay:320ms] sm:flex-row">
+          <div className="reveal-fade-up mt-10 flex flex-col items-stretch justify-center gap-4 [--reveal-delay:320ms] sm:flex-row sm:items-center">
             <Button href="/contact" size="lg">
               Book a Free Call
             </Button>
@@ -230,7 +231,7 @@ export default function HomePage() {
             </p>
           </AnimateIn>
 
-          <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {processSteps.map((step, i) => (
               <AnimateIn key={step.number} delay={i * 120} className="relative">
                 <div className="group relative h-full overflow-hidden rounded-card border border-surface-dark/8 bg-surface-warm p-8 transition-all duration-300 hover:border-brand/20 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.14)]">
@@ -273,7 +274,13 @@ export default function HomePage() {
           </AnimateIn>
         </div>
 
-        <AnimateIn delay={120} className="mt-16">
+        {/* ── Mobile / Tablet: auto-scrolling snap carousel (< lg) ── */}
+        <AnimateIn delay={120} className="mx-auto mt-12 max-w-6xl lg:hidden">
+          <TestimonialCarousel testimonials={testimonials} />
+        </AnimateIn>
+
+        {/* ── Desktop: auto-scroll marquee (lg+) ── */}
+        <AnimateIn delay={120} className="mt-16 hidden lg:block">
           <div className="testimonial-marquee-shell mx-auto max-w-350">
             <div className="testimonial-marquee-track">
               {Array.from({ length: 2 }).map((_, groupIndex) => (
@@ -285,7 +292,7 @@ export default function HomePage() {
                   {testimonials.map((testimonial, index) => (
                     <article
                       key={`${testimonial.client}-${groupIndex}-${index}`}
-                      className="testimonial-card group relative flex min-h-[23rem] w-[86vw] max-w-[320px] shrink-0 flex-col justify-between overflow-hidden rounded-card border border-white/10 bg-surface-dark p-5 text-white shadow-[0_30px_80px_-45px_rgba(7,9,12,0.8)] hover:border-brand/35 hover:bg-surface-dark-3 hover:shadow-[0_34px_90px_-42px_rgba(232,71,10,0.34)] sm:w-[320px] sm:p-6 md:min-h-72.5 md:w-90 md:p-7"
+                      className="testimonial-card group relative flex w-[320px] shrink-0 flex-col justify-between overflow-hidden rounded-card border border-white/10 bg-surface-dark p-6 text-white shadow-[0_30px_80px_-45px_rgba(7,9,12,0.8)] hover:border-brand/35 hover:bg-surface-dark-3 hover:shadow-[0_34px_90px_-42px_rgba(232,71,10,0.34)] xl:w-[360px] xl:p-7"
                     >
                       <div
                         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,71,10,0.2),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -315,22 +322,16 @@ export default function HomePage() {
                           ))}
                         </div>
 
-                        <blockquote
-                          className="mt-5 text-[15px] leading-7 text-white/74 transition-colors duration-300 group-hover:text-white/84 sm:mt-6 sm:text-base sm:leading-8 md:text-[17px]"
-                        >
+                        <blockquote className="mt-5 text-[15px] leading-7 text-white/74 transition-colors duration-300 group-hover:text-white/84 xl:text-[17px] xl:leading-8">
                           &ldquo;{testimonial.quote}&rdquo;
                         </blockquote>
                       </div>
 
-                      <div className="relative z-10 mt-6 border-t border-white/8 pt-4 transition-colors duration-300 group-hover:border-brand/20 sm:mt-7 sm:pt-5">
-                        <p
-                          className="font-heading text-base font-bold text-white transition-colors duration-300"
-                        >
+                      <div className="relative z-10 mt-6 border-t border-white/8 pt-4 transition-colors duration-300 group-hover:border-brand/20">
+                        <p className="font-heading text-base font-bold text-white">
                           {testimonial.client}
                         </p>
-                        <p
-                          className="text-sm text-white/42 transition-colors duration-300 group-hover:text-white/54"
-                        >
+                        <p className="text-sm text-white/42 transition-colors duration-300 group-hover:text-white/54">
                           {testimonial.role}
                         </p>
                       </div>

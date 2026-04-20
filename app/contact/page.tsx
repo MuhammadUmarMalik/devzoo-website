@@ -202,7 +202,7 @@ export default function ContactPage() {
       </HeroSection>
 
       <section className="bg-surface-light px-6 py-24 md:py-32">
-        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(300px,0.8fr)]">
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1fr_280px] lg:grid-cols-[minmax(0,1.2fr)_minmax(300px,0.8fr)]">
           <AnimateIn>
             <div className="overflow-hidden rounded-[24px] border border-surface-dark/8 bg-white shadow-[0_24px_80px_-48px_rgba(26,28,34,0.32)]">
               <div className="border-b border-surface-dark/8 bg-surface-warm px-6 py-6 sm:px-8">

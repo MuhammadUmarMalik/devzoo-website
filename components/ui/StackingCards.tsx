@@ -103,7 +103,7 @@ function ServiceCard({ service }: { service: ServiceItem }) {
       </div>
 
       {/* ── Body ── */}
-      <div className="relative z-10 grid grid-cols-1 xl:grid-cols-[1fr_280px]">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_280px]">
 
         {/* Left: description + includes */}
         <div className="px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-10">
@@ -145,7 +145,7 @@ function ServiceCard({ service }: { service: ServiceItem }) {
         </div>
 
         {/* Right: CTA panel */}
-        <div className="relative flex flex-col justify-between overflow-hidden border-t border-white/8 bg-surface-dark-3 px-5 py-6 sm:px-8 sm:py-8 md:px-10 xl:border-l xl:border-t-0">
+        <div className="relative flex flex-col justify-between overflow-hidden border-t border-white/8 bg-surface-dark-3 px-5 py-6 sm:px-8 sm:py-8 md:px-10 lg:border-l lg:border-t-0">
           {/* Vertical brand line */}
           <div
             className="pointer-events-none absolute left-0 inset-y-8 w-px rounded-full"
