@@ -14,6 +14,7 @@ import {
   NavbarButton,
   NavbarLogo,
 } from "@/components/ui/resizable-navbar";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 const navItems = headerNavLinks.map((item) => ({
   name: item.label,
@@ -29,7 +30,7 @@ export default function NavbarDemo() {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="relative z-10 flex items-center gap-3">
-          <NavbarButton variant="primary" href="/contact">
+          <NavbarButton variant="primary" href={CALENDLY_URL}>
             Book a call
           </NavbarButton>
         </div>
@@ -72,7 +73,7 @@ export default function NavbarDemo() {
             </NavbarButton>
             <NavbarButton
               onClick={() => setIsMobileMenuOpen(false)}
-              href="/contact"
+              href={CALENDLY_URL}
               variant="primary"
               className="w-full"
             >

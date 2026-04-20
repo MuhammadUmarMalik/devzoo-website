@@ -5,6 +5,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
   title: {
@@ -104,7 +105,7 @@ export default function GraphicDesignPage() {
         heading="Brand Your Business."
         subtext="Book a free call and we'll shape the visual identity your business should have had from day one."
         primaryLabel="Book a Free Call"
-        primaryHref="/contact"
+        primaryHref={CALENDLY_URL}
         secondaryLabel="See All Services"
         secondaryHref="/services"
       />

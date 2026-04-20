@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { cn } from "@/libs/utils";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 interface PricingTier {
   name: string;
@@ -130,7 +131,9 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
           tier.highlighted ? "border-white/10" : "border-surface-dark/8",
         )}>
           <a
-            href="/contact"
+            href={tier.name === "Enterprise" ? "/contact" : CALENDLY_URL}
+            target={tier.name === "Enterprise" ? undefined : "_blank"}
+            rel={tier.name === "Enterprise" ? undefined : "noopener noreferrer"}
             className={cn(
               "group/btn inline-flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-btn px-6 py-3 font-body text-base font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2",
               tier.highlighted

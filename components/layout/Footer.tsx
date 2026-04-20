@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 const defaultWhatsAppNumber = "923087588850";
 const whatsappNumber =
@@ -80,21 +81,21 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl overflow-hidden px-6 pt-14 pb-10 md:pt-16 md:pb-12">
         <div className="relative">
           {/* Faint background word */}
-          <span
+          {/* <span
             className="pointer-events-none absolute -bottom-4 -right-4 select-none font-heading text-[80px] font-extrabold leading-none text-white/[0.03] sm:text-[120px] md:text-[160px]"
             aria-hidden="true"
           >
             DEVZOO
-          </span>
+          </span> */}
 
-          <p className="relative font-heading text-[28px] font-extrabold leading-[1.1] text-white sm:text-[36px] md:text-[48px] lg:text-[56px]">
+          {/* <p className="relative font-heading text-[28px] font-extrabold leading-[1.1] text-white sm:text-[36px] md:text-[48px] lg:text-[56px]">
             We don&apos;t do average.
           </p>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-white/42 sm:text-base md:mt-4">
             Every project is built from scratch, shipped on time, and handed off clean. That&apos;s just how we work.
-          </p>
-
-          <div className="mt-6 h-px w-full bg-white/6" aria-hidden="true" />
+          </p> */}
+{/* 
+          <div className="mt-6 h-px w-full bg-white/6" aria-hidden="true" /> */}
         </div>
       </div>
 
@@ -109,7 +110,7 @@ export default function Footer() {
               className="inline-block font-heading text-2xl font-bold text-white transition-opacity duration-200 hover:opacity-80"
               aria-label="Devzoo home"
             >
-              Dev<span className="text-brand">zoo</span>
+              DEV<span className="text-brand">ZOO</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/52">
               A modern digital agency delivering clean, fast, and reliable digital solutions for startups, creators, and small businesses.
@@ -193,15 +194,17 @@ export default function Footer() {
               </a>
             </div>
 
-            <Link
-              href="/contact"
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-btn border border-brand/25 bg-brand/10 px-4 py-2 text-sm font-medium text-brand transition-all duration-200 hover:border-brand/50 hover:bg-brand/20 sm:w-auto"
             >
               Book a Free Call
               <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
                 <path fillRule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.25a.75.75 0 0 1 0 1.06l-4.5 4.25a.75.75 0 0 1-1.06-1.06L14.97 8.75H2.75A.75.75 0 0 1 2 8Z" clipRule="evenodd" />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
 

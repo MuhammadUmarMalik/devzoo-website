@@ -28,7 +28,7 @@ export default function WhatsAppFloat() {
           ? "Chat with us on WhatsApp"
           : "Add NEXT_PUBLIC_WHATSAPP_NUMBER to enable direct WhatsApp chat"
       }
-      className="fixed right-4 bottom-4 z-[90] inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/14 bg-[#25D366] text-white shadow-[0_18px_40px_-18px_rgba(37,211,102,0.9)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-18px_rgba(37,211,102,0.95)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 sm:right-6 sm:bottom-6"
+      className="fixed right-4 bottom-4 z-[90] inline-flex h-14 w-14 items-center justify-center rounded-full border border-brand/22 bg-surface-dark text-brand shadow-[0_18px_40px_-18px_rgba(26,28,34,0.72)] transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/45 hover:bg-brand hover:text-white hover:shadow-[0_24px_48px_-18px_rgba(232,71,10,0.48)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:right-6 sm:bottom-6"
     >
       <span className="whatsapp-float-ping" aria-hidden="true" />
       <svg

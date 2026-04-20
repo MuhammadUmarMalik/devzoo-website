@@ -8,6 +8,7 @@ import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import PricingStackingCards from "@/components/ui/PricingStackingCards";
 import JsonLd from "@/components/seo/JsonLd";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
   title: {
@@ -351,7 +352,7 @@ export default function PricingPage() {
         heading="Let's talk numbers. No pitch, no pressure."
         subtext="Book a free 30-minute call and we'll recommend the right plan for your goals, timeline, and budget."
         primaryLabel="Book a Free Call"
-        primaryHref="/contact"
+        primaryHref={CALENDLY_URL}
         secondaryLabel="View Services"
         secondaryHref="/services"
       />

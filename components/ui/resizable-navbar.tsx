@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 import React, { useState } from "react";
 import { cn } from "@/libs/utils";
+import { isExternalHref } from "@/libs/site-links";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -313,6 +314,21 @@ export const NavbarButton = ({
   };
 
   if (href) {
+    if (isExternalHref(href)) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onClick}
+          className={cn(baseStyles, variantStyles[variant], className)}
+          {...(props as Omit<React.ComponentPropsWithoutRef<"a">, "href">)}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link
         href={href}

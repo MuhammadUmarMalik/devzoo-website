@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
 import { cn } from "@/libs/utils";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 interface ServiceItem {
   title: string;
@@ -171,15 +172,17 @@ function ServiceCard({ service }: { service: ServiceItem }) {
           </div>
 
           <div className="relative z-10 mt-8 space-y-3">
-            <Link
-              href="/contact"
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group/btn inline-flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-btn bg-brand px-5 py-3 font-body text-sm font-semibold text-white transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_0_24px_rgba(232,71,10,0.4)]"
             >
               Book a Free Call
               <svg viewBox="0 0 16 16" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" />
               </svg>
-            </Link>
+            </a>
             <Link
               href={service.href}
               className="inline-flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-btn border border-white/10 px-5 py-3 text-sm font-medium text-white/50 transition-all duration-200 hover:border-white/20 hover:text-white/80 sm:hidden"

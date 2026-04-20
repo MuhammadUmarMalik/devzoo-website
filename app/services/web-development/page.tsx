@@ -5,6 +5,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
   title: {
@@ -126,7 +127,7 @@ export default function WebDevelopmentPage() {
         heading="Get Your Website Built."
         subtext="Book a free call and we'll scope the right website for your business, timeline, and budget."
         primaryLabel="Book a Free Call"
-        primaryHref="/contact"
+        primaryHref={CALENDLY_URL}
         secondaryLabel="See Pricing"
         secondaryHref="/pricing"
       />

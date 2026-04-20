@@ -4,6 +4,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import StackingCards from "@/components/ui/StackingCards";
 import PageCTA from "@/components/ui/PageCTA";
 import JsonLd from "@/components/seo/JsonLd";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
   title: {
@@ -172,7 +173,7 @@ export default function ServicesPage() {
         heading="Tell us where you are, and we'll show you the next move."
         subtext="If you're not sure which service fits, book a call and we'll recommend the cleanest path forward."
         primaryLabel="Book a Free Call"
-        primaryHref="/contact"
+        primaryHref={CALENDLY_URL}
         secondaryLabel="View Pricing"
         secondaryHref="/pricing"
       />

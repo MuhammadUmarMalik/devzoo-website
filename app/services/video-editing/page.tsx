@@ -5,6 +5,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
   title: {
@@ -106,7 +107,7 @@ export default function VideoEditingPage() {
         heading="Get Your Videos Edited."
         subtext="Book a free call and we'll turn raw clips into content your audience actually wants to watch."
         primaryLabel="Book a Free Call"
-        primaryHref="/contact"
+        primaryHref={CALENDLY_URL}
         secondaryLabel="See All Services"
         secondaryHref="/services"
       />

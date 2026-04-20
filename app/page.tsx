@@ -20,6 +20,7 @@ import PageCTA from "@/components/ui/PageCTA";
 import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
   title: {
@@ -216,7 +217,7 @@ export default function HomePage() {
 
           {/* CTAs */}
           <div className="reveal-fade-up mt-10 flex flex-col items-stretch justify-center gap-4 [--reveal-delay:320ms] sm:flex-row sm:items-center">
-            <Button href="/contact" size="lg">
+            <Button href={CALENDLY_URL} size="lg">
               Book a Free Call
             </Button>
             <Button href="/portfolio" variant="secondary" size="lg">
@@ -480,7 +481,7 @@ export default function HomePage() {
         heading="Don't let your business get left behind."
         subtext="Clean websites, sharper branding, and smarter marketing built to move your business forward."
         primaryLabel="Book a Free Call"
-        primaryHref="/contact"
+        primaryHref={CALENDLY_URL}
         secondaryLabel="Learn more"
         secondaryHref="/services"
       />
