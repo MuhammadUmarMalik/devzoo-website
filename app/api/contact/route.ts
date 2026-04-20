@@ -2,7 +2,10 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-// Field max lengths to prevent abuse
+const DEFAULT_GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbwYD25hnUPH0Q1O-H3ixhncc5wna0AXWVl6EQbn6PgOBHoeoapzD05FO9uL8kLFXpcImQ/exec";
+const DEFAULT_GOOGLE_SHEETS_SECRET = "devzoo-secret-2026";
+
 const MAX_LENGTHS = {
   name: 120,
   email: 254,
@@ -61,6 +64,7 @@ type LeadRecord = {
   message: string;
   page: string;
   userAgent: string;
+  secret: string;
 };
 
 function asCleanString(value: unknown, maxLen: number) {
@@ -68,13 +72,13 @@ function asCleanString(value: unknown, maxLen: number) {
   return value.trim().slice(0, maxLen);
 }
 
-// RFC 5322-aligned regex — requires proper TLD (2+ chars), no consecutive dots
 function isValidEmail(email: string) {
-  return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(email);
+  return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(
+    email
+  );
 }
 
 export async function POST(request: Request) {
-  // Validate Content-Type
   const contentType = request.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) {
     return NextResponse.json(
@@ -94,11 +98,13 @@ export async function POST(request: Request) {
     );
   }
 
-  // Honeypot — bots fill the hidden website field
   const website = asCleanString(payload.website, MAX_LENGTHS.website);
   if (website) {
     return NextResponse.json({ message: "Submitted." });
   }
+
+  const webhookSecret =
+    process.env.GOOGLE_SHEETS_WEBHOOK_SECRET ?? DEFAULT_GOOGLE_SHEETS_SECRET;
 
   const lead: LeadRecord = {
     submittedAt: new Date().toISOString(),
@@ -110,10 +116,14 @@ export async function POST(request: Request) {
     service: asCleanString(payload.service, MAX_LENGTHS.service),
     timeline: asCleanString(payload.timeline, MAX_LENGTHS.timeline),
     budget: asCleanString(payload.budget, MAX_LENGTHS.budget),
-    preferredContact: asCleanString(payload.preferredContact, MAX_LENGTHS.preferredContact),
+    preferredContact: asCleanString(
+      payload.preferredContact,
+      MAX_LENGTHS.preferredContact
+    ),
     message: asCleanString(payload.message, MAX_LENGTHS.message),
     page: "/contact",
     userAgent: request.headers.get("user-agent") ?? "",
+    secret: webhookSecret,
   };
 
   const fieldErrors: Record<string, string> = {};
@@ -126,7 +136,6 @@ export async function POST(request: Request) {
     fieldErrors.email = "Enter a valid email.";
   }
 
-  // Validate against allowlists to prevent injection of arbitrary values
   if (!lead.service || !ALLOWED_SERVICES.includes(lead.service)) {
     fieldErrors.service = "Choose a service.";
   }
@@ -135,7 +144,10 @@ export async function POST(request: Request) {
     fieldErrors.timeline = "Choose a timeline.";
   }
 
-  if (!lead.preferredContact || !ALLOWED_CONTACT.includes(lead.preferredContact)) {
+  if (
+    !lead.preferredContact ||
+    !ALLOWED_CONTACT.includes(lead.preferredContact)
+  ) {
     fieldErrors.preferredContact = "Choose a contact method.";
   }
 
@@ -153,35 +165,42 @@ export async function POST(request: Request) {
     );
   }
 
-  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
-  const webhookSecret = process.env.GOOGLE_SHEETS_WEBHOOK_SECRET;
-
-  if (!webhookUrl) {
-    return NextResponse.json(
-      {
-        message:
-          "Lead storage is not configured yet. Add GOOGLE_SHEETS_WEBHOOK_URL to enable Google Sheets sync.",
-      },
-      { status: 503 }
-    );
-  }
+  const webhookUrl =
+    process.env.GOOGLE_SHEETS_WEBHOOK_URL ??
+    DEFAULT_GOOGLE_SHEETS_WEBHOOK_URL;
 
   try {
-    // Send secret in Authorization header — never expose it in the URL
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...(webhookSecret ? { Authorization: `Bearer ${webhookSecret}` } : {}),
       },
       body: JSON.stringify(lead),
       cache: "no-store",
+      redirect: "follow",
     });
 
-    if (!response.ok) {
+    const responseText = await response.text();
+    let responseData: { status?: string; message?: string } | null = null;
+
+    try {
+      responseData = responseText
+        ? (JSON.parse(responseText) as { status?: string; message?: string })
+        : null;
+    } catch {
+      responseData = null;
+    }
+
+    if (!response.ok || responseData?.status === "error") {
+      console.error("Google Sheets webhook failed", {
+        status: response.status,
+        body: responseText.slice(0, 400),
+      });
+
       return NextResponse.json(
         {
           message:
+            responseData?.message ||
             "Your message could not be stored right now. Please try again in a moment.",
         },
         { status: 502 }
@@ -192,7 +211,9 @@ export async function POST(request: Request) {
       message:
         "Thanks. Your brief has been saved and we will get back to you within one business day.",
     });
-  } catch {
+  } catch (error) {
+    console.error("Google Sheets webhook request error", error);
+
     return NextResponse.json(
       {
         message:

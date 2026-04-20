@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import { isExternalHref } from "@/libs/site-links";
 
 type Variant = "primary" | "secondary";
 type Size = "sm" | "md" | "lg";
@@ -39,6 +40,14 @@ export default function Button({
   const base = `inline-flex cursor-pointer items-center justify-center font-body font-medium rounded-btn transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   if (href) {
+    if (isExternalHref(href)) {
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={base}>
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={base}>
         {children}

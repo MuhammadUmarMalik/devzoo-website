@@ -2,7 +2,7 @@
 
 @theme {
   /* Brand colors */
-  --color-brand: #E8470A;
+  --color-brand:#E8470A ;
   --color-brand-hover: #FF6B2B;
   --color-surface-dark: #1A1C22;
   --color-surface-dark-2: #252830;
@@ -462,7 +462,7 @@ samp {
   position: absolute;
   inset: -6px;
   border-radius: 9999px;
-  border: 1px solid rgb(37 211 102 / 0.26);
+  border: 1px solid rgb(232 71 10 / 0.24);
   opacity: 0.75;
   animation: whatsapp-pulse 2.2s ease-out infinite;
 }
