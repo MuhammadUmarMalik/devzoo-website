@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
+const DEFAULT_GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbwYD25hnUPH0Q1O-H3ixhncc5wna0AXWVl6EQbn6PgOBHoeoapzD05FO9uL8kLFXpcImQ/exec";
+
 // Field max lengths to prevent abuse
 const MAX_LENGTHS = {
   name: 120,
@@ -153,18 +156,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+  const webhookUrl =
+    process.env.GOOGLE_SHEETS_WEBHOOK_URL ??
+    DEFAULT_GOOGLE_SHEETS_WEBHOOK_URL;
   const webhookSecret = process.env.GOOGLE_SHEETS_WEBHOOK_SECRET;
-
-  if (!webhookUrl) {
-    return NextResponse.json(
-      {
-        message:
-          "Lead storage is not configured yet. Add GOOGLE_SHEETS_WEBHOOK_URL to enable Google Sheets sync.",
-      },
-      { status: 503 }
-    );
-  }
 
   try {
     // Send secret in Authorization header — never expose it in the URL
