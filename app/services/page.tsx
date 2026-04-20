@@ -3,6 +3,7 @@ import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import StackingCards from "@/components/ui/StackingCards";
 import PageCTA from "@/components/ui/PageCTA";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: {
@@ -11,6 +12,13 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo offers website development, digital marketing, graphic design, and video editing for startups, creators, and small businesses. One agency. Everything digital. Done right.",
+  alternates: { canonical: "https://www.thedevzoo.com/services" },
+  openGraph: {
+    title: "Our Services | Devzoo",
+    description:
+      "Website development, digital marketing, graphic design, and video editing. One agency. Everything digital. Done right.",
+    url: "https://www.thedevzoo.com/services",
+  },
 };
 
 const services = [
@@ -104,6 +112,34 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Devzoo Services",
+          url: "https://www.thedevzoo.com/services",
+          description:
+            "Website development, digital marketing, graphic design, and video editing services for startups and small businesses.",
+          provider: { "@id": "https://www.thedevzoo.com/#organization" },
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://www.thedevzoo.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: "https://www.thedevzoo.com/services",
+              },
+            ],
+          },
+        }}
+      />
       <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Services</SectionLabel>

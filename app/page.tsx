@@ -9,6 +9,7 @@ import StatsShowcase from "@/components/home/StatsShowcase";
 import PageCTA from "@/components/ui/PageCTA";
 import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 import BrandTicker from "@/components/ui/BrandTicker";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: {
@@ -16,6 +17,13 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo is a modern digital agency delivering clean websites, digital marketing, graphic design, and video editing for startups and small businesses. No shortcuts. No jargon. Just results.",
+  alternates: { canonical: "https://www.thedevzoo.com" },
+  openGraph: {
+    title: "Devzoo | Website Development, Digital Marketing & Design Agency",
+    description:
+      "Clean websites, smart marketing, sharp design. Devzoo handles everything your business needs to grow online.",
+    url: "https://www.thedevzoo.com",
+  },
 };
 
 const services = [
@@ -129,6 +137,48 @@ const testimonials = [
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Devzoo — Digital Agency for Startups & Small Businesses",
+          url: "https://www.thedevzoo.com",
+          description:
+            "Devzoo delivers clean websites, digital marketing, graphic design, and video editing for startups, creators, and small businesses in the US, UK, UAE, and Pakistan.",
+          publisher: { "@id": "https://www.thedevzoo.com/#organization" },
+          about: { "@id": "https://www.thedevzoo.com/#organization" },
+          mainEntity: {
+            "@type": "ItemList",
+            name: "Devzoo Services",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Website Development",
+                url: "https://www.thedevzoo.com/services/web-development",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Digital Marketing",
+                url: "https://www.thedevzoo.com/services/digital-marketing",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Graphic Design",
+                url: "https://www.thedevzoo.com/services/graphic-design",
+              },
+              {
+                "@type": "ListItem",
+                position: 4,
+                name: "Video Editing",
+                url: "https://www.thedevzoo.com/services/video-editing",
+              },
+            ],
+          },
+        }}
+      />
       {/* ── HERO ──────────────────────────────────────────────── */}
       <HeroSection className="flex min-h-svh items-center py-24">
         <div className="mx-auto max-w-5xl text-center">

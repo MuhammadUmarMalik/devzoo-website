@@ -7,35 +7,20 @@ import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
+import { caseStudies } from "@/lib/case-studies";
 
 const categories = ["All", "Web Development", "Digital Marketing", "Graphic Design", "Video Editing"];
 
-const projects = [
-  {
-    slug: "powerschool",
-    title: "PowerSchool",
-    category: "Web Development",
-    description:
-      "A unified platform website for the world's leading K-12 EdTech company. 60M+ students, 140+ countries.",
-    tags: ["EdTech", "SaaS", "AI Integration", "Enterprise"],
-    thumbnail: null,
-    accent: "#E8470A",
-  },
-  {
-    slug: "field-engineer",
-    title: "Field Engineer",
-    category: "Web Development",
-    description:
-      "A global B2B marketplace connecting 75,000+ vetted engineers with businesses across 200+ countries.",
-    tags: ["Marketplace", "Web App", "API Integration", "Mobile-Ready"],
-    thumbnail:
-      "https://cdn.prod.website-files.com/5b6df8bb681f89ec20b48f37/5bad00b3f68e8b74d9581a4e_business-homepage-feature-01-screenshot%403x.png",
-    accent: "#E8470A",
-  },
-];
-
 export default function PortfolioPage() {
   const [active, setActive] = useState("All");
+  const projects = caseStudies.map((caseStudy) => ({
+    slug: caseStudy.slug,
+    title: caseStudy.client,
+    category: caseStudy.category,
+    description: caseStudy.cardDescription,
+    tags: caseStudy.tags,
+    thumbnail: caseStudy.heroImage ?? caseStudy.screenshots?.[0]?.src ?? null,
+  }));
 
   const filtered =
     active === "All" ? projects : projects.filter((p) => p.category === active);
@@ -49,8 +34,8 @@ export default function PortfolioPage() {
             Work we&apos;re proud to put our name on
           </h1>
           <p className="mt-6 text-base leading-relaxed text-white/60 md:text-lg">
-            Real projects for real businesses. Every case study shows the
-            problem, the approach, and the result.
+            A mix of live project examples and researched reference case studies
+            for the kind of work we want Devzoo to be known for.
           </p>
         </div>
       </HeroSection>

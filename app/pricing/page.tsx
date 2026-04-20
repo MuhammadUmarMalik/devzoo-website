@@ -6,6 +6,8 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
+import PricingStackingCards from "@/components/ui/PricingStackingCards";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: {
@@ -13,6 +15,13 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo offers flexible pricing for website development, digital marketing, graphic design, and video editing. Book a free call and get a custom quote for your project.",
+  alternates: { canonical: "https://www.thedevzoo.com/pricing" },
+  openGraph: {
+    title: "Pricing | Devzoo",
+    description:
+      "Starter from $300. Growth from $800. Enterprise custom. No hidden fees — get a custom quote on your free call.",
+    url: "https://www.thedevzoo.com/pricing",
+  },
 };
 
 const tiers = [
@@ -85,17 +94,41 @@ const faqs = [
   },
 ];
 
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5 shrink-0" aria-hidden="true">
-      <path d="M3 8l3.5 3.5L13 5" stroke="currentColor" />
-    </svg>
-  );
-}
-
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer,
+          },
+        })),
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Devzoo",
+        "url": "https://www.thedevzoo.com/pricing",
+        "priceRange": "$300 – Custom",
+        "description": "Flexible pricing for website development, digital marketing, graphic design, and video editing. Starting from $300.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Devzoo Service Packages",
+          "itemListElement": tiers.map((tier, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "name": tier.name,
+            "description": tier.bestFor,
+            "price": tier.price,
+            "priceCurrency": "USD",
+          })),
+        },
+      }} />
       <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Pricing</SectionLabel>
@@ -112,128 +145,8 @@ export default function PricingPage() {
 
       {/* ── Pricing tiers ───────────────────────────────────────── */}
       <section className="bg-surface-light px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-            {tiers.map((tier, i) => (
-              <AnimateIn key={tier.name} delay={i * 100} variant="scale-up">
-                <article
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-card p-8 transition-all duration-300 ${
-                    tier.highlighted
-                      ? "border-2 border-brand bg-surface-dark shadow-[0_16px_48px_-16px_rgb(232_71_10/0.35)] hover:-translate-y-2 hover:shadow-[0_24px_56px_-12px_rgba(232,71,10,0.45)]"
-                      : "border border-surface-dark/10 bg-surface-warm hover:-translate-y-2 hover:border-brand/30 hover:shadow-[0_16px_40px_-12px_rgba(232,71,10,0.14)]"
-                  }`}
-                >
-                  {tier.highlighted && (
-                    <>
-                      {/* Glow layer — brightens on card hover */}
-                      <div
-                        className="pointer-events-none absolute inset-0 opacity-40 transition-opacity duration-300 group-hover:opacity-65"
-                        style={{ background: "radial-gradient(circle at top right, rgba(232,71,10,0.26), transparent 55%)" }}
-                        aria-hidden="true"
-                      />
-                      {/* Top shimmer */}
-                      <div
-                        className="pointer-events-none absolute inset-x-0 top-0 h-px"
-                        style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.8) 50%, transparent)" }}
-                        aria-hidden="true"
-                      />
-                    </>
-                  )}
-
-                  <div className="relative z-10 flex flex-1 flex-col">
-                    {tier.highlighted && (
-                      <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full border border-brand/30 bg-brand/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-brand">
-                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand" aria-hidden="true" />
-                        Most Popular
-                      </span>
-                    )}
-
-                    <h2
-                      className={`font-heading text-3xl font-bold ${
-                        tier.highlighted ? "text-white" : "text-surface-dark"
-                      }`}
-                    >
-                      {tier.name}
-                    </h2>
-
-                    <p
-                      className={`mt-3 font-heading text-2xl font-extrabold ${
-                        tier.highlighted ? "text-white" : "text-surface-dark"
-                      }`}
-                    >
-                      {tier.price}
-                    </p>
-
-                    <p
-                      className={`mt-4 text-sm leading-relaxed ${
-                        tier.highlighted ? "text-white/60" : "text-surface-dark/62"
-                      }`}
-                    >
-                      <span className="font-semibold">Best for:</span> {tier.bestFor}
-                    </p>
-
-                    {/* Divider */}
-                    <div
-                      className={`my-6 h-px ${
-                        tier.highlighted ? "bg-white/10" : "bg-surface-dark/8"
-                      }`}
-                    />
-
-                    {/* Feature list */}
-                    <ul className="space-y-2.5">
-                      {tier.includes.map((item) => (
-                        <li
-                          key={item}
-                          className={`flex items-start gap-2.5 text-sm ${
-                            tier.highlighted ? "text-white/72" : "text-surface-dark/70"
-                          }`}
-                        >
-                          <span
-                            className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-colors duration-200 ${
-                              tier.highlighted
-                                ? "border border-brand/30 bg-brand/15 text-brand"
-                                : "border border-brand/20 bg-brand/8 text-brand group-hover:bg-brand/15"
-                            }`}
-                          >
-                            <CheckIcon />
-                          </span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Button pushed to bottom */}
-                    <div className="mt-auto pt-8">
-                      <a
-                        href="/contact"
-                        className={`group/btn inline-flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-btn px-6 py-3 font-body text-base font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 ${
-                          tier.highlighted
-                            ? "bg-brand text-white hover:bg-brand-hover hover:shadow-[0_0_28px_rgba(232,71,10,0.5)]"
-                            : "border border-surface-dark/20 bg-transparent text-surface-dark hover:border-brand hover:text-brand"
-                        }`}
-                      >
-                        <span>
-                          {tier.name === "Enterprise" ? "Get a Custom Quote" : "Book a Free Call"}
-                        </span>
-                        {/* Arrow slides in on hover */}
-                        <svg
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-4 w-4 -translate-x-1 opacity-0 transition-all duration-200 group-hover/btn:translate-x-0 group-hover/btn:opacity-100"
-                          aria-hidden="true"
-                        >
-                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-              </AnimateIn>
-            ))}
-          </div>
+        <div className="mx-auto max-w-4xl">
+          <PricingStackingCards tiers={tiers} />
         </div>
       </section>
 

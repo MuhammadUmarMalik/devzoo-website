@@ -4,14 +4,20 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Website Development Services | Fast, Custom & Built to Convert | Devzoo",
+    absolute: "Website Development Services | Fast, Custom & Built to Convert | Devzoo",
   },
   description:
     "Devzoo builds fast, custom websites for startups and small businesses. No templates. Mobile-first. Optimised for speed, SEO, and conversions. Book a free call today.",
+  alternates: { canonical: "https://www.thedevzoo.com/services/web-development" },
+  openGraph: {
+    title: "Website Development Services | Devzoo",
+    description: "Fast, custom websites built to convert. No templates, no shortcuts. Mobile-first and SEO-ready.",
+    url: "https://www.thedevzoo.com/services/web-development",
+  },
 };
 
 const included = [
@@ -28,6 +34,31 @@ const included = [
 export default function WebDevelopmentPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Website Development",
+        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
+        "url": "https://www.thedevzoo.com/services/web-development",
+        "description": "Custom website development for startups and small businesses. Mobile-first, SEO-optimised, fast-loading. Built on WordPress, Webflow, or React/Next.js.",
+        "serviceType": "Website Development",
+        "areaServed": ["US", "GB", "AE", "PK"],
+        "offers": {
+          "@type": "Offer",
+          "price": "300",
+          "priceCurrency": "USD",
+          "description": "Starting from $300 for a 5-page website. 14-day turnaround.",
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Website Development Inclusions",
+          "itemListElement": included.map((item, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "itemOffered": { "@type": "Service", "name": item },
+          })),
+        },
+      }} />
       <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Website Development</SectionLabel>

@@ -12,6 +12,14 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+type ApproachStep = {
+  title: string;
+  body: string;
+  icon: React.ReactNode;
+  screenshot?: string;
+  screenshotAlt?: string;
+};
+
 export async function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
 }
@@ -20,9 +28,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cs = getCaseStudy(slug);
   if (!cs) return { title: "Case Study Not Found" };
+  const url = `https://www.thedevzoo.com/portfolio/${slug}`;
   return {
     title: { absolute: `${cs.client} Case Study | Devzoo` },
     description: cs.cardDescription,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${cs.client} Case Study | Devzoo`,
+      description: cs.cardDescription,
+      url,
+    },
   };
 }
 
@@ -31,7 +46,35 @@ export default async function CaseStudyPage({ params }: Props) {
   const cs = getCaseStudy(slug);
   if (!cs) notFound();
 
-  const hasAnyScreenshot = cs.approach.some((s) => s.screenshot);
+  const approachSteps: ApproachStep[] =
+    cs.approach.length >= 4
+      ? cs.approach
+      : [
+          ...cs.approach,
+          {
+            title: "Measurement and refinement",
+            body: "Once the core experience was in place, the final layer focused on improving clarity, tightening the handoff between content and conversion, and making the system easier to scale over time.",
+            icon: (
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-6 w-6"
+                aria-hidden="true"
+              >
+                <path d="M3 3v18h18" />
+                <path d="m7 15 4-4 3 3 5-6" />
+              </svg>
+            ),
+            screenshot: undefined,
+            screenshotAlt: undefined,
+          },
+        ];
+
+  const hasAnyScreenshot = approachSteps.some((step) => step.screenshot);
   const displayUrl = cs.liveUrl
     ? cs.liveUrl.replace(/^https?:\/\//, "")
     : cs.client.toLowerCase().replace(/\s+/g, "") + ".com";
@@ -180,14 +223,14 @@ export default async function CaseStudyPage({ params }: Props) {
               How we built it
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/45">
-              {cs.approach.length} distinct layers, each solving a specific problem on the platform.
+              {approachSteps.length} distinct layers, each solving a specific problem on the platform.
             </p>
           </AnimateIn>
 
           {hasAnyScreenshot ? (
             /* Mixed layout: screenshot steps = split panel, plain steps = full-width */
             <div className="mt-16 space-y-5">
-              {cs.approach.map((step, i) => {
+              {approachSteps.map((step, i) => {
                 const isEven = i % 2 === 0;
                 return (
                   <AnimateIn key={step.title} delay={i * 60}>
@@ -266,7 +309,7 @@ export default async function CaseStudyPage({ params }: Props) {
           ) : (
             /* Uniform 2-col card grid when no screenshots at all */
             <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2">
-              {cs.approach.map((step, i) => (
+              {approachSteps.map((step, i) => (
                 <AnimateIn key={step.title} delay={i * 70} variant="scale-up">
                   <article className="group relative flex h-full flex-col overflow-hidden rounded-card border border-white/8 bg-surface-dark-2 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_12px_40px_-12px_rgba(232,71,10,0.2)]">
                     <div

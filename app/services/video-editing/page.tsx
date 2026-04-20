@@ -4,6 +4,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: {
@@ -11,6 +12,12 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo edits reels, explainer videos, YouTube content, and ads for creators, coaches, and businesses. Content that gets watched, shared, and remembered.",
+  alternates: { canonical: "https://www.thedevzoo.com/services/video-editing" },
+  openGraph: {
+    title: "Video Editing Services | Devzoo",
+    description: "Reels, YouTube content, explainer videos, and ads. Raw footage turned into content that actually gets watched.",
+    url: "https://www.thedevzoo.com/services/video-editing",
+  },
 };
 
 const included = [
@@ -26,6 +33,25 @@ const included = [
 export default function VideoEditingPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Video Editing",
+        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
+        "url": "https://www.thedevzoo.com/services/video-editing",
+        "description": "Professional video editing for Instagram Reels, TikTok, YouTube long-form and Shorts, explainer videos, ad creatives, captions, colour grading, and sound design.",
+        "serviceType": "Video Editing",
+        "areaServed": ["US", "GB", "AE", "PK"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Video Editing Services",
+          "itemListElement": included.map((item, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "itemOffered": { "@type": "Service", "name": item },
+          })),
+        },
+      }} />
       <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Video Editing</SectionLabel>

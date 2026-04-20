@@ -4,14 +4,20 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
+import WhyStackingCards from "@/components/ui/WhyStackingCards";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "About Devzoo | The Digital Agency Built for Startups & Small Businesses",
+    absolute: "About Devzoo | Digital Agency Founded by Ehtasham, Umar & Awais",
   },
   description:
-    "Meet the team behind Devzoo. Founded by Ehtasham ul Haq and Muhammad Umar Malik, we're a modern digital agency delivering clean, reliable digital solutions with zero shortcuts.",
+    "Meet the three founders of Devzoo — Ehtasham ul Haq (CEO), Muhammad Umar Malik (CTO), and Awais Hassan. A modern digital agency delivering clean websites, marketing, and design with zero shortcuts.",
+  alternates: { canonical: "https://www.thedevzoo.com/about" },
+  openGraph: {
+    title: "About Devzoo | Digital Agency for Startups & Small Businesses",
+    description: "Three founders. One mission. Clean digital work built around your business, not our convenience.",
+    url: "https://www.thedevzoo.com/about",
+  },
 };
 
 const pillars = [
@@ -55,8 +61,13 @@ const team = [
   },
   {
     name: "Muhammad Umar Malik",
-    role: "Co-Founder & COO",
-    bio: "Umar drives Devzoo's operations, delivery standards, and team execution. He's the one making sure projects are running on time, communication is clear, and clients always know exactly where their project stands.",
+    role: "Co-Founder & CTO",
+    bio: "Umar drives Devzoo's technical direction, delivery standards, and team execution. He's the one making sure projects are running on time, communication is clear, and clients always know exactly where their project stands.",
+  },
+  {
+    name: "Awais Hassan",
+    role: "Co-Founder",
+    bio: "Awais brings creative direction and business development to Devzoo. His focus is on ensuring every client engagement starts with the right strategy and ends with a result that genuinely moves the needle.",
   },
 ];
 
@@ -247,49 +258,86 @@ export default function AboutPage() {
       {/* ── Team ─────────────────────────────────────────────────── */}
       <section className="bg-surface-warm px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
+          {/* Split header */}
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <AnimateIn className="max-w-xl">
               <SectionLabel>Meet the Team</SectionLabel>
               <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-surface-dark sm:text-[34px] md:text-[44px]">
-                Two Founders.<br className="hidden sm:block" /> One Mission.
+                Three Founders.<br className="hidden sm:block" /> One Mission.
               </h2>
             </AnimateIn>
             <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
               <p className="text-sm leading-relaxed text-surface-dark/50 md:text-base">
-                Small team. No middlemen. You always know who you&apos;re talking to.
+                Small team. No middlemen. You always know exactly who you&apos;re talking to.
               </p>
             </AnimateIn>
           </div>
-          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+
+          {/* Stagger cards */}
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-3">
             {team.map((member, i) => (
-              <AnimateIn key={member.name} delay={i * 120}>
-                <article className="relative h-full overflow-hidden rounded-card bg-surface-dark p-8 transition-all duration-300 hover:shadow-[0_12px_40px_-16px_rgba(7,9,12,0.5)]">
-                  {/* Subtle top accent */}
+              <AnimateIn key={member.name} delay={i * 130} variant="scale-up">
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-card bg-surface-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_56px_-16px_rgba(7,9,12,0.7)]">
+
+                  {/* Top shimmer */}
                   <div
-                    className="absolute inset-x-8 top-0 h-px"
-                    style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.45), transparent)" }}
+                    className="pointer-events-none absolute inset-x-0 top-0 h-px opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.7) 50%, transparent)" }}
                     aria-hidden="true"
                   />
-                  <div className="flex items-start gap-5">
-                    {/* Avatar with glow ring */}
-                    <div className="relative shrink-0">
-                      <div className="absolute inset-0 rounded-full bg-brand/25 blur-md" aria-hidden="true" />
-                      <div className="relative flex h-16 w-16 items-center justify-center rounded-full border border-brand/35 bg-surface-dark-2 font-heading text-2xl font-bold text-brand">
+
+                  {/* Ambient glow on hover */}
+                  <div
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{ background: "radial-gradient(circle at top right, rgba(232,71,10,0.1), transparent 60%)" }}
+                    aria-hidden="true"
+                  />
+
+                  {/* Giant initial watermark */}
+                  <span
+                    className="pointer-events-none absolute -bottom-3 -right-3 select-none font-heading text-[110px] font-extrabold leading-none text-white/[0.04] transition-colors duration-300 group-hover:text-brand/[0.07]"
+                    aria-hidden="true"
+                  >
+                    {member.name[0]}
+                  </span>
+
+                  <div className="relative z-10 flex flex-1 flex-col p-7">
+
+                    {/* Index badge */}
+                    <span className="mb-5 font-mono text-[11px] font-bold tracking-[0.2em] text-white/20">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    {/* Avatar */}
+                    <div className="relative mb-5 w-fit">
+                      <div className="absolute inset-0 rounded-full bg-brand/30 blur-lg" aria-hidden="true" />
+                      <div className="relative flex h-[60px] w-[60px] items-center justify-center rounded-full border border-brand/40 bg-surface-dark-2 font-heading text-2xl font-extrabold text-brand">
                         {member.name[0]}
                       </div>
                     </div>
-                    <div>
-                      <h3 className="font-heading text-xl font-bold text-white">
-                        {member.name}
-                      </h3>
-                      <p className="mt-1 inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-brand/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-brand">
-                        {member.role}
-                      </p>
-                    </div>
+
+                    {/* Name + role */}
+                    <h3 className="font-heading text-xl font-bold leading-snug text-white">
+                      {member.name}
+                    </h3>
+                    <span className="mt-2 inline-flex w-fit items-center rounded-full border border-brand/25 bg-brand/10 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-brand">
+                      {member.role}
+                    </span>
+
+                    {/* Divider */}
+                    <div className="my-5 h-px bg-white/8" />
+
+                    {/* Bio */}
+                    <p className="flex-1 text-sm leading-relaxed text-white/52">
+                      {member.bio}
+                    </p>
+
+                    {/* Bottom brand line slides in */}
+                    <div
+                      className="mt-6 h-[2px] w-0 rounded-full bg-brand/40 transition-[width] duration-500 group-hover:w-full"
+                      aria-hidden="true"
+                    />
                   </div>
-                  <p className="mt-6 text-sm leading-relaxed text-white/62">
-                    {member.bio}
-                  </p>
                 </article>
               </AnimateIn>
             ))}
@@ -319,80 +367,8 @@ export default function AboutPage() {
             </AnimateIn>
           </div>
 
-          {/* Bento grid */}
-          <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {whyItems.map((item, i) => (
-              <AnimateIn
-                key={item.id}
-                delay={i * 80}
-                variant="scale-up"
-                className={item.featured ? "md:col-span-2 lg:col-span-2" : ""}
-              >
-                <article
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-card border transition-all duration-300 ${
-                    item.featured
-                      ? "border-brand/30 bg-surface-dark-2 hover:-translate-y-1 hover:border-brand/55 hover:shadow-[0_20px_60px_-16px_rgba(232,71,10,0.28)]"
-                      : "border-white/8 bg-surface-dark-2 hover:-translate-y-1 hover:border-brand/25 hover:shadow-[0_12px_40px_-12px_rgba(232,71,10,0.16)]"
-                  } ${item.featured ? "p-8 md:p-10" : "p-7"}`}
-                >
-                  {/* Ambient glow — featured card only */}
-                  {item.featured && (
-                    <>
-                      <div
-                        className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-15 transition-opacity duration-300 group-hover:opacity-30"
-                        style={{ background: "radial-gradient(circle, #E8470A, transparent 70%)" }}
-                        aria-hidden="true"
-                      />
-                      <div
-                        className="pointer-events-none absolute inset-x-0 top-0 h-px transition-opacity duration-300 group-hover:opacity-100"
-                        style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.7) 50%, transparent)" }}
-                        aria-hidden="true"
-                      />
-                    </>
-                  )}
-
-                  <div className="relative z-10 flex flex-1 flex-col">
-                    {/* Top row: number + icon */}
-                    <div className="flex items-start justify-between">
-                      <div
-                        className={`flex items-center justify-center rounded-section border border-brand/20 bg-brand/10 text-brand transition-all duration-300 group-hover:bg-brand/18 group-hover:border-brand/40 ${
-                          item.featured ? "h-14 w-14" : "h-12 w-12"
-                        }`}
-                      >
-                        {item.icon}
-                      </div>
-                      <span className="font-mono text-[11px] font-bold tracking-widest text-white/20 group-hover:text-brand/40 transition-colors duration-300">
-                        {item.id}
-                      </span>
-                    </div>
-
-                    {/* Content */}
-                    <div className={`flex flex-1 flex-col ${item.featured ? "mt-8" : "mt-6"}`}>
-                      <h3
-                        className={`font-heading font-bold leading-snug text-white ${
-                          item.featured ? "text-2xl md:text-3xl" : "text-xl"
-                        }`}
-                      >
-                        {item.title}
-                      </h3>
-                      <p
-                        className={`mt-3 leading-relaxed text-white/52 ${
-                          item.featured ? "text-base" : "text-sm"
-                        }`}
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
-
-                    {/* Bottom accent line */}
-                    <div
-                      className="mt-6 h-px w-0 rounded-full bg-brand/50 transition-all duration-500 group-hover:w-full"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </article>
-              </AnimateIn>
-            ))}
+          <div className="mt-14">
+            <WhyStackingCards items={whyItems} />
           </div>
         </div>
       </section>

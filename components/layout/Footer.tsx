@@ -84,7 +84,7 @@ export default function Footer() {
             className="pointer-events-none absolute -bottom-4 -right-4 select-none font-heading text-[80px] font-extrabold leading-none text-white/[0.03] sm:text-[120px] md:text-[160px]"
             aria-hidden="true"
           >
-            Devzoo
+            DEVZOO
           </span>
 
           <p className="relative font-heading text-[28px] font-extrabold leading-[1.1] text-white sm:text-[36px] md:text-[48px] lg:text-[56px]">
@@ -212,12 +212,15 @@ export default function Footer() {
         <div className="mt-6 flex flex-col gap-3 text-xs text-white/28 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Devzoo. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <span className="cursor-default select-none transition-colors duration-200 hover:text-white/50">
+            <Link href="/privacy-policy" className="transition-colors duration-200 hover:text-white/60">
               Privacy Policy
-            </span>
-            <span className="cursor-default select-none transition-colors duration-200 hover:text-white/50">
-              Terms of Service
-            </span>
+            </Link>
+            <Link href="/terms" className="transition-colors duration-200 hover:text-white/60">
+              Terms &amp; Conditions
+            </Link>
+            <Link href="/disclaimer" className="transition-colors duration-200 hover:text-white/60">
+              Disclaimer
+            </Link>
           </div>
         </div>
       </div>

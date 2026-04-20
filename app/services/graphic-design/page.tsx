@@ -4,14 +4,20 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Graphic Design Services | Logo, Brand Identity & Visual Design | Devzoo",
+    absolute: "Graphic Design Services | Logo, Brand Identity & Visual Design | Devzoo",
   },
   description:
     "Devzoo creates logos, brand identities, social media graphics, and marketing materials for startups and small businesses. Visuals that make your brand impossible to ignore.",
+  alternates: { canonical: "https://www.thedevzoo.com/services/graphic-design" },
+  openGraph: {
+    title: "Graphic Design Services | Devzoo",
+    description: "Logos, brand identities, and visuals that make your business impossible to ignore.",
+    url: "https://www.thedevzoo.com/services/graphic-design",
+  },
 };
 
 const included = [
@@ -25,6 +31,25 @@ const included = [
 export default function GraphicDesignPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Graphic Design",
+        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
+        "url": "https://www.thedevzoo.com/services/graphic-design",
+        "description": "Logo design, full brand identity, social media graphic templates, marketing materials, and packaging design for startups and small businesses.",
+        "serviceType": "Graphic Design",
+        "areaServed": ["US", "GB", "AE", "PK"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Graphic Design Services",
+          "itemListElement": included.map((item, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "itemOffered": { "@type": "Service", "name": item },
+          })),
+        },
+      }} />
       <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Graphic Design</SectionLabel>
