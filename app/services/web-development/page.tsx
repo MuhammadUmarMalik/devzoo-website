@@ -1,121 +1,135 @@
 import type { Metadata } from "next";
-import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
+import AnimateIn from "@/components/ui/AnimateIn";
+import PageCTA from "@/components/ui/PageCTA";
+import BrandTicker from "@/components/ui/BrandTicker";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Website Development",
+  title: {
+    absolute: "Website Development Services | Fast, Custom & Built to Convert | Devzoo",
+  },
   description:
-    "Custom websites and web apps — fast, clean, and built to convert. Starting from $300.",
+    "Devzoo builds fast, custom websites for startups and small businesses. No templates. Mobile-first. Optimised for speed, SEO, and conversions. Book a free call today.",
+  alternates: { canonical: "https://www.thedevzoo.com/services/web-development" },
+  openGraph: {
+    title: "Website Development Services | Devzoo",
+    description: "Fast, custom websites built to convert. No templates, no shortcuts. Mobile-first and SEO-ready.",
+    url: "https://www.thedevzoo.com/services/web-development",
+  },
 };
 
 const included = [
-  { title: "Custom design", description: "No templates. Built around your brand, your audience, and your goals." },
-  { title: "Mobile-first", description: "Every page looks and works perfectly on phones, tablets, and desktops." },
-  { title: "Performance optimized", description: "Fast load times from day one — good for users, good for SEO." },
-  { title: "CMS setup", description: "Update content yourself without touching code. We train you to use it." },
-  { title: "On-page SEO", description: "Proper headings, meta tags, image alt text, and structured data." },
-  { title: "Full ownership", description: "You own the code, the domain, and the hosting. We hand over everything." },
+  "Custom design (no templates)",
+  "Mobile-first development",
+  "Fast load speed optimization",
+  "On-page SEO setup",
+  "Contact forms & lead capture",
+  "CMS integration (easy to update)",
+  "2 rounds of revisions",
+  "30-day post-launch support",
 ];
-
-const stack = ["Next.js", "React", "WordPress", "Webflow", "TypeScript", "Tailwind CSS"];
 
 export default function WebDevelopmentPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Website Development",
+        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
+        "url": "https://www.thedevzoo.com/services/web-development",
+        "description": "Custom website development for startups and small businesses. Mobile-first, SEO-optimised, fast-loading. Built on WordPress, Webflow, or React/Next.js.",
+        "serviceType": "Website Development",
+        "areaServed": ["US", "GB", "AE", "PK"],
+        "offers": {
+          "@type": "Offer",
+          "price": "300",
+          "priceCurrency": "USD",
+          "description": "Starting from $300 for a 5-page website. 14-day turnaround.",
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Website Development Inclusions",
+          "itemListElement": included.map((item, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "itemOffered": { "@type": "Service", "name": item },
+          })),
+        },
+      }} />
+      <HeroSection>
+        <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Website Development</SectionLabel>
-          <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
-            A website that works as hard as you do
+          <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
+            Your Website Should Work as Hard as You Do.
           </h1>
-          <p className="mt-6 text-base md:text-lg font-body text-white/60 leading-relaxed">
-            Fast, clean, and built to convert. We don&apos;t just build websites
-            — we build tools for your business.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            Slow load times and clunky navigation cost you clients every day.
+            We build websites that load fast, look clean, and are designed to
+            turn visitors into customers. No templates, no shortcuts.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button href="/contact" size="lg">Get a Quote</Button>
-            <Button href="/portfolio" variant="secondary" size="lg">See Examples</Button>
-          </div>
         </div>
-      </section>
+      </HeroSection>
 
-      {/* What's included */}
-      <section className="bg-surface-light py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <SectionLabel>What&apos;s Included</SectionLabel>
-            <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2">
-              Everything to go live, properly
-            </h2>
+      <section className="bg-surface-light px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-5xl">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>What&apos;s Included</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-surface-dark sm:text-[34px] md:text-[44px]">
+                Everything you need.<br className="hidden sm:block" /> Nothing you don&apos;t.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-surface-dark/50 md:text-base">
+                Every item below is included by default — no hidden extras, no upsell surprises.
+              </p>
+            </AnimateIn>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {included.map((item) => (
-              <div key={item.title} className="bg-surface-warm rounded-card p-6">
-                <div className="w-6 h-6 rounded-chip bg-brand flex items-center justify-center mb-4">
-                  <span className="text-white text-xs">✓</span>
+          <div className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {included.map((item, i) => (
+              <AnimateIn key={item} delay={i * 50}>
+                <div className="group flex items-start gap-3.5 rounded-card border border-surface-dark/8 bg-surface-warm px-5 py-4 transition-all duration-200 hover:border-brand/20 hover:bg-white">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-brand/25 bg-brand/10 text-brand">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
+                      <path d="M3 8l3.5 3.5L13 5" />
+                    </svg>
+                  </span>
+                  <p className="text-sm leading-relaxed text-surface-dark/75">{item}</p>
                 </div>
-                <h3 className="font-heading font-bold text-lg text-surface-dark mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm font-body text-surface-dark/60 leading-relaxed">
-                  {item.description}
-                </p>
+              </AnimateIn>
+            ))}
+          </div>
+
+          <AnimateIn delay={120}>
+            <aside className="mt-8 rounded-section border border-surface-dark/8 bg-surface-warm px-7 py-5">
+              <div className="flex flex-wrap gap-6 text-sm">
+                <div>
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-surface-dark/40">Tech Stack: </span>
+                  <span className="text-surface-dark/70">WordPress · Webflow · React / Next.js</span>
+                </div>
+                <div>
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-surface-dark/40">Turnaround: </span>
+                  <span className="text-surface-dark/70">Standard 5-page website: 14 days</span>
+                </div>
               </div>
-            ))}
-          </div>
+            </aside>
+          </AnimateIn>
         </div>
       </section>
 
-      {/* Stack */}
-      <section className="bg-surface-dark py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs font-heading font-semibold uppercase tracking-widest text-white/30 mb-6">
-            Technologies We Use
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {stack.map((tech) => (
-              <span
-                key={tech}
-                className="text-sm font-body text-white/60 bg-surface-dark-2 px-4 py-2 rounded-chip"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="bg-surface-warm py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <SectionLabel>Pricing</SectionLabel>
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2 mb-4">
-            Starting from $300
-          </h2>
-          <p className="text-base font-body text-surface-dark/60 leading-relaxed mb-8">
-            Every project gets a fixed quote after our discovery call. No
-            hourly billing, no scope creep surprises.
-          </p>
-          <Button href="/pricing">View Full Pricing</Button>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white">
-            Let&apos;s build it
-          </h2>
-          <p className="mt-4 text-base font-body text-white/60 leading-relaxed">
-            Book a free 30-minute call. Walk away with a clear scope and a
-            realistic quote.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">Book a Free Call</Button>
-          </div>
-        </div>
-      </section>
+      <BrandTicker />
+      <PageCTA
+        badge="Ready to Build?"
+        heading="Get Your Website Built."
+        subtext="Book a free call and we'll scope the right website for your business, timeline, and budget."
+        primaryLabel="Book a Free Call"
+        primaryHref="/contact"
+        secondaryLabel="See Pricing"
+        secondaryHref="/pricing"
+      />
     </>
   );
 }

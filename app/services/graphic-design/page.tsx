@@ -1,95 +1,113 @@
 import type { Metadata } from "next";
-import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
+import AnimateIn from "@/components/ui/AnimateIn";
+import PageCTA from "@/components/ui/PageCTA";
+import BrandTicker from "@/components/ui/BrandTicker";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Graphic Design",
+  title: {
+    absolute: "Graphic Design Services | Logo, Brand Identity & Visual Design | Devzoo",
+  },
   description:
-    "Brand identity, social graphics, and marketing materials that make your business look the part.",
+    "Devzoo creates logos, brand identities, social media graphics, and marketing materials for startups and small businesses. Visuals that make your brand impossible to ignore.",
+  alternates: { canonical: "https://www.thedevzoo.com/services/graphic-design" },
+  openGraph: {
+    title: "Graphic Design Services | Devzoo",
+    description: "Logos, brand identities, and visuals that make your business impossible to ignore.",
+    url: "https://www.thedevzoo.com/services/graphic-design",
+  },
 };
 
-const deliverables = [
-  { title: "Logo & Brand Identity", description: "Primary logo, color palette, typography, and usage guidelines — everything you need to look consistent everywhere." },
-  { title: "Social Media Graphics", description: "Post templates, story formats, and cover images sized right for each platform." },
-  { title: "Marketing Materials", description: "Flyers, brochures, pitch decks, and banners built to your spec." },
-  { title: "Brand Style Guide", description: "A clear reference doc so your whole team stays on-brand, every time." },
+const included = [
+  "Logo Design",
+  "Full Brand Identity (colors, fonts, guidelines)",
+  "Social Media Graphic Templates",
+  "Marketing Materials (flyers, brochures, presentations)",
+  "Packaging Design",
 ];
 
 export default function GraphicDesignPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Graphic Design",
+        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
+        "url": "https://www.thedevzoo.com/services/graphic-design",
+        "description": "Logo design, full brand identity, social media graphic templates, marketing materials, and packaging design for startups and small businesses.",
+        "serviceType": "Graphic Design",
+        "areaServed": ["US", "GB", "AE", "PK"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Graphic Design Services",
+          "itemListElement": included.map((item, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "itemOffered": { "@type": "Service", "name": item },
+          })),
+        },
+      }} />
+      <HeroSection>
+        <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Graphic Design</SectionLabel>
-          <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
-            Look like a business people trust
+          <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
+            Make Your Brand Impossible to Ignore.
           </h1>
-          <p className="mt-6 text-base md:text-lg font-body text-white/60 leading-relaxed">
-            Sharp, clean design that reflects what you actually are —
-            professional, reliable, and worth hiring.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            Inconsistent visuals damage trust. A poorly designed logo tells
+            clients you don&apos;t take your business seriously. At Devzoo, we
+            create visual identities that make people stop, look, and remember.
+            From your logo to your social media graphics to your marketing
+            materials, everything designed with purpose.
           </p>
-          <div className="mt-10">
-            <Button href="/contact" size="lg">Start a Design Project</Button>
-          </div>
         </div>
-      </section>
+      </HeroSection>
 
-      {/* Deliverables */}
-      <section className="bg-surface-light py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <SectionLabel>What We Deliver</SectionLabel>
-            <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2">
-              Assets you&apos;ll actually use
-            </h2>
+      <section className="bg-surface-light px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-5xl">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>What&apos;s Included</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-surface-dark sm:text-[34px] md:text-[44px]">
+                Design systems that make<br className="hidden sm:block" /> your business look serious.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-surface-dark/50 md:text-base">
+                Every deliverable is built to work across digital, print, and social — not just look good in a PDF.
+              </p>
+            </AnimateIn>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {deliverables.map((d) => (
-              <div key={d.title} className="bg-surface-warm rounded-card p-8">
-                <h3 className="font-heading font-bold text-xl text-surface-dark mb-3">
-                  {d.title}
-                </h3>
-                <p className="text-sm font-body text-surface-dark/60 leading-relaxed">
-                  {d.description}
-                </p>
-              </div>
+          <div className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {included.map((item, i) => (
+              <AnimateIn key={item} delay={i * 50}>
+                <div className="group flex items-start gap-3.5 rounded-card border border-surface-dark/8 bg-surface-warm px-5 py-4 transition-all duration-200 hover:border-brand/20 hover:bg-white">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-brand/25 bg-brand/10 text-brand">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
+                      <path d="M3 8l3.5 3.5L13 5" />
+                    </svg>
+                  </span>
+                  <p className="text-sm leading-relaxed text-surface-dark/75">{item}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto">
-          <SectionLabel>Our Approach</SectionLabel>
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white mt-2 mb-6">
-            Clean, flat, purposeful
-          </h2>
-          <p className="text-base font-body text-white/60 leading-relaxed">
-            We design for clarity, not awards. No gradients, no clutter, no
-            trends that age in six months. Every visual decision has a reason —
-            usually to make you look more credible, more approachable, or easier
-            to choose.
-          </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-warm py-24 md:py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark">
-            Ready to level up your visuals?
-          </h2>
-          <p className="mt-4 text-base font-body text-surface-dark/60 leading-relaxed">
-            Share what you have and where you want to go — we&apos;ll scope a
-            design package that fits.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">Get a Quote</Button>
-          </div>
-        </div>
-      </section>
+      <BrandTicker />
+      <PageCTA
+        badge="Ready to Brand?"
+        heading="Brand Your Business."
+        subtext="Book a free call and we'll shape the visual identity your business should have had from day one."
+        primaryLabel="Book a Free Call"
+        primaryHref="/contact"
+        secondaryLabel="See All Services"
+        secondaryHref="/services"
+      />
     </>
   );
 }

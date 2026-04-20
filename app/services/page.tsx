@@ -1,130 +1,181 @@
 import type { Metadata } from "next";
-import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
-import Link from "next/link";
+import StackingCards from "@/components/ui/StackingCards";
+import PageCTA from "@/components/ui/PageCTA";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: {
+    absolute:
+      "Our Services | Website Development, Digital Marketing, Design & Video | Devzoo",
+  },
   description:
-    "Website development, digital marketing, graphic design, and video editing — delivered by one focused team.",
+    "Devzoo offers website development, digital marketing, graphic design, and video editing for startups, creators, and small businesses. One agency. Everything digital. Done right.",
+  alternates: { canonical: "https://www.thedevzoo.com/services" },
+  openGraph: {
+    title: "Our Services | Devzoo",
+    description:
+      "Website development, digital marketing, graphic design, and video editing. One agency. Everything digital. Done right.",
+    url: "https://www.thedevzoo.com/services",
+  },
 };
 
 const services = [
   {
     title: "Website Development",
-    description:
-      "From landing pages to full web apps — we build sites that are fast, clean, and built to convert. Every project is mobile-first and handed over to you with full ownership.",
-    deliverables: ["Custom design", "Mobile-responsive", "CMS setup", "SEO foundation"],
+    body:
+      "Slow load times and clunky navigation cost you clients every day. Your website is your most important sales tool. It needs to perform. We build websites that load fast, look clean, and are designed to turn visitors into customers.",
+    includes: [
+      "Custom design (no templates)",
+      "Mobile-first development",
+      "Fast load speed optimization",
+      "On-page SEO setup",
+      "Contact forms & lead capture",
+      "CMS integration",
+      "2 rounds of revisions",
+      "30-day post-launch support",
+    ],
+    extras: [
+      { label: "Tech Stack", value: "WordPress · Webflow · React / Next.js" },
+      { label: "Turnaround", value: "Standard 5-page website: 14 days" },
+    ],
     href: "/services/web-development",
-    from: "$300",
+    cta: "Get Your Website Built — Book a Free Call",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
+        <path d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+      </svg>
+    ),
   },
   {
     title: "Digital Marketing",
-    description:
-      "Reach the right audience and turn traffic into revenue. We run SEO, paid ads, social media, and content campaigns that fit your budget and your goals.",
-    deliverables: ["SEO & content", "Google / Meta ads", "Social media", "Monthly reports"],
+    body:
+      "In a crowded digital world, the businesses that win are the ones that show up, consistently, strategically, and in the right places. We build marketing strategies that cut through the noise, connect with your audience, and turn clicks into real customers. No guesswork. No vanity metrics. Just growth.",
+    includes: [
+      "SEO (on-page + technical + local)",
+      "Social Media Management",
+      "PPC Advertising (Google + Meta)",
+      "Content Strategy",
+      "Monthly Performance Reports",
+      "Competitor Analysis",
+    ],
     href: "/services/digital-marketing",
-    from: "$400/mo",
+    cta: "Grow Your Business Online — Book a Free Call",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
+        <path d="M2.25 18 9 11.25l4.306 4.307a11.95 11.95 0 0 1 5.814-5.519l2.74-1.22m0 0-5.94-2.28m5.94 2.28-2.28 5.941" />
+      </svg>
+    ),
   },
   {
     title: "Graphic Design",
-    description:
-      "First impressions matter. We create brand identities, social graphics, and marketing materials that look sharp and communicate clearly.",
-    deliverables: ["Logo & brand kit", "Social templates", "Print-ready files", "Style guide"],
+    body:
+      "Inconsistent visuals damage trust. A poorly designed logo tells clients you don't take your business seriously. At Devzoo, we create visual identities that make people stop, look, and remember. From your logo to your social media graphics to your marketing materials, everything designed with purpose.",
+    includes: [
+      "Logo Design",
+      "Full Brand Identity (colors, fonts, guidelines)",
+      "Social Media Graphic Templates",
+      "Marketing Materials (flyers, brochures, presentations)",
+      "Packaging Design",
+    ],
     href: "/services/graphic-design",
-    from: "$150",
+    cta: "Brand Your Business — Book a Free Call",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
+        <path d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+      </svg>
+    ),
   },
   {
     title: "Video Editing",
-    description:
-      "Video that stops the scroll. We edit reels, ads, YouTube content, and explainer videos — fast turnaround, brand-consistent output.",
-    deliverables: ["Reels & shorts", "YouTube videos", "Ad creatives", "Captions & B-roll"],
+    body:
+      "Most businesses have footage sitting on a hard drive going nowhere. Video is the highest-performing content format on every platform, but only when it's edited well. We turn your raw footage into polished, engaging content that actually gets watched and drives action.",
+    includes: [
+      "Instagram & TikTok Reels",
+      "YouTube Long-Form Videos",
+      "YouTube Shorts",
+      "Explainer Videos & Ad Creatives",
+      "Captions & Subtitles",
+      "Color Grading & Sound Design",
+    ],
     href: "/services/video-editing",
-    from: "$100/video",
+    cta: "Get Your Videos Edited — Book a Free Call",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
+        <path d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+      </svg>
+    ),
   },
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Devzoo Services",
+          url: "https://www.thedevzoo.com/services",
+          description:
+            "Website development, digital marketing, graphic design, and video editing services for startups and small businesses.",
+          provider: { "@id": "https://www.thedevzoo.com/#organization" },
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://www.thedevzoo.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: "https://www.thedevzoo.com/services",
+              },
+            ],
+          },
+        }}
+      />
+      <HeroSection>
+        <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Services</SectionLabel>
-          <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
-            Everything your business needs to grow online
+          <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
+            One Agency. Everything Digital.
           </h1>
-          <p className="mt-6 text-base md:text-lg font-body text-white/60 leading-relaxed">
-            One team. Four disciplines. No handoffs to freelancers you&apos;ve
-            never met.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            From building your first website to managing your social media to
+            designing your brand identity. Devzoo handles every part of your
+            digital presence, so you don&apos;t have to juggle vendors.
           </p>
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-white/50 md:text-base">
+            Our services are built for everyone, from day-one startups to
+            established businesses ready to scale. No matter your size, we take
+            your goals seriously and deliver work that makes a real difference.
+          </p>
+        </div>
+      </HeroSection>
+
+      {/* ── Service cards ────────────────────────────────────────── */}
+      <section className="px-6 pt-16 pb-16 md:pt-24 lg:pb-48">
+        <div className="mx-auto max-w-6xl">
+          <StackingCards services={services} />
         </div>
       </section>
 
-      {/* Services list */}
-      <section className="bg-surface-light py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto space-y-8">
-          {services.map((s, i) => (
-            <div
-              key={s.href}
-              className={`rounded-card p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start ${
-                i % 2 === 0 ? "bg-surface-warm" : "bg-surface-light border border-surface-dark/8"
-              }`}
-            >
-              <div className="flex-1">
-                <h2 className="font-heading font-bold text-[22px] md:text-[28px] text-surface-dark mb-3">
-                  {s.title}
-                </h2>
-                <p className="text-base font-body text-surface-dark/60 leading-relaxed mb-5">
-                  {s.description}
-                </p>
-                <ul className="flex flex-wrap gap-2">
-                  {s.deliverables.map((d) => (
-                    <li
-                      key={d}
-                      className="text-xs font-body font-medium bg-surface-dark/8 text-surface-dark/70 px-3 py-1 rounded-chip"
-                    >
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="md:text-right shrink-0">
-                <p className="text-xs font-body text-surface-dark/40 uppercase tracking-wider mb-1">
-                  From
-                </p>
-                <p className="font-heading font-extrabold text-3xl text-surface-dark mb-4">
-                  {s.from}
-                </p>
-                <Link
-                  href={s.href}
-                  className="inline-flex items-center gap-2 text-sm font-body font-medium text-brand hover:text-brand-hover transition-colors duration-200"
-                >
-                  See details →
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white">
-            Not sure what you need?
-          </h2>
-          <p className="mt-4 text-base font-body text-white/60 leading-relaxed">
-            Tell us where you are and where you want to go. We&apos;ll recommend
-            a realistic path.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">
-              Book a Free Call
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* ── Bottom CTA ───────────────────────────────────────────── */}
+      <PageCTA
+        badge="Not Sure Where to Start?"
+        heading="Tell us where you are, and we'll show you the next move."
+        subtext="If you're not sure which service fits, book a call and we'll recommend the cleanest path forward."
+        primaryLabel="Book a Free Call"
+        primaryHref="/contact"
+        secondaryLabel="View Pricing"
+        secondaryHref="/pricing"
+      />
     </>
   );
 }

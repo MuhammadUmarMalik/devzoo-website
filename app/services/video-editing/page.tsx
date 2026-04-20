@@ -1,99 +1,115 @@
 import type { Metadata } from "next";
-import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
+import AnimateIn from "@/components/ui/AnimateIn";
+import PageCTA from "@/components/ui/PageCTA";
+import BrandTicker from "@/components/ui/BrandTicker";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Video Editing",
+  title: {
+    absolute: "Video Editing Services | Reels, Ads & YouTube Content | Devzoo",
+  },
   description:
-    "Reels, ads, YouTube videos, and explainers — edited fast, delivered brand-consistent.",
+    "Devzoo edits reels, explainer videos, YouTube content, and ads for creators, coaches, and businesses. Content that gets watched, shared, and remembered.",
+  alternates: { canonical: "https://www.thedevzoo.com/services/video-editing" },
+  openGraph: {
+    title: "Video Editing Services | Devzoo",
+    description: "Reels, YouTube content, explainer videos, and ads. Raw footage turned into content that actually gets watched.",
+    url: "https://www.thedevzoo.com/services/video-editing",
+  },
 };
 
-const formats = [
-  { title: "Reels & Short-Form", description: "Vertical video optimized for Instagram, TikTok, and YouTube Shorts — hooks in the first three seconds." },
-  { title: "YouTube Videos", description: "Long-form editing with intro, transitions, B-roll, captions, and thumbnail design." },
-  { title: "Ad Creatives", description: "Punchy video ads for Meta and Google — built around your offer and your audience." },
-  { title: "Explainer Videos", description: "Walk prospects through your product or service in under two minutes." },
+const included = [
+  "Instagram & TikTok Reels",
+  "YouTube Long-Form Videos",
+  "YouTube Shorts",
+  "Explainer Videos",
+  "Ad Creatives",
+  "Captions & Subtitles",
+  "Color Grading & Sound Design",
 ];
 
 export default function VideoEditingPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Video Editing",
+        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
+        "url": "https://www.thedevzoo.com/services/video-editing",
+        "description": "Professional video editing for Instagram Reels, TikTok, YouTube long-form and Shorts, explainer videos, ad creatives, captions, colour grading, and sound design.",
+        "serviceType": "Video Editing",
+        "areaServed": ["US", "GB", "AE", "PK"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Video Editing Services",
+          "itemListElement": included.map((item, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "itemOffered": { "@type": "Service", "name": item },
+          })),
+        },
+      }} />
+      <HeroSection>
+        <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Video Editing</SectionLabel>
-          <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
-            Video that stops the scroll
+          <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
+            Raw Footage Doesn&apos;t Grow Businesses. Great Video Does.
           </h1>
-          <p className="mt-6 text-base md:text-lg font-body text-white/60 leading-relaxed">
-            Fast turnaround, brand-consistent editing for businesses that need
-            content without the production headache.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            Most businesses have footage sitting on a hard drive going nowhere.
+            Video is the highest-performing content format on every platform -
+            but only when it&apos;s edited well. We turn your raw footage into
+            polished, engaging content that actually gets watched and drives
+            action.
           </p>
-          <div className="mt-10">
-            <Button href="/contact" size="lg">Get a Video Quote</Button>
-          </div>
         </div>
-      </section>
+      </HeroSection>
 
-      {/* Formats */}
-      <section className="bg-surface-light py-24 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <SectionLabel>Formats We Edit</SectionLabel>
-            <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2">
-              Whatever platform. Whatever length.
-            </h2>
+      <section className="bg-surface-light px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-5xl">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>What&apos;s Included</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-surface-dark sm:text-[34px] md:text-[44px]">
+                Content built to be watched,<br className="hidden sm:block" /> shared, and remembered.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-surface-dark/50 md:text-base">
+                Every video we deliver is cut for attention — designed to work on Reels, YouTube, and ads.
+              </p>
+            </AnimateIn>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {formats.map((f) => (
-              <div key={f.title} className="bg-surface-warm rounded-card p-8">
-                <h3 className="font-heading font-bold text-xl text-surface-dark mb-3">
-                  {f.title}
-                </h3>
-                <p className="text-sm font-body text-surface-dark/60 leading-relaxed">
-                  {f.description}
-                </p>
-              </div>
+          <div className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {included.map((item, i) => (
+              <AnimateIn key={item} delay={i * 50}>
+                <div className="group flex items-start gap-3.5 rounded-card border border-surface-dark/8 bg-surface-warm px-5 py-4 transition-all duration-200 hover:border-brand/20 hover:bg-white">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-brand/25 bg-brand/10 text-brand">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3" aria-hidden="true">
+                      <path d="M3 8l3.5 3.5L13 5" />
+                    </svg>
+                  </span>
+                  <p className="text-sm leading-relaxed text-surface-dark/75">{item}</p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* What you send us */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto">
-          <SectionLabel>How It Works</SectionLabel>
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white mt-2 mb-8">
-            Send raw footage. Get polished video.
-          </h2>
-          <div className="space-y-4">
-            {["Send us your raw clips, voiceover, or script", "We edit, add music, captions, and B-roll", "You review and request one round of changes", "Final file delivered within 48–72 hours"].map((step, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <span className="font-heading font-extrabold text-brand text-lg w-6 shrink-0">
-                  {i + 1}
-                </span>
-                <p className="text-base font-body text-white/70 leading-relaxed">{step}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-warm py-24 md:py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark">
-            Ready to start posting?
-          </h2>
-          <p className="mt-4 text-base font-body text-surface-dark/60 leading-relaxed">
-            Tell us your platform, format, and volume — we&apos;ll quote you a
-            per-video or monthly rate.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">Get a Quote</Button>
-          </div>
-        </div>
-      </section>
+      <BrandTicker />
+      <PageCTA
+        badge="Ready to Publish?"
+        heading="Get Your Videos Edited."
+        subtext="Book a free call and we'll turn raw clips into content your audience actually wants to watch."
+        primaryLabel="Book a Free Call"
+        primaryHref="/contact"
+        secondaryLabel="See All Services"
+        secondaryHref="/services"
+      />
     </>
   );
 }

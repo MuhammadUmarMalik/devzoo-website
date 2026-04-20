@@ -23,8 +23,8 @@ const variantStyles: Record<Variant, string> = {
 
 const sizeStyles: Record<Size, string> = {
   sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg",
+  md: "px-5 py-2.5 text-sm sm:px-6 sm:py-3 sm:text-base",
+  lg: "px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg",
 };
 
 export default function Button({
@@ -36,7 +36,7 @@ export default function Button({
   type = "button",
   className = "",
 }: ButtonProps) {
-  const base = `inline-flex items-center justify-center font-body font-medium rounded-btn transition-all duration-200 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  const base = `inline-flex cursor-pointer items-center justify-center font-body font-medium rounded-btn transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   if (href) {
     return (

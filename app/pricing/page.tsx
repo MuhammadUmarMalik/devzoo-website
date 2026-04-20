@@ -1,233 +1,360 @@
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
+import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
+import AnimateIn from "@/components/ui/AnimateIn";
+import FaqAccordion from "@/components/ui/FaqAccordion";
+import PageCTA from "@/components/ui/PageCTA";
+import BrandTicker from "@/components/ui/BrandTicker";
+import PricingStackingCards from "@/components/ui/PricingStackingCards";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: {
+    absolute: "Pricing | Flexible Digital Solutions for Every Budget | Devzoo",
+  },
   description:
-    "Clear, fixed pricing for websites, marketing, and design. Starter from $300, Growth from $800, Enterprise custom.",
+    "Devzoo offers flexible pricing for website development, digital marketing, graphic design, and video editing. Book a free call and get a custom quote for your project.",
+  alternates: { canonical: "https://www.thedevzoo.com/pricing" },
+  openGraph: {
+    title: "Pricing | Devzoo",
+    description:
+      "Starter from $300. Growth from $800. Enterprise custom. No hidden fees — get a custom quote on your free call.",
+    url: "https://www.thedevzoo.com/pricing",
+  },
 };
 
 const tiers = [
   {
     name: "Starter",
-    price: "$300",
-    priceNote: "starting from",
-    description:
-      "For founders and creators who need a clean, professional online presence fast.",
-    features: [
-      "Up to 5 pages",
-      "Mobile-responsive design",
-      "Contact form",
-      "Basic SEO setup",
-      "2 rounds of revisions",
-      "Delivered in 7–10 days",
+    price: "Starting from $300",
+    bestFor: "New businesses, solopreneurs, and creators just starting out",
+    includes: [
+      "5-page website",
+      "OR brand identity package",
+      "OR 4 edited videos",
+      "OR 1-month social media management",
     ],
-    cta: "Get Started",
-    highlighted: false,
   },
   {
     name: "Growth",
-    price: "$800",
-    priceNote: "starting from",
-    description:
-      "For businesses ready to invest in a site that actively generates leads and sales.",
-    features: [
-      "Up to 10 pages",
-      "Custom design & animations",
-      "Blog or portfolio setup",
-      "On-page SEO",
-      "Google Analytics setup",
-      "3 rounds of revisions",
-      "Delivered in 14–21 days",
+    price: "Starting from $800",
+    bestFor: "Growing businesses ready to invest in a complete digital presence",
+    includes: [
+      "Website + Brand Identity",
+      "1-month Digital Marketing",
+      "OR Website + Video Package",
+      "SEO setup included",
     ],
-    cta: "Get Started",
     highlighted: true,
   },
   {
     name: "Enterprise",
-    price: "Custom",
-    priceNote: "tailored to your project",
-    description:
-      "For larger builds — web apps, e-commerce, multi-language sites, or ongoing retainers.",
-    features: [
-      "Unlimited pages",
-      "Custom functionality",
-      "CMS integration",
-      "Performance optimization",
-      "Ongoing support available",
-      "Dedicated project manager",
-      "Timeline by scope",
+    price: "Custom Quote",
+    bestFor: "Established businesses needing comprehensive ongoing digital support",
+    includes: [
+      "Full digital presence management",
+      "Website, marketing & design",
+      "Video, SEO & paid ads",
+      "Monthly performance reporting",
     ],
-    cta: "Let's Talk",
-    highlighted: false,
   },
 ];
 
 const faqs = [
   {
-    q: "Do you charge extra for revisions?",
-    a: "Each package includes a set number of revision rounds. Additional rounds are billed at a flat rate agreed upfront — never a surprise.",
+    question: "Do you require full payment upfront?",
+    answer:
+      "No. We require 50% at the start and the remaining 50% upon delivery. For larger projects, we can arrange milestone-based payments.",
   },
   {
-    q: "What do I need to provide to get started?",
-    a: "Brand assets (logo, colors), copy if you have it, and examples of sites you like. We guide you through everything else on the discovery call.",
+    question: "How long does a typical project take?",
+    answer:
+      "A standard 5-page website takes 14 days. Brand identity packages take 7-10 days. Digital marketing and video editing are ongoing monthly services. Timelines are confirmed before work begins.",
   },
   {
-    q: "How does payment work?",
-    a: "50% deposit to start, 50% on delivery. We accept bank transfer, Payoneer, and Wise for international clients.",
+    question: "Do you work with international clients?",
+    answer:
+      "Yes. We work with clients in the USA, UK, UAE, and across Pakistan. We accept international payments via Payoneer and Wise.",
   },
   {
-    q: "Do you offer ongoing support after launch?",
-    a: "Yes. We offer monthly maintenance packages starting at $100/month covering updates, backups, and minor changes.",
+    question: "What if I need revisions?",
+    answer:
+      "Every project includes 2 rounds of revisions. Additional revisions beyond that are available at a small fee, agreed upon upfront.",
   },
   {
-    q: "Can I upgrade my package later?",
-    a: "Absolutely. Many clients start on Starter and move to Growth once they see results.",
+    question: "Will I be able to update my website myself after delivery?",
+    answer:
+      "Yes. We build on platforms that are easy to manage. WordPress or Webflow. We also provide a short walkthrough video so you can update content confidently.",
+  },
+  {
+    question: "Do you offer ongoing support after project delivery?",
+    answer:
+      "Yes. We offer monthly maintenance and support retainers. We'll discuss options at the end of your project.",
   },
 ];
 
 export default function PricingPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer,
+          },
+        })),
+      }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Devzoo",
+        "url": "https://www.thedevzoo.com/pricing",
+        "priceRange": "$300 – Custom",
+        "description": "Flexible pricing for website development, digital marketing, graphic design, and video editing. Starting from $300.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Devzoo Service Packages",
+          "itemListElement": tiers.map((tier, i) => ({
+            "@type": "Offer",
+            "position": i + 1,
+            "name": tier.name,
+            "description": tier.bestFor,
+            "price": tier.price,
+            "priceCurrency": "USD",
+          })),
+        },
+      }} />
+      <HeroSection>
+        <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>Pricing</SectionLabel>
-          <h1 className="font-heading font-extrabold text-[40px] md:text-[64px] leading-[1.05] text-white mt-2">
-            Honest prices. No hidden fees.
+          <h1 className="mt-2 font-heading text-[40px] font-extrabold leading-[1.05] text-white md:text-[64px]">
+            Fair Pricing. Zero Surprises.
           </h1>
-          <p className="mt-6 text-base md:text-lg font-body text-white/60 leading-relaxed">
-            Every project starts with a free discovery call. You get a fixed
-            quote before anything begins.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg">
+            We don&apos;t believe in one-size-fits-all pricing. Every business is
+            different. Book a free 30-minute call and we&apos;ll give you a clear,
+            honest quote. No pressure, no hidden fees.
           </p>
+        </div>
+      </HeroSection>
+
+      {/* ── Pricing tiers ───────────────────────────────────────── */}
+      <section className="bg-surface-light px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-4xl">
+          <PricingStackingCards tiers={tiers} />
         </div>
       </section>
 
-      {/* Tiers */}
-      <section className="bg-surface-light py-24 md:py-32 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {tiers.map((tier) => (
+      {/* ── Brand ticker ─────────────────────────────────────────── */}
+      <BrandTicker />
+
+      {/* ── Referral ─────────────────────────────────────────────── */}
+      <section className="bg-surface-warm px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <AnimateIn>
+            {/* Outer card */}
+            <div className="relative overflow-hidden rounded-section bg-surface-dark">
+              {/* Ambient glow */}
               <div
-                key={tier.name}
-                className={`rounded-card p-8 flex flex-col ${
-                  tier.highlighted
-                    ? "bg-surface-dark border-2 border-brand"
-                    : "bg-surface-warm border border-surface-dark/10"
-                }`}
-              >
-                {tier.highlighted && (
-                  <span className="inline-block text-xs font-heading font-semibold uppercase tracking-widest text-brand mb-4">
-                    Most Popular
-                  </span>
-                )}
-                <h2
-                  className={`font-heading font-bold text-2xl mb-1 ${
-                    tier.highlighted ? "text-white" : "text-surface-dark"
-                  }`}
-                >
-                  {tier.name}
-                </h2>
-                <div className="mb-2">
-                  <span
-                    className={`font-heading font-extrabold text-4xl ${
-                      tier.highlighted ? "text-white" : "text-surface-dark"
-                    }`}
+                className="pointer-events-none absolute -top-32 -right-32 h-80 w-80 rounded-full opacity-20"
+                style={{ background: "radial-gradient(circle, #E8470A 0%, transparent 70%)" }}
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full opacity-10"
+                style={{ background: "radial-gradient(circle, #E8470A 0%, transparent 70%)" }}
+                aria-hidden="true"
+              />
+
+              {/* Top shimmer line */}
+              <div
+                className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                style={{ background: "linear-gradient(90deg, transparent, rgba(232,71,10,0.5) 50%, transparent)" }}
+                aria-hidden="true"
+              />
+
+              <div className="relative z-10 grid grid-cols-1 gap-0 md:grid-cols-2">
+
+                {/* ── Left: headline + cta ── */}
+                <div className="flex flex-col justify-center border-b border-white/8 px-8 py-14 md:border-b-0 md:border-r md:px-14 md:py-16">
+                  <SectionLabel>Referral Program</SectionLabel>
+
+                  {/* Big 10% anchor */}
+                  <div className="mt-6 flex items-end gap-3">
+                    <span
+                      className="font-heading text-[72px] font-extrabold leading-none md:text-[88px] lg:text-[96px]"
+                      style={{ color: "#E8470A" }}
+                    >
+                      10%
+                    </span>
+                    <span className="mb-3 font-heading text-xl font-bold text-white/50">
+                      commission
+                    </span>
+                  </div>
+
+                  <h2 className="mt-4 font-heading text-[26px] font-bold leading-[1.2] text-white md:text-[32px]">
+                    Know someone who needs us?{" "}
+                    <span className="text-brand">You get paid.</span>
+                  </h2>
+
+                  <p className="mt-4 text-sm leading-relaxed text-white/55">
+                    Refer any friend or business to Devzoo. When they sign a project,
+                    you earn 10% of the invoice. No cap, no expiry, no catch.
+                  </p>
+
+                  <a
+                    href="mailto:info@thedevzoo.com"
+                    className="mt-8 inline-flex w-fit items-center gap-2 rounded-btn bg-brand px-6 py-3 font-heading text-sm font-bold text-white transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_0_24px_rgba(232,71,10,0.4)]"
                   >
-                    {tier.price}
-                  </span>
-                  <span
-                    className={`text-sm font-body ml-2 ${
-                      tier.highlighted ? "text-white/50" : "text-surface-dark/50"
-                    }`}
-                  >
-                    {tier.priceNote}
-                  </span>
+                    Start Referring
+                    <svg viewBox="0 0 16 16" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" />
+                    </svg>
+                  </a>
+
+                  <p className="mt-4 text-xs text-white/35">
+                    Email{" "}
+                    <a href="mailto:info@thedevzoo.com" className="text-white/55 underline underline-offset-2 hover:text-brand">
+                      info@thedevzoo.com
+                    </a>{" "}
+                    with your referral details
+                  </p>
                 </div>
-                <p
-                  className={`text-sm font-body leading-relaxed mb-6 ${
-                    tier.highlighted ? "text-white/60" : "text-surface-dark/60"
-                  }`}
-                >
-                  {tier.description}
-                </p>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {tier.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
-                      <span className="text-brand mt-0.5 shrink-0">✓</span>
-                      <span
-                        className={`text-sm font-body ${
-                          tier.highlighted ? "text-white/80" : "text-surface-dark/70"
-                        }`}
-                      >
-                        {f}
-                      </span>
-                    </li>
+
+                {/* ── Right: 3-step flow ── */}
+                <div className="flex flex-col justify-center gap-0 px-8 py-14 md:px-14 md:py-16">
+                  <p className="mb-8 font-heading text-xs font-bold uppercase tracking-[0.12em] text-white/35">
+                    How it works
+                  </p>
+
+                  {[
+                    {
+                      step: "01",
+                      title: "You refer someone",
+                      desc: "Send us their name and email, or have them mention you when they reach out.",
+                    },
+                    {
+                      step: "02",
+                      title: "They sign a project",
+                      desc: "Once your referral books any Devzoo service, we confirm the commission.",
+                    },
+                    {
+                      step: "03",
+                      title: "You get paid",
+                      desc: "We send 10% of their invoice to you via Wise, Payoneer, or bank transfer.",
+                    },
+                  ].map((item, i, arr) => (
+                    <div key={item.step} className="relative flex gap-5">
+                      {/* Connector line */}
+                      {i < arr.length - 1 && (
+                        <div
+                          className="absolute left-4.25 top-9 h-full w-px"
+                          style={{ background: "linear-gradient(to bottom, rgba(232,71,10,0.3), transparent)" }}
+                          aria-hidden="true"
+                        />
+                      )}
+
+                      {/* Step badge */}
+                      <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand/30 bg-brand/10 font-mono text-xs font-bold text-brand">
+                        {item.step}
+                      </div>
+
+                      <div className="pb-8">
+                        <p className="font-heading text-base font-bold text-white">
+                          {item.title}
+                        </p>
+                        <p className="mt-1.5 text-sm leading-relaxed text-white/50">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
                   ))}
-                </ul>
-                <Button
-                  href="/contact"
-                  variant={tier.highlighted ? "primary" : "secondary"}
-                  className={
-                    !tier.highlighted
-                      ? "border-surface-dark/20 text-surface-dark hover:border-brand hover:text-brand"
-                      : ""
-                  }
-                >
-                  {tier.cta}
+
+                  {/* Perks strip */}
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {["No cap", "No expiry", "Any service", "Paid fast"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/50"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────────── */}
+      <section className="bg-surface-dark px-6 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-20">
+
+            {/* ── Left: sticky label + cta ── */}
+            <AnimateIn className="lg:sticky lg:top-28 lg:self-start">
+              <SectionLabel>FAQ</SectionLabel>
+              <h2 className="mt-4 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[40px]">
+                Common questions,{" "}
+                <span className="text-brand">clear answers.</span>
+              </h2>
+              <p className="mt-5 text-sm leading-relaxed text-white/55">
+                Can&apos;t find what you&apos;re looking for? Reach out and we&apos;ll
+                reply within one business day.
+              </p>
+
+              {/* Decorative stat strip */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                {[
+                  { value: "50%", label: "upfront only" },
+                  { value: "24h", label: "reply guarantee" },
+                  { value: "2×", label: "free revisions" },
+                  { value: "0", label: "hidden fees" },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-card border border-white/8 bg-surface-dark-2 px-4 py-3"
+                  >
+                    <p className="font-heading text-2xl font-extrabold text-brand">
+                      {s.value}
+                    </p>
+                    <p className="mt-0.5 text-xs text-white/50">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8">
+                <Button href="/contact" variant="primary">
+                  Ask a Question
                 </Button>
               </div>
-            ))}
+            </AnimateIn>
+
+            {/* ── Right: accordion ── */}
+            <AnimateIn delay={100}>
+              <FaqAccordion faqs={faqs} />
+            </AnimateIn>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-surface-warm py-24 md:py-32 px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-16">
-            <SectionLabel>FAQ</SectionLabel>
-            <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-surface-dark mt-2">
-              Common questions
-            </h2>
-          </div>
-          <div className="space-y-6">
-            {faqs.map((faq) => (
-              <div
-                key={faq.q}
-                className="bg-surface-light rounded-card p-6"
-              >
-                <h3 className="font-heading font-bold text-lg text-surface-dark mb-2">
-                  {faq.q}
-                </h3>
-                <p className="text-sm font-body text-surface-dark/60 leading-relaxed">
-                  {faq.a}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-dark py-24 md:py-32 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-[30px] md:text-[44px] leading-[1.15] text-white">
-            Not sure which plan fits?
-          </h2>
-          <p className="mt-4 text-base font-body text-white/60 leading-relaxed">
-            Book a free call. We&apos;ll scope your project honestly and
-            recommend the right package — or tell you if you don&apos;t need us
-            yet.
-          </p>
-          <div className="mt-8">
-            <Button href="/contact" size="lg">
-              Book a Free Call
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageCTA
+        badge="Still Have Questions?"
+        heading="Let's talk numbers. No pitch, no pressure."
+        subtext="Book a free 30-minute call and we'll recommend the right plan for your goals, timeline, and budget."
+        primaryLabel="Book a Free Call"
+        primaryHref="/contact"
+        secondaryLabel="View Services"
+        secondaryHref="/services"
+      />
     </>
   );
 }
