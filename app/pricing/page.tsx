@@ -5,6 +5,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import PageCTA from "@/components/ui/PageCTA";
+import BrandTicker from "@/components/ui/BrandTicker";
 
 export const metadata: Metadata = {
   title: {
@@ -235,6 +236,9 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Brand ticker ─────────────────────────────────────────── */}
+      <BrandTicker />
 
       {/* ── Referral ─────────────────────────────────────────────── */}
       <section className="bg-surface-warm px-6 py-24 md:py-32">

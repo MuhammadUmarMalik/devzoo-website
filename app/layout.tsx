@@ -3,6 +3,7 @@ import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
+import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -56,6 +57,7 @@ export default function RootLayout({
         className="flex min-h-full flex-col bg-surface-light font-body text-surface-dark"
       >
         <CustomCursor />
+        <WhatsAppFloat />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

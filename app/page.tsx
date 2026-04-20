@@ -8,6 +8,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import StatsShowcase from "@/components/home/StatsShowcase";
 import PageCTA from "@/components/ui/PageCTA";
 import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
+import BrandTicker from "@/components/ui/BrandTicker";
 
 export const metadata: Metadata = {
   title: {
@@ -168,25 +169,36 @@ export default function HomePage() {
 
       {/* ── TRUST BAR ──────────────────────────────────────────── */}
       <section className="overflow-hidden bg-surface-warm py-10">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.12em] text-surface-dark/40">
-          Trusted by businesses in USA · UK · UAE · Pakistan
-        </p>
+        <div className="mb-6 flex items-center justify-center gap-3">
+          <div className="h-px w-8 bg-surface-dark/15" aria-hidden="true" />
+          <p className="text-center text-[11px] font-bold uppercase tracking-[0.16em] text-surface-dark/38">
+            Trusted by businesses in USA · UK · UAE · Pakistan
+          </p>
+          <div className="h-px w-8 bg-surface-dark/15" aria-hidden="true" />
+        </div>
         <ClientLogoLoop />
       </section>
+
+      {/* ── BRAND TICKER ───────────────────────────────────────── */}
+      <BrandTicker />
 
       {/* ── SERVICES BENTO ─────────────────────────────────────── */}
       <section className="grain-overlay bg-surface-dark px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          <AnimateIn className="mx-auto max-w-3xl text-center">
-            <SectionLabel>What We Do</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-              Everything Your Business Needs. Under One Roof
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-white/55">
-              From building your website to growing your audience, Devzoo
-              handles it all so you can focus on running your business.
-            </p>
-          </AnimateIn>
+          {/* Split header — breaks the centered-everything AI pattern */}
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>What We Do</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-white sm:text-[34px] md:text-[44px]">
+                Everything Your Business<br className="hidden sm:block" /> Needs. Under One Roof.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-white/50 md:text-base">
+                From building your website to growing your audience — Devzoo handles it all so you can focus on running your business.
+              </p>
+            </AnimateIn>
+          </div>
 
           <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
@@ -220,35 +232,45 @@ export default function HomePage() {
       {/* ── PROCESS ────────────────────────────────────────────── */}
       <section className="bg-surface-light px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          <AnimateIn className="mx-auto max-w-3xl text-center">
-            <SectionLabel>Our Process</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
-              Simple Process. Serious Results.
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-surface-dark/60">
-              No confusion, no surprises. Just a clear path from your idea to a
-              finished product that works.
-            </p>
-          </AnimateIn>
+          {/* Split header */}
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>Our Process</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-surface-dark sm:text-[34px] md:text-[44px]">
+                Simple Process.<br className="hidden sm:block" /> Serious Results.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-surface-dark/55 md:text-base">
+                No confusion, no surprises — just a clear path from your idea to a finished product that works.
+              </p>
+            </AnimateIn>
+          </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
+          {/* Editorial numbered rows */}
+          <div className="mt-16">
             {processSteps.map((step, i) => (
-              <AnimateIn key={step.number} delay={i * 120} className="relative">
-                <div className="group relative h-full overflow-hidden rounded-card border border-surface-dark/8 bg-surface-warm p-8 transition-all duration-300 hover:border-brand/20 hover:shadow-[0_8px_32px_-12px_rgba(232,71,10,0.14)]">
-                  {/* Ghost step number */}
-                  <span className="pointer-events-none absolute right-5 top-2 select-none font-heading text-[88px] font-extrabold leading-none text-surface-dark/4.5">
-                    {step.number}
-                  </span>
-                  {/* Step badge */}
-                  <div className="relative z-10 mb-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand/30 bg-white font-heading text-sm font-bold text-brand shadow-sm">
-                    {step.number}
+              <AnimateIn key={step.number} delay={i * 90}>
+                <div className="group relative border-t border-surface-dark/10 py-9 last:border-b md:py-11">
+                  {/* Brand line slides in on hover */}
+                  <div className="absolute left-0 top-0 h-[2px] w-0 bg-brand transition-[width] duration-500 ease-out group-hover:w-full" />
+
+                  <div className="grid grid-cols-[60px_1fr] gap-x-5 gap-y-2 md:grid-cols-[88px_200px_1fr] md:items-center md:gap-x-10 md:gap-y-0">
+                    {/* Display number */}
+                    <span className="row-span-2 self-center font-heading text-[52px] font-extrabold leading-none text-surface-dark/12 transition-colors duration-300 group-hover:text-brand/20 md:row-span-1 md:text-[68px]">
+                      {step.number}
+                    </span>
+
+                    {/* Title */}
+                    <h3 className="font-heading text-xl font-bold text-surface-dark md:text-2xl">
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="col-start-2 text-sm leading-relaxed text-surface-dark/55 md:col-start-auto md:text-base">
+                      {step.description}
+                    </p>
                   </div>
-                  <h3 className="relative z-10 font-heading text-xl font-bold text-surface-dark">
-                    {step.title}
-                  </h3>
-                  <p className="relative z-10 mt-3 text-sm leading-relaxed text-surface-dark/60">
-                    {step.description}
-                  </p>
                 </div>
               </AnimateIn>
             ))}
@@ -259,19 +281,67 @@ export default function HomePage() {
       {/* ── STATS ──────────────────────────────────────────────── */}
       <StatsShowcase stats={stats} />
 
+      {/* ── INVERTED BRAND TICKER ──────────────────────────────── */}
+      <div className="bg-surface-dark">
+        <BrandTicker inverted />
+      </div>
+
       {/* ── TESTIMONIALS ───────────────────────────────────────── */}
       <section className="bg-surface-warm px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          <AnimateIn className="mx-auto max-w-3xl text-center">
-            <SectionLabel>What Our Clients Say</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
-              Real Results. Real Clients. Real Words.
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-surface-dark/62">
-              Honest feedback from businesses that wanted sharp work, clear
-              communication, and a smoother launch.
-            </p>
-          </AnimateIn>
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="relative max-w-xl">
+              {/* Oversized decorative quote */}
+              <span
+                className="pointer-events-none absolute -left-2 -top-6 select-none font-heading text-[96px] font-extrabold leading-none text-surface-dark/6 md:-left-4 md:-top-8 md:text-[140px]"
+                aria-hidden="true"
+              >
+                &ldquo;
+              </span>
+              <div className="relative">
+                <SectionLabel>Client Stories</SectionLabel>
+                <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-surface-dark sm:text-[34px] md:text-[44px]">
+                  Don&apos;t take our word<br className="hidden sm:block" /> for it.
+                </h2>
+
+                {/* Social proof bar */}
+                <div className="mt-5 flex flex-wrap items-center gap-4">
+                  {/* Star rating */}
+                  <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-0.5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <svg key={i} viewBox="0 0 16 16" fill="#E8470A" className="h-4 w-4" aria-hidden="true">
+                          <path d="M8 1.5l1.76 3.57 3.94.57-2.85 2.78.67 3.92L8 10.47l-3.52 1.87.67-3.92L2.3 5.64l3.94-.57L8 1.5z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="font-heading text-sm font-bold text-surface-dark">5.0</span>
+                  </div>
+
+                  <div className="h-4 w-px bg-surface-dark/15" aria-hidden="true" />
+
+                  <span className="text-sm text-surface-dark/50">
+                    Clients across <strong className="text-surface-dark/80 font-semibold">USA · UK · UAE · Pakistan</strong>
+                  </span>
+                </div>
+              </div>
+            </AnimateIn>
+
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-surface-dark/55 md:text-base">
+                Honest words from business owners who wanted sharp work, clear communication, and a launch that actually landed.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-5 inline-flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-brand transition-all duration-200 hover:gap-2.5"
+              >
+                Start your project
+                <svg viewBox="0 0 16 16" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" />
+                </svg>
+              </Link>
+            </AnimateIn>
+          </div>
         </div>
 
         {/* ── Mobile / Tablet: auto-scrolling snap carousel (< lg) ── */}

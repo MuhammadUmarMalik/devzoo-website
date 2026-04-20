@@ -3,6 +3,7 @@ import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
+import BrandTicker from "@/components/ui/BrandTicker";
 
 export const metadata: Metadata = {
   title: {
@@ -43,12 +44,19 @@ export default function WebDevelopmentPage() {
 
       <section className="bg-surface-light px-6 py-24 md:py-32">
         <div className="mx-auto max-w-5xl">
-          <AnimateIn className="mx-auto max-w-3xl text-center">
-            <SectionLabel>What&apos;s Included</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
-              Everything you need. Nothing you don&apos;t.
-            </h2>
-          </AnimateIn>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>What&apos;s Included</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-surface-dark sm:text-[34px] md:text-[44px]">
+                Everything you need.<br className="hidden sm:block" /> Nothing you don&apos;t.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-surface-dark/50 md:text-base">
+                Every item below is included by default — no hidden extras, no upsell surprises.
+              </p>
+            </AnimateIn>
+          </div>
           <div className="mt-14 grid grid-cols-1 gap-3 md:grid-cols-2">
             {included.map((item, i) => (
               <AnimateIn key={item} delay={i * 50}>
@@ -81,6 +89,7 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
+      <BrandTicker />
       <PageCTA
         badge="Ready to Build?"
         heading="Get Your Website Built."

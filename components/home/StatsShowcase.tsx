@@ -1,7 +1,54 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
+
+function parseStatValue(value: string): { num: number; suffix: string } {
+  const match = value.match(/^(\d+)(.*)$/);
+  if (match) return { num: parseInt(match[1]), suffix: match[2] };
+  return { num: 0, suffix: value };
+}
+
+function AnimatedNumber({ value, reduceMotion }: { value: string; reduceMotion: boolean }) {
+  const { num, suffix } = parseStatValue(value);
+  const [count, setCount] = useState(reduceMotion ? num : 0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const animated = useRef(false);
+
+  useEffect(() => {
+    if (reduceMotion || animated.current) return;
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || animated.current) return;
+        animated.current = true;
+        observer.disconnect();
+        const duration = 1600;
+        const started = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min((now - started) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          setCount(Math.round(eased * num));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [num, reduceMotion]);
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
 type StatItem = {
   value: string;
@@ -208,7 +255,7 @@ export default function StatsShowcase({ stats }: StatsShowcaseProps) {
                         ease: [0.16, 1, 0.3, 1],
                       }}
                     >
-                      {stat.value}
+                      <AnimatedNumber value={stat.value} reduceMotion={reduceMotion ?? false} />
                     </motion.p>
                     <h3 className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-white/48">
                       {stat.label}

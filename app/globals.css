@@ -264,6 +264,16 @@ samp {
   opacity: 1;
 }
 
+/* Brand ticker */
+@keyframes brand-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-ticker-track { animation: none !important; }
+}
+
 /* Testimonials marquee */
 @keyframes testimonial-marquee-right {
   from {
@@ -430,4 +440,37 @@ samp {
 }
 .process-card:hover::after {
   background: linear-gradient(90deg, transparent, rgba(232, 71, 10, 0.55), transparent);
+}
+
+.whatsapp-float-ping {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 1px solid rgb(37 211 102 / 0.26);
+  opacity: 0.75;
+  animation: whatsapp-pulse 2.2s ease-out infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(0.86);
+    opacity: 0.72;
+  }
+
+  70% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float-ping {
+    animation: none;
+    opacity: 0;
+  }
 }

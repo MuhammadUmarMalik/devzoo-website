@@ -3,6 +3,7 @@ import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
+import BrandTicker from "@/components/ui/BrandTicker";
 
 export const metadata: Metadata = {
   title: {
@@ -206,12 +207,19 @@ export default function AboutPage() {
       {/* ── Mission / Vision / Values ────────────────────────────── */}
       <section className="grain-overlay bg-surface-dark px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          <AnimateIn className="mx-auto max-w-3xl text-center">
-            <SectionLabel>Mission, Vision &amp; Values</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-              Built on trust, clarity, and quality.
-            </h2>
-          </AnimateIn>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>Mission, Vision &amp; Values</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-white sm:text-[34px] md:text-[44px]">
+                Built on trust,<br className="hidden sm:block" /> clarity, and quality.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-white/45 md:text-base">
+                Three principles that guide every decision we make and every project we deliver.
+              </p>
+            </AnimateIn>
+          </div>
           <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
             {pillars.map((pillar, i) => (
               <AnimateIn key={pillar.title} delay={i * 100} variant="scale-up">
@@ -239,12 +247,19 @@ export default function AboutPage() {
       {/* ── Team ─────────────────────────────────────────────────── */}
       <section className="bg-surface-warm px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          <AnimateIn className="mx-auto max-w-3xl text-center">
-            <SectionLabel>Meet the Team</SectionLabel>
-            <h2 className="mt-2 font-heading text-[30px] font-bold leading-[1.15] text-surface-dark md:text-[44px]">
-              Two Founders. One Mission. Your Success.
-            </h2>
-          </AnimateIn>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>Meet the Team</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-surface-dark sm:text-[34px] md:text-[44px]">
+                Two Founders.<br className="hidden sm:block" /> One Mission.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-surface-dark/50 md:text-base">
+                Small team. No middlemen. You always know who you&apos;re talking to.
+              </p>
+            </AnimateIn>
+          </div>
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
             {team.map((member, i) => (
               <AnimateIn key={member.name} delay={i * 120}>
@@ -283,19 +298,26 @@ export default function AboutPage() {
       </section>
 
       {/* ── Why Devzoo ───────────────────────────────────────────── */}
+      <div className="bg-surface-dark">
+        <BrandTicker inverted />
+      </div>
       <section className="bg-surface-dark px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          {/* Header */}
-          <AnimateIn className="mx-auto max-w-3xl text-center">
-            <SectionLabel>Why Devzoo</SectionLabel>
-            <h2 className="mt-4 font-heading text-[30px] font-bold leading-[1.15] text-white md:text-[44px]">
-              Why businesses{" "}
-              <span className="text-brand">choose us</span>
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/50">
-              Five things every client notices, usually within the first week of working with us.
-            </p>
-          </AnimateIn>
+          {/* Header — split layout */}
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <AnimateIn className="max-w-xl">
+              <SectionLabel>Why Devzoo</SectionLabel>
+              <h2 className="mt-3 font-heading text-[28px] font-bold leading-[1.1] text-white sm:text-[34px] md:text-[44px]">
+                Why businesses{" "}
+                <span className="text-brand">choose us.</span>
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={80} className="max-w-xs shrink-0 md:pb-1">
+              <p className="text-sm leading-relaxed text-white/45 md:text-base">
+                Five things every client notices — usually within the first week of working with us.
+              </p>
+            </AnimateIn>
+          </div>
 
           {/* Bento grid */}
           <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">

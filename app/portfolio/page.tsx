@@ -6,6 +6,7 @@ import Link from "next/link";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import PageCTA from "@/components/ui/PageCTA";
+import BrandTicker from "@/components/ui/BrandTicker";
 
 const categories = ["All", "Web Development", "Digital Marketing", "Graphic Design", "Video Editing"];
 
@@ -56,16 +57,17 @@ export default function PortfolioPage() {
 
       <section className="bg-surface-light px-6 py-24 md:py-32">
         <div className="mx-auto max-w-6xl">
-          {/* Filter tabs */}
-          <div className="mb-12 flex flex-wrap justify-center gap-2">
+          {/* Filter tabs — left-aligned, editorial, accessible */}
+          <div className="mb-12 flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`cursor-pointer rounded-chip px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                aria-pressed={active === cat}
+                className={`min-h-[44px] cursor-pointer rounded-chip px-4 py-2.5 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 ${
                   active === cat
-                    ? "bg-brand text-white"
-                    : "bg-surface-warm text-surface-dark/60 hover:text-surface-dark"
+                    ? "bg-brand text-white shadow-[0_4px_16px_-4px_rgba(232,71,10,0.4)]"
+                    : "border border-surface-dark/10 bg-surface-warm text-surface-dark/60 hover:border-brand/20 hover:text-surface-dark"
                 }`}
               >
                 {cat}
@@ -157,6 +159,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      <BrandTicker />
       <PageCTA
         badge="Want Results Like These?"
         heading="Let's build something you're proud to show off."

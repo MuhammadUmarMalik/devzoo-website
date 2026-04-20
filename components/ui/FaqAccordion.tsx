@@ -40,6 +40,9 @@ function AccordionItem({
   isOpen: boolean;
   onToggle: () => void;
 }) {
+  const panelId = `faq-panel-${index}`;
+  const triggerId = `faq-trigger-${index}`;
+
   return (
     <div
       className={cn(
@@ -63,10 +66,12 @@ function AccordionItem({
       />
 
       <button
+        id={triggerId}
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="flex w-full cursor-pointer items-start gap-3 px-5 py-5 text-left sm:gap-4 sm:px-6"
+        aria-controls={panelId}
+        className="flex min-h-[56px] w-full cursor-pointer items-start gap-3 px-5 py-5 text-left sm:gap-4 sm:px-6"
       >
         {/* Number badge */}
         <span
@@ -100,8 +105,11 @@ function AccordionItem({
         </span>
       </button>
 
-      {/* Grid-row animated body — no ref access during render */}
+      {/* Grid-row animated body */}
       <div
+        id={panelId}
+        role="region"
+        aria-labelledby={triggerId}
         className="grid transition-[grid-template-rows] duration-300 ease-in-out"
         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
       >
