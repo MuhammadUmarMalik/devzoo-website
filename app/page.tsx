@@ -11,7 +11,7 @@ const StatsShowcase = dynamic(() => import("@/components/home/StatsShowcase"), {
   loading: () => (
     <section className="bg-surface-dark px-6 py-24 md:py-28" aria-hidden="true">
       <div className="mx-auto max-w-6xl">
-        <div className="min-h-[480px] rounded-section border border-white/8 bg-surface-dark-2" />
+        <div className="min-h-120 rounded-section border border-white/8 bg-surface-dark-2" />
       </div>
     </section>
   ),
@@ -314,7 +314,7 @@ export default function HomePage() {
               <AnimateIn key={step.number} delay={i * 90}>
                 <div className="group relative border-t border-surface-dark/10 py-9 last:border-b md:py-11">
                   {/* Brand line slides in on hover */}
-                  <div className="absolute left-0 top-0 h-[2px] w-0 bg-brand transition-[width] duration-500 ease-out group-hover:w-full" />
+                  <div className="absolute left-0 top-0 h-0.5 w-0 bg-brand transition-[width] duration-500 ease-out group-hover:w-full" />
 
                   <div className="grid grid-cols-[60px_1fr] gap-x-5 gap-y-2 md:grid-cols-[88px_200px_1fr] md:items-center md:gap-x-10 md:gap-y-0">
                     {/* Display number */}
@@ -423,7 +423,7 @@ export default function HomePage() {
                   {testimonials.map((testimonial, index) => (
                     <article
                       key={`${testimonial.client}-${groupIndex}-${index}`}
-                      className="testimonial-card group relative flex w-[320px] shrink-0 flex-col justify-between overflow-hidden rounded-card border border-white/10 bg-surface-dark p-6 text-white shadow-[0_30px_80px_-45px_rgba(7,9,12,0.8)] hover:border-brand/35 hover:bg-surface-dark-3 hover:shadow-[0_34px_90px_-42px_rgba(232,71,10,0.34)] xl:w-[360px] xl:p-7"
+                      className="testimonial-card group relative flex w-[320px] shrink-0 flex-col justify-between overflow-hidden rounded-card border border-white/10 bg-surface-dark p-6 text-white shadow-[0_30px_80px_-45px_rgba(7,9,12,0.8)] hover:border-brand/35 hover:bg-surface-dark-3 hover:shadow-[0_34px_90px_-42px_rgba(232,71,10,0.34)] xl:w-90 xl:p-7"
                     >
                       <div
                         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,71,10,0.2),transparent_42%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"

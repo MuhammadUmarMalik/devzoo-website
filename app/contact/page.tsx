@@ -138,6 +138,7 @@ export default function ContactPage() {
   const [status, setStatus] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
@@ -178,6 +179,7 @@ export default function ContactPage() {
         data.message ??
           "Your project details are in. We will get back to you within one business day."
       );
+      setShowSuccessPopup(true);
       setForm(initialForm);
     } catch {
       setStatus("error");
@@ -189,6 +191,75 @@ export default function ContactPage() {
 
   return (
     <>
+      {showSuccessPopup ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-surface-dark/55 px-6 backdrop-blur-sm">
+          <div className="w-full max-w-md rounded-[24px] border border-surface-dark/8 bg-white p-6 shadow-[0_32px_80px_-24px_rgba(26,28,34,0.28)]">
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-5 w-5"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-heading text-xl font-bold text-surface-dark">
+                    Thanks for reaching out
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-surface-dark/60">
+                    {message ||
+                      "Your brief has been submitted successfully. We will get back to you within one business day."}
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowSuccessPopup(false)}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-surface-dark/10 text-surface-dark/50 transition-colors duration-200 hover:border-brand/25 hover:text-brand"
+                aria-label="Close success message"
+              >
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.22 4.22a.75.75 0 011.06 0L10 8.94l4.72-4.72a.75.75 0 111.06 1.06L11.06 10l4.72 4.72a.75.75 0 11-1.06 1.06L10 11.06l-4.72 4.72a.75.75 0 11-1.06-1.06L8.94 10 4.22 5.28a.75.75 0 010-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div className="mt-6 flex gap-3">
+              <button
+                type="button"
+                onClick={() => setShowSuccessPopup(false)}
+                className="inline-flex flex-1 items-center justify-center rounded-btn bg-brand px-5 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2"
+              >
+                Close
+              </button>
+              <a
+                href="mailto:info@thedevzoo.com"
+                className="inline-flex flex-1 items-center justify-center rounded-btn border border-surface-dark/10 px-5 py-3 text-sm font-semibold text-surface-dark transition-all duration-200 hover:border-brand/25 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2"
+              >
+                Email us
+              </a>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       <HeroSection>
         <div className="mx-auto max-w-3xl text-center">
           <SectionLabel>Get in Touch</SectionLabel>
@@ -265,7 +336,7 @@ export default function ContactPage() {
                     <div
                       className={`mb-6 flex items-start gap-3 rounded-card border px-4 py-3.5 text-sm leading-relaxed ${
                         status === "success"
-                          ? "border-brand/20 bg-brand/6 text-surface-dark"
+                          ? "hidden"
                           : "border-red-200 bg-red-50 text-red-800"
                       }`}
                     >

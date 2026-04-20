@@ -82,14 +82,14 @@ export default function PageCTA({
                   href={primaryHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full max-w-[260px] cursor-pointer items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_-18px_rgb(232_71_10/0.7)] transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_20px_48px_-16px_rgb(232_71_10/0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 sm:w-auto sm:max-w-none sm:min-w-[180px] sm:px-7 sm:py-3.5 sm:text-base"
+                  className="inline-flex w-full max-w-65 cursor-pointer items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_-18px_rgb(232_71_10/0.7)] transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_20px_48px_-16px_rgb(232_71_10/0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 sm:w-auto sm:max-w-none sm:min-w-45 sm:px-7 sm:py-3.5 sm:text-base"
                 >
                   {primaryLabel}
                 </a>
               ) : (
                 <Link
                   href={primaryHref}
-                  className="inline-flex w-full max-w-[260px] cursor-pointer items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_-18px_rgb(232_71_10/0.7)] transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_20px_48px_-16px_rgb(232_71_10/0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 sm:w-auto sm:max-w-none sm:min-w-[180px] sm:px-7 sm:py-3.5 sm:text-base"
+                  className="inline-flex w-full max-w-65 cursor-pointer items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_-18px_rgb(232_71_10/0.7)] transition-all duration-200 hover:bg-brand-hover hover:shadow-[0_20px_48px_-16px_rgb(232_71_10/0.85)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 sm:w-auto sm:max-w-none sm:min-w-45 sm:px-7 sm:py-3.5 sm:text-base"
                 >
                   {primaryLabel}
                 </Link>
