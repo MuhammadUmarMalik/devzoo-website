@@ -26,8 +26,8 @@ const manrope = Manrope({
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
+  weight: ["400"],
+  display: "optional",
   fallback: ["Consolas", "Monaco", "monospace"],
 });
 

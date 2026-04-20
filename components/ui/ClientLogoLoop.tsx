@@ -27,13 +27,16 @@ type LogoLoopProps = {
 const LogoLoop = _LogoLoop as ComponentType<LogoLoopProps>;
 
 const clientLogos = [
+  { src: "/favicon.png", alt: "Devzoo logo", title: "Devzoo" },
   { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Startups</span>, ariaLabel: 'Startups' },
+  { src: "/favicon.png", alt: "Devzoo logo", title: "Devzoo" },
   { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Creators</span>, ariaLabel: 'Creators' },
-  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Small Business</span>, ariaLabel: 'Small Business' },
-  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">USA</span>, ariaLabel: 'USA' },
-  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">UK</span>, ariaLabel: 'UK' },
-  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">UAE</span>, ariaLabel: 'UAE' },
-  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Pakistan</span>, ariaLabel: 'Pakistan' },
+  { src: "/favicon.png", alt: "Devzoo logo", title: "Devzoo" },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Small Businesses</span>, ariaLabel: 'Small Businesses' },
+  { src: "/favicon.png", alt: "Devzoo logo", title: "Devzoo" },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Founders</span>, ariaLabel: 'Founders' },
+  { src: "/favicon.png", alt: "Devzoo logo", title: "Devzoo" },
+  { node: <span className="font-heading text-lg font-semibold tracking-[-0.04em] text-surface-dark/72">Growing Brands</span>, ariaLabel: 'Growing Brands' },
 ];
 
 export default function ClientLogoLoop() {
@@ -42,12 +45,12 @@ export default function ClientLogoLoop() {
       logos={clientLogos}
       speed={80}
       direction="left"
-      logoHeight={40}
+      logoHeight={28}
       gap={64}
       hoverSpeed={0}
       fadeOut
       fadeOutColor="#F5F4F0"
-      ariaLabel="Trusted by these businesses"
+      ariaLabel="Trusted by startups, creators, and growing brands"
     />
   );
 }

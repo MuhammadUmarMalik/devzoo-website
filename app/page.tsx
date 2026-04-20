@@ -5,7 +5,17 @@ import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import ClientLogoLoop from "@/components/ui/ClientLogoLoop";
 import AnimateIn from "@/components/ui/AnimateIn";
-import StatsShowcase from "@/components/home/StatsShowcase";
+import dynamic from "next/dynamic";
+
+const StatsShowcase = dynamic(() => import("@/components/home/StatsShowcase"), {
+  loading: () => (
+    <section className="bg-surface-dark px-6 py-24 md:py-28" aria-hidden="true">
+      <div className="mx-auto max-w-6xl">
+        <div className="min-h-[480px] rounded-section border border-white/8 bg-surface-dark-2" />
+      </div>
+    </section>
+  ),
+});
 import PageCTA from "@/components/ui/PageCTA";
 import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 import BrandTicker from "@/components/ui/BrandTicker";
@@ -191,7 +201,7 @@ export default function HomePage() {
           </div>
 
           {/* Headline */}
-          <h1 className="reveal-fade-up mt-8 font-heading text-[38px] font-extrabold leading-[1.04] text-white [--reveal-delay:80ms] sm:text-[52px] md:text-[76px] lg:text-[92px]">
+          <h1 className="mt-8 font-heading text-[38px] font-extrabold leading-[1.04] text-white sm:text-[52px] md:text-[76px] lg:text-[92px]">
             Your Business.{" "}
             <span className="text-white/35">Digitized.</span>{" "}
             Done Right.
@@ -218,11 +228,11 @@ export default function HomePage() {
       </HeroSection>
 
       {/* ── TRUST BAR ──────────────────────────────────────────── */}
-      <section className="overflow-hidden bg-surface-warm py-10">
+      <section className="overflow-hidden py-10">
         <div className="mb-6 flex items-center justify-center gap-3">
           <div className="h-px w-8 bg-surface-dark/15" aria-hidden="true" />
           <p className="text-center text-[11px] font-bold uppercase tracking-[0.16em] text-surface-dark/38">
-            Trusted by businesses in USA · UK · UAE · Pakistan
+            Trusted by startups, creators, and growing brands
           </p>
           <div className="h-px w-8 bg-surface-dark/15" aria-hidden="true" />
         </div>
@@ -371,7 +381,7 @@ export default function HomePage() {
                   <div className="h-4 w-px bg-surface-dark/15" aria-hidden="true" />
 
                   <span className="text-sm text-surface-dark/50">
-                    Clients across <strong className="text-surface-dark/80 font-semibold">USA · UK · UAE · Pakistan</strong>
+                    Clear communication. Strong results.
                   </span>
                 </div>
               </div>

@@ -25,6 +25,8 @@
 
 html {
   scroll-padding-top: 96px;
+  /* Reserves scrollbar space upfront — prevents layout shift when overflow toggles */
+  scrollbar-gutter: stable;
 }
 
 /* Hide native cursor on pointer devices — custom cursor takes over */
@@ -85,6 +87,8 @@ samp {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  /* Scope paint/layout to this element — browser can skip repaints of outside DOM */
+  contain: layout style;
 }
 
 .hero-section .section-label {
@@ -119,8 +123,9 @@ samp {
   font-weight: 800;
   line-height: 1.04;
   color: rgb(255 255 255);
-  animation: anim-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 80ms;
+  /* LCP element — keep opacity:1 from first paint, only animate transform */
+  animation: anim-slide-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 40ms;
 }
 
 .hero-section .section-label + h1 + p {
@@ -199,6 +204,7 @@ samp {
   .hero-section .section-label + h1 + p + p,
   .hero-section .inline-flex.items-center.gap-2.text-sm.text-white\/40 {
     animation: none !important;
+    transform: none !important;
   }
 }
 
@@ -206,6 +212,11 @@ samp {
 @keyframes anim-fade-up {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+/* LCP-safe: opacity starts at 1 — only animates position, not visibility */
+@keyframes anim-slide-up {
+  from { transform: translateY(20px); }
+  to   { transform: translateY(0); }
 }
 @keyframes anim-fade-in {
   from { opacity: 0; }
@@ -270,8 +281,12 @@ samp {
   to   { transform: translateX(-50%); }
 }
 
+.brand-ticker-track {
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .brand-ticker-track { animation: none !important; }
+  .brand-ticker-track { animation: none !important; will-change: auto; }
 }
 
 /* Testimonials marquee */
@@ -311,6 +326,7 @@ samp {
   will-change: transform;
   animation: testimonial-marquee-right 24s linear infinite;
 }
+
 
 .testimonial-marquee-group {
   display: flex;

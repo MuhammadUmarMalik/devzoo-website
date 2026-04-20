@@ -2,6 +2,38 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
+// Field max lengths to prevent abuse
+const MAX_LENGTHS = {
+  name: 120,
+  email: 254,
+  company: 200,
+  phone: 30,
+  service: 80,
+  timeline: 60,
+  budget: 60,
+  preferredContact: 40,
+  message: 5000,
+  website: 500,
+};
+
+const ALLOWED_SERVICES = [
+  "Website Development",
+  "Digital Marketing",
+  "Graphic Design",
+  "Video Editing",
+  "Not sure yet",
+];
+
+const ALLOWED_TIMELINES = [
+  "ASAP",
+  "Within 2 weeks",
+  "Within 1 month",
+  "Within 2-3 months",
+  "Just exploring",
+];
+
+const ALLOWED_CONTACT = ["Email", "WhatsApp", "Phone call"];
+
 type ContactPayload = {
   name?: unknown;
   email?: unknown;
@@ -31,15 +63,26 @@ type LeadRecord = {
   userAgent: string;
 };
 
-function asCleanString(value: unknown) {
-  return typeof value === "string" ? value.trim() : "";
+function asCleanString(value: unknown, maxLen: number) {
+  if (typeof value !== "string") return "";
+  return value.trim().slice(0, maxLen);
 }
 
+// RFC 5322-aligned regex — requires proper TLD (2+ chars), no consecutive dots
 function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/.test(email);
 }
 
 export async function POST(request: Request) {
+  // Validate Content-Type
+  const contentType = request.headers.get("content-type") ?? "";
+  if (!contentType.includes("application/json")) {
+    return NextResponse.json(
+      { message: "Invalid content type." },
+      { status: 415 }
+    );
+  }
+
   let payload: ContactPayload;
 
   try {
@@ -51,7 +94,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const website = asCleanString(payload.website);
+  // Honeypot — bots fill the hidden website field
+  const website = asCleanString(payload.website, MAX_LENGTHS.website);
   if (website) {
     return NextResponse.json({ message: "Submitted." });
   }
@@ -59,15 +103,15 @@ export async function POST(request: Request) {
   const lead: LeadRecord = {
     submittedAt: new Date().toISOString(),
     source: "devzoo-website-contact-form",
-    name: asCleanString(payload.name),
-    email: asCleanString(payload.email),
-    company: asCleanString(payload.company),
-    phone: asCleanString(payload.phone),
-    service: asCleanString(payload.service),
-    timeline: asCleanString(payload.timeline),
-    budget: asCleanString(payload.budget),
-    preferredContact: asCleanString(payload.preferredContact),
-    message: asCleanString(payload.message),
+    name: asCleanString(payload.name, MAX_LENGTHS.name),
+    email: asCleanString(payload.email, MAX_LENGTHS.email),
+    company: asCleanString(payload.company, MAX_LENGTHS.company),
+    phone: asCleanString(payload.phone, MAX_LENGTHS.phone),
+    service: asCleanString(payload.service, MAX_LENGTHS.service),
+    timeline: asCleanString(payload.timeline, MAX_LENGTHS.timeline),
+    budget: asCleanString(payload.budget, MAX_LENGTHS.budget),
+    preferredContact: asCleanString(payload.preferredContact, MAX_LENGTHS.preferredContact),
+    message: asCleanString(payload.message, MAX_LENGTHS.message),
     page: "/contact",
     userAgent: request.headers.get("user-agent") ?? "",
   };
@@ -82,15 +126,16 @@ export async function POST(request: Request) {
     fieldErrors.email = "Enter a valid email.";
   }
 
-  if (!lead.service) {
+  // Validate against allowlists to prevent injection of arbitrary values
+  if (!lead.service || !ALLOWED_SERVICES.includes(lead.service)) {
     fieldErrors.service = "Choose a service.";
   }
 
-  if (!lead.timeline) {
+  if (!lead.timeline || !ALLOWED_TIMELINES.includes(lead.timeline)) {
     fieldErrors.timeline = "Choose a timeline.";
   }
 
-  if (!lead.preferredContact) {
+  if (!lead.preferredContact || !ALLOWED_CONTACT.includes(lead.preferredContact)) {
     fieldErrors.preferredContact = "Choose a contact method.";
   }
 
@@ -122,16 +167,12 @@ export async function POST(request: Request) {
   }
 
   try {
-    const targetUrl = new URL(webhookUrl);
-
-    if (webhookSecret && !targetUrl.searchParams.has("secret")) {
-      targetUrl.searchParams.set("secret", webhookSecret);
-    }
-
-    const response = await fetch(targetUrl, {
+    // Send secret in Authorization header — never expose it in the URL
+    const response = await fetch(webhookUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ...(webhookSecret ? { Authorization: `Bearer ${webhookSecret}` } : {}),
       },
       body: JSON.stringify(lead),
       cache: "no-store",

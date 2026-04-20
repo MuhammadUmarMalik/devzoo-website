@@ -25,9 +25,41 @@ export default function CustomCursor() {
 
     document.documentElement.classList.add("has-custom-cursor");
 
+    // Self-suspending RAF loop — only active while ring is catching up to mouse
+    const tick = () => {
+      const lerp = 0.1;
+      const dx = mouse.current.x - ring.current.x;
+      const dy = mouse.current.y - ring.current.y;
+
+      ring.current.x += dx * lerp;
+      ring.current.y += dy * lerp;
+
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mouse.current.x}px, ${mouse.current.y}px, 0)`;
+      }
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0)`;
+      }
+
+      // Stop scheduling new frames once ring has settled to avoid idle CPU usage
+      if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05) {
+        rafId.current = requestAnimationFrame(tick);
+      } else {
+        rafId.current = 0;
+      }
+    };
+
+    const startLoop = () => {
+      if (!rafId.current) {
+        rafId.current = requestAnimationFrame(tick);
+      }
+    };
+
     const onMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
-      if (state === "hidden") setState("default");
+      // Functional update avoids stale closure; effect runs once with empty deps
+      setState((prev) => (prev === "hidden" ? "default" : prev));
+      startLoop();
     };
 
     const onOver = (e: MouseEvent) => {
@@ -44,38 +76,21 @@ export default function CustomCursor() {
     const onLeave = () => setState("hidden");
     const onEnter = () => setState("default");
 
-    const tick = () => {
-      const lerp = 0.1;
-      ring.current.x += (mouse.current.x - ring.current.x) * lerp;
-      ring.current.y += (mouse.current.y - ring.current.y) * lerp;
-
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${mouse.current.x}px, ${mouse.current.y}px, 0)`;
-      }
-
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0)`;
-      }
-
-      rafId.current = requestAnimationFrame(tick);
-    };
-
-    rafId.current = requestAnimationFrame(tick);
-
-    document.addEventListener("mousemove", onMove);
-    document.addEventListener("mouseover", onOver);
+    // passive: true improves scroll performance for high-frequency events
+    document.addEventListener("mousemove", onMove, { passive: true });
+    document.addEventListener("mouseover", onOver, { passive: true });
     document.documentElement.addEventListener("mouseleave", onLeave);
     document.documentElement.addEventListener("mouseenter", onEnter);
 
     return () => {
       document.documentElement.classList.remove("has-custom-cursor");
-      cancelAnimationFrame(rafId.current);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
       document.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseover", onOver);
       document.documentElement.removeEventListener("mouseleave", onLeave);
       document.documentElement.removeEventListener("mouseenter", onEnter);
     };
-  }, [state]);
+  }, []); // Empty deps — listeners registered once, state updated via functional setter
 
   const isHover = state === "hover";
   const isText = state === "text";

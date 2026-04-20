@@ -237,7 +237,7 @@ export const LogoLoop = memo(
             {item.node}
           </span>
         ) : (
-          <img
+          <img // eslint-disable-line @next/next/no-img-element
             src={item.src}
             srcSet={item.srcSet}
             sizes={item.sizes}
