@@ -6,10 +6,17 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/", "/_next/", "/_not-found"],
       },
+      // Block AI training crawlers
+      { userAgent: "GPTBot", disallow: "/" },
+      { userAgent: "Google-Extended", disallow: "/" },
+      { userAgent: "CCBot", disallow: "/" },
+      { userAgent: "anthropic-ai", disallow: "/" },
+      { userAgent: "Claude-Web", disallow: "/" },
+      { userAgent: "Omgilibot", disallow: "/" },
     ],
-    sitemap: "https://www.thedevzoo.com/sitemap.xml",
-    host: "https://www.thedevzoo.com",
+    sitemap: "https://thedevzoo.com/sitemap.xml",
+    host: "https://thedevzoo.com",
   };
 }

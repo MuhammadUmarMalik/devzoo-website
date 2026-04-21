@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const BASE = "https://www.thedevzoo.com";
+const BASE = "https://thedevzoo.com";
 
 const securityHeaders = [
   // Prevent clickjacking
@@ -53,6 +53,17 @@ const nextConfig: NextConfig = {
         hostname: "cdn.prod.website-files.com",
       },
     ],
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.thedevzoo.com" }],
+        destination: "https://thedevzoo.com/:path*",
+        permanent: true,
+      },
+    ];
   },
 
   async headers() {

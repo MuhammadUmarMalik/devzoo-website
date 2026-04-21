@@ -9,17 +9,17 @@ export const metadata: Metadata = {
   },
   description:
     "Read Devzoo's terms and conditions governing the use of our website and the provision of our digital agency services.",
-  alternates: { canonical: "https://www.thedevzoo.com/terms" },
+  alternates: { canonical: "https://thedevzoo.com/terms" },
   openGraph: {
     title: "Terms & Conditions | Devzoo",
     description: "The terms governing Devzoo's website use and service engagements.",
-    url: "https://www.thedevzoo.com/terms",
+    url: "https://thedevzoo.com/terms",
   },
 };
 
 const LAST_UPDATED = "April 21, 2026";
 const COMPANY = "Devzoo";
-const DOMAIN = "www.thedevzoo.com";
+const DOMAIN = "thedevzoo.com";
 const EMAIL = "info@thedevzoo.com";
 
 export default function TermsPage() {
@@ -30,8 +30,8 @@ export default function TermsPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Terms & Conditions — Devzoo",
-          url: "https://www.thedevzoo.com/terms",
-          publisher: { "@id": "https://www.thedevzoo.com/#organization" },
+          url: "https://thedevzoo.com/terms",
+          publisher: { "@id": "https://thedevzoo.com/#organization" },
         }}
       />
 

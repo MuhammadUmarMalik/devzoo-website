@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo builds fast, custom websites for startups and small businesses. No templates. Mobile-first. Optimised for speed, SEO, and conversions. Book a free call today.",
-  alternates: { canonical: "https://www.thedevzoo.com/services/web-development" },
+  alternates: { canonical: "https://thedevzoo.com/services/web-development" },
   openGraph: {
     title: "Website Development Services | Devzoo",
     description: "Fast, custom websites built to convert. No templates, no shortcuts. Mobile-first and SEO-ready.",
-    url: "https://www.thedevzoo.com/services/web-development",
+    url: "https://thedevzoo.com/services/web-development",
   },
 };
 
@@ -39,8 +39,8 @@ export default function WebDevelopmentPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Website Development",
-        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
-        "url": "https://www.thedevzoo.com/services/web-development",
+        "provider": { "@id": "https://thedevzoo.com/#organization" },
+        "url": "https://thedevzoo.com/services/web-development",
         "description": "Custom website development for startups and small businesses. Mobile-first, SEO-optimised, fast-loading. Built on WordPress, Webflow, or React/Next.js.",
         "serviceType": "Website Development",
         "areaServed": ["US", "GB", "AE", "PK"],
