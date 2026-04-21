@@ -110,7 +110,7 @@ export const metadata: Metadata = {
     apple: "/favicon.png",
   },
   verification: {
-    google: "google-site-verification-placeholder",
+    google: "AktPOBCodwH8KtQR3UhXGbcoBNGcRc3J5PIxRizKMT0",
   },
   category: "technology",
 };

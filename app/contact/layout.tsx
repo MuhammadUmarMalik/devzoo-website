@@ -9,11 +9,19 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Devzoo to start your project. Tell us what you need — website, marketing, design, or video — and we'll reply within one business day.",
   alternates: { canonical: "https://thedevzoo.com/contact" },
+  keywords: [
+    "contact Devzoo", "book discovery call", "hire digital agency",
+    "get website quote", "start a project", "free consultation",
+  ],
   openGraph: {
     title: "Contact Devzoo | Book a Free Discovery Call",
     description:
       "Ready to start? Share your project brief and we'll map the fastest next step. No vague replies, no back-and-forth.",
     url: "https://thedevzoo.com/contact",
+  },
+  twitter: {
+    title: "Contact Devzoo | Book a Free Discovery Call",
+    description: "Ready to start? Share your project brief and we'll map the fastest next step. No vague replies, no back-and-forth.",
   },
 };
 

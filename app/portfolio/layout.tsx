@@ -9,11 +9,19 @@ export const metadata: Metadata = {
   description:
     "Browse Devzoo's portfolio of web development, digital marketing, graphic design, and video editing projects. Real work for real businesses — with results.",
   alternates: { canonical: "https://thedevzoo.com/portfolio" },
+  keywords: [
+    "Devzoo portfolio", "web development case studies", "digital agency work",
+    "design portfolio", "marketing results", "client projects",
+  ],
   openGraph: {
     title: "Portfolio | Devzoo Case Studies",
     description:
       "Real projects for real businesses. Every case study shows the problem, the approach, and the result.",
     url: "https://thedevzoo.com/portfolio",
+  },
+  twitter: {
+    title: "Portfolio | Devzoo Case Studies",
+    description: "Real projects for real businesses. Every case study shows the problem, the approach, and the result.",
   },
 };
 

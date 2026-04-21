@@ -14,10 +14,18 @@ export const metadata: Metadata = {
   description:
     "Devzoo creates logos, brand identities, social media graphics, and marketing materials for startups and small businesses. Visuals that make your brand impossible to ignore.",
   alternates: { canonical: "https://thedevzoo.com/services/graphic-design" },
+  keywords: [
+    "graphic design agency", "logo design", "brand identity design",
+    "social media graphics", "marketing materials", "visual design for startups",
+  ],
   openGraph: {
     title: "Graphic Design Services | Devzoo",
     description: "Logos, brand identities, and visuals that make your business impossible to ignore.",
     url: "https://thedevzoo.com/services/graphic-design",
+  },
+  twitter: {
+    title: "Graphic Design Services | Devzoo",
+    description: "Logos, brand identities, and visuals that make your business impossible to ignore.",
   },
 };
 
@@ -32,6 +40,15 @@ const included = [
 export default function GraphicDesignPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://thedevzoo.com/services" },
+          { "@type": "ListItem", "position": 3, "name": "Graphic Design", "item": "https://thedevzoo.com/services/graphic-design" },
+        ],
+      }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Service",

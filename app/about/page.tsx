@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
@@ -12,11 +13,19 @@ export const metadata: Metadata = {
   },
   description:
     "Meet the three founders of Devzoo — Ehtasham ul Haq (CEO), Muhammad Umar Malik (CTO), and Awais Hassan. A modern digital agency delivering clean websites, marketing, and design with zero shortcuts.",
+  keywords: [
+    "about Devzoo", "Devzoo founders", "Ehtasham ul Haq", "Muhammad Umar Malik",
+    "Awais Hassan", "digital agency team", "who is Devzoo",
+  ],
   alternates: { canonical: "https://thedevzoo.com/about" },
   openGraph: {
     title: "About Devzoo | Digital Agency for Startups & Small Businesses",
     description: "Three founders. One mission. Clean digital work built around your business, not our convenience.",
     url: "https://thedevzoo.com/about",
+  },
+  twitter: {
+    title: "About Devzoo | Digital Agency for Startups & Small Businesses",
+    description: "Three founders. One mission. Clean digital work built around your business, not our convenience.",
   },
 };
 
@@ -144,6 +153,31 @@ const whyItems = [
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={[
+        {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "url": "https://thedevzoo.com/about",
+          "name": "About Devzoo",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://thedevzoo.com/about" },
+            ],
+          },
+          "mainEntity": {
+            "@type": "Organization",
+            "@id": "https://thedevzoo.com/#organization",
+            "name": "Devzoo",
+            "founders": [
+              { "@type": "Person", "name": "Ehtasham ul Haq", "jobTitle": "Founder & CEO" },
+              { "@type": "Person", "name": "Muhammad Umar Malik", "jobTitle": "Co-Founder & CTO" },
+              { "@type": "Person", "name": "Awais Hassan", "jobTitle": "Co-Founder" },
+            ],
+          },
+        },
+      ]} />
       <HeroSection>
         <div className="mx-auto max-w-4xl text-center">
           <SectionLabel>About Devzoo</SectionLabel>

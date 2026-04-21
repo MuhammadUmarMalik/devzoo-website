@@ -14,10 +14,19 @@ export const metadata: Metadata = {
   description:
     "Devzoo builds fast, custom websites for startups and small businesses. No templates. Mobile-first. Optimised for speed, SEO, and conversions. Book a free call today.",
   alternates: { canonical: "https://thedevzoo.com/services/web-development" },
+  keywords: [
+    "website development agency", "custom web design", "Next.js development",
+    "WordPress agency", "Webflow development", "website for startups",
+    "mobile-first website", "SEO-friendly website",
+  ],
   openGraph: {
     title: "Website Development Services | Devzoo",
     description: "Fast, custom websites built to convert. No templates, no shortcuts. Mobile-first and SEO-ready.",
     url: "https://thedevzoo.com/services/web-development",
+  },
+  twitter: {
+    title: "Website Development Services | Devzoo",
+    description: "Fast, custom websites built to convert. No templates, no shortcuts. Mobile-first and SEO-ready.",
   },
 };
 
@@ -35,6 +44,15 @@ const included = [
 export default function WebDevelopmentPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://thedevzoo.com/services" },
+          { "@type": "ListItem", "position": 3, "name": "Website Development", "item": "https://thedevzoo.com/services/web-development" },
+        ],
+      }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Service",

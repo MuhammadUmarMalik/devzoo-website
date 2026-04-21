@@ -17,11 +17,19 @@ export const metadata: Metadata = {
   description:
     "Devzoo offers flexible pricing for website development, digital marketing, graphic design, and video editing. Book a free call and get a custom quote for your project.",
   alternates: { canonical: "https://thedevzoo.com/pricing" },
+  keywords: [
+    "Devzoo pricing", "web development cost", "digital marketing pricing",
+    "website price Pakistan", "affordable digital agency", "agency pricing plans",
+  ],
   openGraph: {
     title: "Pricing | Devzoo",
     description:
       "Starter from $300. Growth from $800. Enterprise custom. No hidden fees — get a custom quote on your free call.",
     url: "https://thedevzoo.com/pricing",
+  },
+  twitter: {
+    title: "Pricing | Devzoo",
+    description: "Starter from $300. Growth from $800. Enterprise custom. No hidden fees — get a custom quote on your free call.",
   },
 };
 
@@ -98,6 +106,14 @@ const faqs = [
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
+          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://thedevzoo.com/pricing" },
+        ],
+      }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "FAQPage",

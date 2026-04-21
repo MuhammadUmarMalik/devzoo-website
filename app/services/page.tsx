@@ -14,11 +14,19 @@ export const metadata: Metadata = {
   description:
     "Devzoo offers website development, digital marketing, graphic design, and video editing for startups, creators, and small businesses. One agency. Everything digital. Done right.",
   alternates: { canonical: "https://thedevzoo.com/services" },
+  keywords: [
+    "digital agency services", "website development", "digital marketing agency",
+    "graphic design", "video editing", "Devzoo services", "full service digital agency",
+  ],
   openGraph: {
     title: "Our Services | Devzoo",
     description:
       "Website development, digital marketing, graphic design, and video editing. One agency. Everything digital. Done right.",
     url: "https://thedevzoo.com/services",
+  },
+  twitter: {
+    title: "Our Services | Devzoo",
+    description: "Website development, digital marketing, graphic design, and video editing. One agency. Everything digital. Done right.",
   },
 };
 

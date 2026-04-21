@@ -10,6 +10,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://thedevzoo.com/sitemap.xml",
-    host: "https://thedevzoo.com",
   };
 }
