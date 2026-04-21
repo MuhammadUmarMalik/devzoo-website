@@ -3,7 +3,6 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
-import ClientLogoLoop from "@/components/ui/ClientLogoLoop";
 import AnimateIn from "@/components/ui/AnimateIn";
 import dynamic from "next/dynamic";
 
@@ -229,18 +228,7 @@ export default function HomePage() {
       </HeroSection>
 
       {/* ── TRUST BAR ──────────────────────────────────────────── */}
-      <section className="overflow-hidden py-10">
-        <div className="mb-6 flex items-center justify-center gap-3">
-          <div className="h-px w-8 bg-surface-dark/15" aria-hidden="true" />
-          <p className="text-center text-[11px] font-bold uppercase tracking-[0.16em] text-surface-dark/38">
-            Trusted by startups, creators, and growing brands
-          </p>
-          <div className="h-px w-8 bg-surface-dark/15" aria-hidden="true" />
-        </div>
-        <ClientLogoLoop />
-      </section>
 
-      {/* ── BRAND TICKER ───────────────────────────────────────── */}
       <BrandTicker />
 
       {/* ── SERVICES BENTO ─────────────────────────────────────── */}
