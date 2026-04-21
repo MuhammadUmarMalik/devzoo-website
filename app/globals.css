@@ -626,6 +626,18 @@ samp {
   }
 }
 
+/* ── Brand ticker ───────────────────────────────────────── */
+@keyframes brand-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-ticker-track {
+    animation: none !important;
+  }
+}
+
 /* ── 404 page ───────────────────────────────────────────── */
 @keyframes not-found-glow-pulse {
   0%, 100% { text-shadow: 0 0 60px rgb(232 71 10 / 0.45), 0 0 120px rgb(232 71 10 / 0.18); }
