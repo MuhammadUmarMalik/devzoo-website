@@ -14,10 +14,18 @@ export const metadata: Metadata = {
   description:
     "Devzoo's digital marketing services include SEO, social media management, PPC advertising, and content strategy for startups and small businesses. Real leads. Real growth.",
   alternates: { canonical: "https://thedevzoo.com/services/digital-marketing" },
+  keywords: [
+    "digital marketing agency", "SEO services", "social media management",
+    "PPC advertising", "Google Ads agency", "content marketing", "local SEO",
+  ],
   openGraph: {
     title: "Digital Marketing Services | Devzoo",
     description: "SEO, social media, and PPC that turn strangers into loyal customers. No vanity metrics — just growth.",
     url: "https://thedevzoo.com/services/digital-marketing",
+  },
+  twitter: {
+    title: "Digital Marketing Services | Devzoo",
+    description: "SEO, social media, and PPC that turn strangers into loyal customers. No vanity metrics — just growth.",
   },
 };
 
@@ -33,6 +41,15 @@ const included = [
 export default function DigitalMarketingPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://thedevzoo.com/services" },
+          { "@type": "ListItem", "position": 3, "name": "Digital Marketing", "item": "https://thedevzoo.com/services/digital-marketing" },
+        ],
+      }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Service",

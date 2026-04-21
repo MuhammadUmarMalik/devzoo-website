@@ -14,10 +14,18 @@ export const metadata: Metadata = {
   description:
     "Devzoo edits reels, explainer videos, YouTube content, and ads for creators, coaches, and businesses. Content that gets watched, shared, and remembered.",
   alternates: { canonical: "https://thedevzoo.com/services/video-editing" },
+  keywords: [
+    "video editing services", "reel editing", "YouTube video editor",
+    "explainer video production", "ad creative video", "short form content editing",
+  ],
   openGraph: {
     title: "Video Editing Services | Devzoo",
     description: "Reels, YouTube content, explainer videos, and ads. Raw footage turned into content that actually gets watched.",
     url: "https://thedevzoo.com/services/video-editing",
+  },
+  twitter: {
+    title: "Video Editing Services | Devzoo",
+    description: "Reels, YouTube content, explainer videos, and ads. Raw footage turned into content that actually gets watched.",
   },
 };
 
@@ -34,6 +42,15 @@ const included = [
 export default function VideoEditingPage() {
   return (
     <>
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://thedevzoo.com/services" },
+          { "@type": "ListItem", "position": 3, "name": "Video Editing", "item": "https://thedevzoo.com/services/video-editing" },
+        ],
+      }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Service",
