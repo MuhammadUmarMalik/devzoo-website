@@ -275,18 +275,153 @@ samp {
   opacity: 1;
 }
 
-/* Brand ticker */
-@keyframes brand-ticker {
+/* Brand ribbon */
+@keyframes brand-ribbon-scroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to { transform: translateX(-50%); }
 }
 
-.brand-ticker-track {
+.brand-ribbon {
+  position: relative;
+  overflow: hidden;
+  padding-block: 0.85rem 1rem;
+  background: transparent;
+  isolation: isolate;
+}
+
+.brand-ribbon--inverted {
+  background: transparent;
+}
+
+.brand-ribbon::before,
+.brand-ribbon::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  pointer-events: none;
+}
+
+.brand-ribbon::before {
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.08), transparent);
+}
+
+.brand-ribbon::after {
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.08), transparent);
+}
+
+.brand-ribbon__viewport {
+  position: relative;
+  margin-inline: -2rem;
+  overflow: hidden;
+  transform: rotate(-2.4deg);
+}
+
+.brand-ribbon__viewport::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 1px solid rgb(255 255 255 / 0.08);
+  border-bottom: 1px solid rgb(255 255 255 / 0.08);
+  pointer-events: none;
+}
+
+.brand-ribbon__track {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: max-content;
+  align-items: center;
   will-change: transform;
+  animation: brand-ribbon-scroll 24s linear infinite;
+}
+
+.brand-ribbon__group {
+  display: flex;
+  align-items: center;
+}
+
+.brand-ribbon__unit {
+  display: inline-flex;
+  align-items: center;
+  padding-block: 1.05rem;
+}
+
+.brand-ribbon__phrase {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  user-select: none;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.76);
+}
+
+.brand-ribbon__burst {
+  position: relative;
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+  margin-inline: 1rem;
+}
+
+.brand-ribbon__burst::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgb(232 71 10) 0deg 11deg,
+      transparent 11deg 30deg
+    );
+  filter: drop-shadow(0 0 10px rgb(232 71 10 / 0.16));
+}
+
+@media (max-width: 768px) {
+  .brand-ribbon {
+    padding-block: 0.7rem 0.8rem;
+  }
+
+  .brand-ribbon__viewport {
+    margin-inline: -1.25rem;
+    transform: rotate(-1.8deg);
+  }
+
+  .brand-ribbon__unit {
+    padding-block: 0.9rem;
+  }
+
+  .brand-ribbon__phrase {
+    font-size: 0.86rem;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-ribbon__burst {
+    width: 1.05rem;
+    height: 1.05rem;
+    margin-inline: 0.8rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brand-ticker-track { animation: none !important; will-change: auto; }
+  .brand-ribbon__viewport {
+    transform: none;
+  }
+
+  .brand-ribbon__track {
+    animation: none !important;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 /* Testimonials marquee */
