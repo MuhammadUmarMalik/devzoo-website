@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cs = getCaseStudy(slug);
   if (!cs) return { title: "Case Study Not Found" };
-  const url = `https://www.thedevzoo.com/portfolio/${slug}`;
+  const url = `https://thedevzoo.com/portfolio/${slug}`;
   return {
     title: { absolute: `${cs.client} Case Study | Devzoo` },
     description: cs.cardDescription,

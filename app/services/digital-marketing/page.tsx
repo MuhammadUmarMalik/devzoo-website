@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo's digital marketing services include SEO, social media management, PPC advertising, and content strategy for startups and small businesses. Real leads. Real growth.",
-  alternates: { canonical: "https://www.thedevzoo.com/services/digital-marketing" },
+  alternates: { canonical: "https://thedevzoo.com/services/digital-marketing" },
   openGraph: {
     title: "Digital Marketing Services | Devzoo",
     description: "SEO, social media, and PPC that turn strangers into loyal customers. No vanity metrics — just growth.",
-    url: "https://www.thedevzoo.com/services/digital-marketing",
+    url: "https://thedevzoo.com/services/digital-marketing",
   },
 };
 
@@ -37,8 +37,8 @@ export default function DigitalMarketingPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Digital Marketing",
-        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
-        "url": "https://www.thedevzoo.com/services/digital-marketing",
+        "provider": { "@id": "https://thedevzoo.com/#organization" },
+        "url": "https://thedevzoo.com/services/digital-marketing",
         "description": "Full-stack digital marketing: SEO (on-page, technical, local), social media management, PPC advertising on Google and Meta, content strategy, and monthly reporting.",
         "serviceType": "Digital Marketing",
         "areaServed": ["US", "GB", "AE", "PK"],

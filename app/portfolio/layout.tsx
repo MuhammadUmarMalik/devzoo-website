@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   },
   description:
     "Browse Devzoo's portfolio of web development, digital marketing, graphic design, and video editing projects. Real work for real businesses — with results.",
-  alternates: { canonical: "https://www.thedevzoo.com/portfolio" },
+  alternates: { canonical: "https://thedevzoo.com/portfolio" },
   openGraph: {
     title: "Portfolio | Devzoo Case Studies",
     description:
       "Real projects for real businesses. Every case study shows the problem, the approach, and the result.",
-    url: "https://www.thedevzoo.com/portfolio",
+    url: "https://thedevzoo.com/portfolio",
   },
 };
 
@@ -25,10 +25,10 @@ export default function PortfolioLayout({ children }: { children: ReactNode }) {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Devzoo Portfolio",
-          url: "https://www.thedevzoo.com/portfolio",
+          url: "https://thedevzoo.com/portfolio",
           description:
             "Portfolio of web development, digital marketing, graphic design, and video editing projects delivered by Devzoo for startups and small businesses.",
-          publisher: { "@id": "https://www.thedevzoo.com/#organization" },
+          publisher: { "@id": "https://thedevzoo.com/#organization" },
           breadcrumb: {
             "@type": "BreadcrumbList",
             itemListElement: [
@@ -36,13 +36,13 @@ export default function PortfolioLayout({ children }: { children: ReactNode }) {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedevzoo.com",
+                item: "https://thedevzoo.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Portfolio",
-                item: "https://www.thedevzoo.com/portfolio",
+                item: "https://thedevzoo.com/portfolio",
               },
             ],
           },

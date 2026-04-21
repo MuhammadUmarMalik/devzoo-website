@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo creates logos, brand identities, social media graphics, and marketing materials for startups and small businesses. Visuals that make your brand impossible to ignore.",
-  alternates: { canonical: "https://www.thedevzoo.com/services/graphic-design" },
+  alternates: { canonical: "https://thedevzoo.com/services/graphic-design" },
   openGraph: {
     title: "Graphic Design Services | Devzoo",
     description: "Logos, brand identities, and visuals that make your business impossible to ignore.",
-    url: "https://www.thedevzoo.com/services/graphic-design",
+    url: "https://thedevzoo.com/services/graphic-design",
   },
 };
 
@@ -36,8 +36,8 @@ export default function GraphicDesignPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Graphic Design",
-        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
-        "url": "https://www.thedevzoo.com/services/graphic-design",
+        "provider": { "@id": "https://thedevzoo.com/#organization" },
+        "url": "https://thedevzoo.com/services/graphic-design",
         "description": "Logo design, full brand identity, social media graphic templates, marketing materials, and packaging design for startups and small businesses.",
         "serviceType": "Graphic Design",
         "areaServed": ["US", "GB", "AE", "PK"],

@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   },
   description:
     "Meet the three founders of Devzoo — Ehtasham ul Haq (CEO), Muhammad Umar Malik (CTO), and Awais Hassan. A modern digital agency delivering clean websites, marketing, and design with zero shortcuts.",
-  alternates: { canonical: "https://www.thedevzoo.com/about" },
+  alternates: { canonical: "https://thedevzoo.com/about" },
   openGraph: {
     title: "About Devzoo | Digital Agency for Startups & Small Businesses",
     description: "Three founders. One mission. Clean digital work built around your business, not our convenience.",
-    url: "https://www.thedevzoo.com/about",
+    url: "https://thedevzoo.com/about",
   },
 };
 

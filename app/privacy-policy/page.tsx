@@ -9,17 +9,17 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo's privacy policy explains how we collect, use, and protect your personal data when you use our website or services.",
-  alternates: { canonical: "https://www.thedevzoo.com/privacy-policy" },
+  alternates: { canonical: "https://thedevzoo.com/privacy-policy" },
   openGraph: {
     title: "Privacy Policy | Devzoo",
     description: "How Devzoo collects, uses, and protects your personal information.",
-    url: "https://www.thedevzoo.com/privacy-policy",
+    url: "https://thedevzoo.com/privacy-policy",
   },
 };
 
 const LAST_UPDATED = "April 21, 2026";
 const COMPANY = "Devzoo";
-const DOMAIN = "www.thedevzoo.com";
+const DOMAIN = "thedevzoo.com";
 const EMAIL = "info@thedevzoo.com";
 
 export default function PrivacyPolicyPage() {
@@ -30,8 +30,8 @@ export default function PrivacyPolicyPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Privacy Policy — Devzoo",
-          url: "https://www.thedevzoo.com/privacy-policy",
-          publisher: { "@id": "https://www.thedevzoo.com/#organization" },
+          url: "https://thedevzoo.com/privacy-policy",
+          publisher: { "@id": "https://thedevzoo.com/#organization" },
         }}
       />
 

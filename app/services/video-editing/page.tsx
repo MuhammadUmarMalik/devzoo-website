@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo edits reels, explainer videos, YouTube content, and ads for creators, coaches, and businesses. Content that gets watched, shared, and remembered.",
-  alternates: { canonical: "https://www.thedevzoo.com/services/video-editing" },
+  alternates: { canonical: "https://thedevzoo.com/services/video-editing" },
   openGraph: {
     title: "Video Editing Services | Devzoo",
     description: "Reels, YouTube content, explainer videos, and ads. Raw footage turned into content that actually gets watched.",
-    url: "https://www.thedevzoo.com/services/video-editing",
+    url: "https://thedevzoo.com/services/video-editing",
   },
 };
 
@@ -38,8 +38,8 @@ export default function VideoEditingPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Video Editing",
-        "provider": { "@id": "https://www.thedevzoo.com/#organization" },
-        "url": "https://www.thedevzoo.com/services/video-editing",
+        "provider": { "@id": "https://thedevzoo.com/#organization" },
+        "url": "https://thedevzoo.com/services/video-editing",
         "description": "Professional video editing for Instagram Reels, TikTok, YouTube long-form and Shorts, explainer videos, ad creatives, captions, colour grading, and sound design.",
         "serviceType": "Video Editing",
         "areaServed": ["US", "GB", "AE", "PK"],

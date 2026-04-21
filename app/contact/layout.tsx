@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   },
   description:
     "Get in touch with Devzoo to start your project. Tell us what you need — website, marketing, design, or video — and we'll reply within one business day.",
-  alternates: { canonical: "https://www.thedevzoo.com/contact" },
+  alternates: { canonical: "https://thedevzoo.com/contact" },
   openGraph: {
     title: "Contact Devzoo | Book a Free Discovery Call",
     description:
       "Ready to start? Share your project brief and we'll map the fastest next step. No vague replies, no back-and-forth.",
-    url: "https://www.thedevzoo.com/contact",
+    url: "https://thedevzoo.com/contact",
   },
 };
 
@@ -25,15 +25,15 @@ export default function ContactLayout({ children }: { children: ReactNode }) {
           "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Contact Devzoo",
-          url: "https://www.thedevzoo.com/contact",
+          url: "https://thedevzoo.com/contact",
           description:
             "Book a free discovery call or send a project brief to Devzoo. We serve startups, creators, and small businesses in the US, UK, UAE, and Pakistan.",
           mainEntity: {
             "@type": "LocalBusiness",
-            "@id": "https://www.thedevzoo.com/#organization",
+            "@id": "https://thedevzoo.com/#organization",
             name: "Devzoo",
             email: "info@thedevzoo.com",
-            url: "https://www.thedevzoo.com",
+            url: "https://thedevzoo.com",
             areaServed: ["US", "GB", "AE", "PK"],
             contactPoint: {
               "@type": "ContactPoint",

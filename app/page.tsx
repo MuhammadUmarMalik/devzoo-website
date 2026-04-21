@@ -27,12 +27,12 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo is a modern digital agency delivering clean websites, digital marketing, graphic design, and video editing for startups and small businesses. No shortcuts. No jargon. Just results.",
-  alternates: { canonical: "https://www.thedevzoo.com" },
+  alternates: { canonical: "https://thedevzoo.com" },
   openGraph: {
     title: "Devzoo | Website Development, Digital Marketing & Design Agency",
     description:
       "Clean websites, smart marketing, sharp design. Devzoo handles everything your business needs to grow online.",
-    url: "https://www.thedevzoo.com",
+    url: "https://thedevzoo.com",
   },
 };
 
@@ -152,11 +152,11 @@ export default function HomePage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Devzoo — Digital Agency for Startups & Small Businesses",
-          url: "https://www.thedevzoo.com",
+          url: "https://thedevzoo.com",
           description:
             "Devzoo delivers clean websites, digital marketing, graphic design, and video editing for startups, creators, and small businesses in the US, UK, UAE, and Pakistan.",
-          publisher: { "@id": "https://www.thedevzoo.com/#organization" },
-          about: { "@id": "https://www.thedevzoo.com/#organization" },
+          publisher: { "@id": "https://thedevzoo.com/#organization" },
+          about: { "@id": "https://thedevzoo.com/#organization" },
           mainEntity: {
             "@type": "ItemList",
             name: "Devzoo Services",
@@ -165,25 +165,25 @@ export default function HomePage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Website Development",
-                url: "https://www.thedevzoo.com/services/web-development",
+                url: "https://thedevzoo.com/services/web-development",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Digital Marketing",
-                url: "https://www.thedevzoo.com/services/digital-marketing",
+                url: "https://thedevzoo.com/services/digital-marketing",
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "Graphic Design",
-                url: "https://www.thedevzoo.com/services/graphic-design",
+                url: "https://thedevzoo.com/services/graphic-design",
               },
               {
                 "@type": "ListItem",
                 position: 4,
                 name: "Video Editing",
-                url: "https://www.thedevzoo.com/services/video-editing",
+                url: "https://thedevzoo.com/services/video-editing",
               },
             ],
           },

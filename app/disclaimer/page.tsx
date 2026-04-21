@@ -9,17 +9,17 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo's disclaimer covering the accuracy of information on our website, limitations of liability, external links, and results expectations.",
-  alternates: { canonical: "https://www.thedevzoo.com/disclaimer" },
+  alternates: { canonical: "https://thedevzoo.com/disclaimer" },
   openGraph: {
     title: "Disclaimer | Devzoo",
     description: "Important disclaimers regarding Devzoo's website content and services.",
-    url: "https://www.thedevzoo.com/disclaimer",
+    url: "https://thedevzoo.com/disclaimer",
   },
 };
 
 const LAST_UPDATED = "April 21, 2026";
 const COMPANY = "Devzoo";
-const DOMAIN = "www.thedevzoo.com";
+const DOMAIN = "thedevzoo.com";
 const EMAIL = "info@thedevzoo.com";
 
 export default function DisclaimerPage() {
@@ -30,8 +30,8 @@ export default function DisclaimerPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Disclaimer — Devzoo",
-          url: "https://www.thedevzoo.com/disclaimer",
-          publisher: { "@id": "https://www.thedevzoo.com/#organization" },
+          url: "https://thedevzoo.com/disclaimer",
+          publisher: { "@id": "https://thedevzoo.com/#organization" },
         }}
       />
 

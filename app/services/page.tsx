@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo offers website development, digital marketing, graphic design, and video editing for startups, creators, and small businesses. One agency. Everything digital. Done right.",
-  alternates: { canonical: "https://www.thedevzoo.com/services" },
+  alternates: { canonical: "https://thedevzoo.com/services" },
   openGraph: {
     title: "Our Services | Devzoo",
     description:
       "Website development, digital marketing, graphic design, and video editing. One agency. Everything digital. Done right.",
-    url: "https://www.thedevzoo.com/services",
+    url: "https://thedevzoo.com/services",
   },
 };
 
@@ -118,10 +118,10 @@ export default function ServicesPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Devzoo Services",
-          url: "https://www.thedevzoo.com/services",
+          url: "https://thedevzoo.com/services",
           description:
             "Website development, digital marketing, graphic design, and video editing services for startups and small businesses.",
-          provider: { "@id": "https://www.thedevzoo.com/#organization" },
+          provider: { "@id": "https://thedevzoo.com/#organization" },
           breadcrumb: {
             "@type": "BreadcrumbList",
             itemListElement: [
@@ -129,13 +129,13 @@ export default function ServicesPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://www.thedevzoo.com",
+                item: "https://thedevzoo.com",
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Services",
-                item: "https://www.thedevzoo.com/services",
+                item: "https://thedevzoo.com/services",
               },
             ],
           },

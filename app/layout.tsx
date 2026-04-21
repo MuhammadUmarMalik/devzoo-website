@@ -32,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
   fallback: ["Consolas", "Monaco", "monospace"],
 });
 
-const BASE_URL = "https://www.thedevzoo.com";
+const BASE_URL = "https://thedevzoo.com";
 const GOOGLE_ANALYTICS_ID = "G-E8RRBRE3X8";
 
 export const metadata: Metadata = {
@@ -147,10 +147,10 @@ export default function RootLayout({
           {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "@id": "https://www.thedevzoo.com/#organization",
+            "@id": "https://thedevzoo.com/#organization",
             "name": "Devzoo",
-            "url": "https://www.thedevzoo.com",
-            "logo": "https://www.thedevzoo.com/logo12.png",
+            "url": "https://thedevzoo.com",
+            "logo": "https://thedevzoo.com/logo12.png",
             "description": "Devzoo is a modern digital agency delivering clean websites, digital marketing, graphic design, and video editing for startups, creators, and small businesses.",
             "email": "info@thedevzoo.com",
             "founders": [
@@ -174,14 +174,14 @@ export default function RootLayout({
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "@id": "https://www.thedevzoo.com/#website",
-            "url": "https://www.thedevzoo.com",
+            "@id": "https://thedevzoo.com/#website",
+            "url": "https://thedevzoo.com",
             "name": "Devzoo",
             "description": "Digital agency for startups and small businesses — websites, marketing, design, and video.",
-            "publisher": { "@id": "https://www.thedevzoo.com/#organization" },
+            "publisher": { "@id": "https://thedevzoo.com/#organization" },
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://www.thedevzoo.com/portfolio?q={search_term_string}",
+              "target": "https://thedevzoo.com/portfolio?q={search_term_string}",
               "query-input": "required name=search_term_string",
             },
           },

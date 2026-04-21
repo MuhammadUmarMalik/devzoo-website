@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo offers flexible pricing for website development, digital marketing, graphic design, and video editing. Book a free call and get a custom quote for your project.",
-  alternates: { canonical: "https://www.thedevzoo.com/pricing" },
+  alternates: { canonical: "https://thedevzoo.com/pricing" },
   openGraph: {
     title: "Pricing | Devzoo",
     description:
       "Starter from $300. Growth from $800. Enterprise custom. No hidden fees — get a custom quote on your free call.",
-    url: "https://www.thedevzoo.com/pricing",
+    url: "https://thedevzoo.com/pricing",
   },
 };
 
@@ -114,7 +114,7 @@ export default function PricingPage() {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Devzoo",
-        "url": "https://www.thedevzoo.com/pricing",
+        "url": "https://thedevzoo.com/pricing",
         "priceRange": "$300 – Custom",
         "description": "Flexible pricing for website development, digital marketing, graphic design, and video editing. Starting from $300.",
         "hasOfferCatalog": {
