@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -32,6 +33,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const BASE_URL = "https://www.thedevzoo.com";
+const GOOGLE_ANALYTICS_ID = "G-E8RRBRE3X8";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -123,6 +125,20 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${manrope.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ANALYTICS_ID}');
+          `}
+        </Script>
+      </head>
       <body
         suppressHydrationWarning
         className="flex min-h-full flex-col bg-surface-light font-body text-surface-dark"
@@ -152,7 +168,7 @@ export default function RootLayout({
             "sameAs": [
               "https://www.linkedin.com/company/thedevzoo",
               "https://www.instagram.com/thedevzoo",
-              "https://www.facebook.com/thedevzoo",
+              "https://www.facebook.com/profile.php?id=61567527057865",
             ],
           },
           {

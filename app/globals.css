@@ -625,3 +625,27 @@ samp {
     opacity: 0;
   }
 }
+
+/* ── 404 page ───────────────────────────────────────────── */
+@keyframes not-found-glow-pulse {
+  0%, 100% { text-shadow: 0 0 60px rgb(232 71 10 / 0.45), 0 0 120px rgb(232 71 10 / 0.18); }
+  50%       { text-shadow: 0 0 90px rgb(232 71 10 / 0.7),  0 0 200px rgb(232 71 10 / 0.28); }
+}
+
+@keyframes not-found-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.not-found-zero {
+  animation: not-found-glow-pulse 3.2s ease-in-out infinite;
+}
+
+.not-found-icon {
+  animation: not-found-float 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-zero  { animation: none; text-shadow: none; }
+  .not-found-icon  { animation: none; }
+}

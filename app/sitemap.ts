@@ -1,8 +1,16 @@
 import type { MetadataRoute } from "next";
+import { caseStudies } from "@/lib/case-studies";
 
 const BASE = "https://www.thedevzoo.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const portfolioPages: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
+    url: `${BASE}/portfolio/${cs.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   return [
     {
       url: BASE,
@@ -82,5 +90,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    ...portfolioPages,
   ];
 }
