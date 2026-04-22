@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   },
   description:
     "Browse Devzoo's portfolio of web development, digital marketing, graphic design, and video editing projects. Real work for real businesses — with results.",
-  alternates: { canonical: "https://thedevzoo.com/portfolio" },
+  alternates: { canonical: absoluteUrl("/portfolio") },
   keywords: [
     "Devzoo portfolio", "web development case studies", "digital agency work",
     "design portfolio", "marketing results", "client projects",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     title: "Portfolio | Devzoo Case Studies",
     description:
       "Real projects for real businesses. Every case study shows the problem, the approach, and the result.",
-    url: "https://thedevzoo.com/portfolio",
+    url: absoluteUrl("/portfolio"),
   },
   twitter: {
     title: "Portfolio | Devzoo Case Studies",
@@ -33,10 +34,10 @@ export default function PortfolioLayout({ children }: { children: ReactNode }) {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Devzoo Portfolio",
-          url: "https://thedevzoo.com/portfolio",
+          url: absoluteUrl("/portfolio"),
           description:
             "Portfolio of web development, digital marketing, graphic design, and video editing projects delivered by Devzoo for startups and small businesses.",
-          publisher: { "@id": "https://thedevzoo.com/#organization" },
+          publisher: { "@id": ORGANIZATION_ID },
           breadcrumb: {
             "@type": "BreadcrumbList",
             itemListElement: [
@@ -44,13 +45,13 @@ export default function PortfolioLayout({ children }: { children: ReactNode }) {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://thedevzoo.com",
+                item: absoluteUrl("/"),
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Portfolio",
-                item: "https://thedevzoo.com/portfolio",
+                item: absoluteUrl("/portfolio"),
               },
             ],
           },

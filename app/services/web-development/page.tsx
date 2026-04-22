@@ -5,6 +5,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
 import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo builds fast, custom websites for startups and small businesses. No templates. Mobile-first. Optimised for speed, SEO, and conversions. Book a free call today.",
-  alternates: { canonical: "https://thedevzoo.com/services/web-development" },
+  alternates: { canonical: absoluteUrl("/services/web-development") },
   keywords: [
     "website development agency", "custom web design", "Next.js development",
     "WordPress agency", "Webflow development", "website for startups",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Website Development Services | Devzoo",
     description: "Fast, custom websites built to convert. No templates, no shortcuts. Mobile-first and SEO-ready.",
-    url: "https://thedevzoo.com/services/web-development",
+    url: absoluteUrl("/services/web-development"),
   },
   twitter: {
     title: "Website Development Services | Devzoo",
@@ -48,17 +49,17 @@ export default function WebDevelopmentPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://thedevzoo.com/services" },
-          { "@type": "ListItem", "position": 3, "name": "Website Development", "item": "https://thedevzoo.com/services/web-development" },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": absoluteUrl("/") },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": absoluteUrl("/services") },
+          { "@type": "ListItem", "position": 3, "name": "Website Development", "item": absoluteUrl("/services/web-development") },
         ],
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Website Development",
-        "provider": { "@id": "https://thedevzoo.com/#organization" },
-        "url": "https://thedevzoo.com/services/web-development",
+        "provider": { "@id": ORGANIZATION_ID },
+        "url": absoluteUrl("/services/web-development"),
         "description": "Custom website development for startups and small businesses. Mobile-first, SEO-optimised, fast-loading. Built on WordPress, Webflow, or React/Next.js.",
         "serviceType": "Website Development",
         "areaServed": ["US", "GB", "AE", "PK"],

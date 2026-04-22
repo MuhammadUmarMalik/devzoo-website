@@ -7,6 +7,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import { getCaseStudy, caseStudies } from "@/lib/case-studies";
+import { absoluteUrl } from "@/lib/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cs = getCaseStudy(slug);
   if (!cs) return { title: "Case Study Not Found" };
-  const url = `https://thedevzoo.com/portfolio/${slug}`;
+  const url = absoluteUrl(`/portfolio/${slug}`);
   return {
     title: { absolute: `${cs.client} Case Study | Devzoo` },
     description: cs.cardDescription,

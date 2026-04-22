@@ -8,6 +8,7 @@ import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import PricingStackingCards from "@/components/ui/PricingStackingCards";
 import JsonLd from "@/components/seo/JsonLd";
+import { absoluteUrl } from "@/lib/site";
 import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo offers flexible pricing for website development, digital marketing, graphic design, and video editing. Book a free call and get a custom quote for your project.",
-  alternates: { canonical: "https://thedevzoo.com/pricing" },
+  alternates: { canonical: absoluteUrl("/pricing") },
   keywords: [
     "Devzoo pricing", "web development cost", "digital marketing pricing",
     "website price Pakistan", "affordable digital agency", "agency pricing plans",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     title: "Pricing | Devzoo",
     description:
       "Starter from $300. Growth from $800. Enterprise custom. No hidden fees — get a custom quote on your free call.",
-    url: "https://thedevzoo.com/pricing",
+    url: absoluteUrl("/pricing"),
   },
   twitter: {
     title: "Pricing | Devzoo",
@@ -110,8 +111,8 @@ export default function PricingPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
-          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://thedevzoo.com/pricing" },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": absoluteUrl("/") },
+          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": absoluteUrl("/pricing") },
         ],
       }} />
       <JsonLd data={{
@@ -130,7 +131,7 @@ export default function PricingPage() {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Devzoo",
-        "url": "https://thedevzoo.com/pricing",
+        "url": absoluteUrl("/pricing"),
         "priceRange": "$300 – Custom",
         "description": "Flexible pricing for website development, digital marketing, graphic design, and video editing. Starting from $300.",
         "hasOfferCatalog": {

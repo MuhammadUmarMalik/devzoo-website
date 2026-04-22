@@ -5,6 +5,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
 import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo's digital marketing services include SEO, social media management, PPC advertising, and content strategy for startups and small businesses. Real leads. Real growth.",
-  alternates: { canonical: "https://thedevzoo.com/services/digital-marketing" },
+  alternates: { canonical: absoluteUrl("/services/digital-marketing") },
   keywords: [
     "digital marketing agency", "SEO services", "social media management",
     "PPC advertising", "Google Ads agency", "content marketing", "local SEO",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Digital Marketing Services | Devzoo",
     description: "SEO, social media, and PPC that turn strangers into loyal customers. No vanity metrics — just growth.",
-    url: "https://thedevzoo.com/services/digital-marketing",
+    url: absoluteUrl("/services/digital-marketing"),
   },
   twitter: {
     title: "Digital Marketing Services | Devzoo",
@@ -45,17 +46,17 @@ export default function DigitalMarketingPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://thedevzoo.com/services" },
-          { "@type": "ListItem", "position": 3, "name": "Digital Marketing", "item": "https://thedevzoo.com/services/digital-marketing" },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": absoluteUrl("/") },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": absoluteUrl("/services") },
+          { "@type": "ListItem", "position": 3, "name": "Digital Marketing", "item": absoluteUrl("/services/digital-marketing") },
         ],
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Digital Marketing",
-        "provider": { "@id": "https://thedevzoo.com/#organization" },
-        "url": "https://thedevzoo.com/services/digital-marketing",
+        "provider": { "@id": ORGANIZATION_ID },
+        "url": absoluteUrl("/services/digital-marketing"),
         "description": "Full-stack digital marketing: SEO (on-page, technical, local), social media management, PPC advertising on Google and Meta, content strategy, and monthly reporting.",
         "serviceType": "Digital Marketing",
         "areaServed": ["US", "GB", "AE", "PK"],

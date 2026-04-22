@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/ui/CustomCursor";
 import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, SITE_EMAIL, SITE_URL, WEBSITE_ID, absoluteUrl } from "@/lib/site";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,11 +33,10 @@ const jetbrainsMono = JetBrains_Mono({
   fallback: ["Consolas", "Monaco", "monospace"],
 });
 
-const BASE_URL = "https://thedevzoo.com";
 const GOOGLE_ANALYTICS_ID = "G-E8RRBRE3X8";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Devzoo | Website Development, Digital Marketing & Design Agency",
     template: "%s | Devzoo",
@@ -58,9 +58,9 @@ export const metadata: Metadata = {
     "Devzoo",
   ],
   authors: [
-    { name: "Ehtasham ul Haq", url: BASE_URL },
-    { name: "Muhammad Umar Malik", url: BASE_URL },
-    { name: "Awais Hassan", url: BASE_URL },
+    { name: "Ehtasham ul Haq", url: SITE_URL },
+    { name: "Muhammad Umar Malik", url: SITE_URL },
+    { name: "Awais Hassan", url: SITE_URL },
   ],
   creator: "Devzoo",
   publisher: "Devzoo",
@@ -76,12 +76,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: BASE_URL,
+    canonical: SITE_URL,
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: BASE_URL,
+    url: SITE_URL,
     siteName: "Devzoo",
     title: "Devzoo | Website Development, Digital Marketing & Design Agency",
     description:
@@ -147,12 +147,12 @@ export default function RootLayout({
           {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "@id": "https://thedevzoo.com/#organization",
+            "@id": ORGANIZATION_ID,
             "name": "Devzoo",
-            "url": "https://thedevzoo.com",
-            "logo": "https://thedevzoo.com/logo12.png",
+            "url": SITE_URL,
+            "logo": absoluteUrl("/logo12.png"),
             "description": "Devzoo is a modern digital agency delivering clean websites, digital marketing, graphic design, and video editing for startups, creators, and small businesses.",
-            "email": "info@thedevzoo.com",
+            "email": SITE_EMAIL,
             "founders": [
               { "@type": "Person", "name": "Ehtasham ul Haq", "jobTitle": "Founder & CEO" },
               { "@type": "Person", "name": "Muhammad Umar Malik", "jobTitle": "Co-Founder & CTO" },
@@ -174,14 +174,14 @@ export default function RootLayout({
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "@id": "https://thedevzoo.com/#website",
-            "url": "https://thedevzoo.com",
+            "@id": WEBSITE_ID,
+            "url": SITE_URL,
             "name": "Devzoo",
             "description": "Digital agency for startups and small businesses — websites, marketing, design, and video.",
-            "publisher": { "@id": "https://thedevzoo.com/#organization" },
+            "publisher": { "@id": ORGANIZATION_ID },
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://thedevzoo.com/portfolio?q={search_term_string}",
+              "target": absoluteUrl("/portfolio?q={search_term_string}"),
               "query-input": "required name=search_term_string",
             },
           },

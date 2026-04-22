@@ -5,6 +5,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
 import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo creates logos, brand identities, social media graphics, and marketing materials for startups and small businesses. Visuals that make your brand impossible to ignore.",
-  alternates: { canonical: "https://thedevzoo.com/services/graphic-design" },
+  alternates: { canonical: absoluteUrl("/services/graphic-design") },
   keywords: [
     "graphic design agency", "logo design", "brand identity design",
     "social media graphics", "marketing materials", "visual design for startups",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Graphic Design Services | Devzoo",
     description: "Logos, brand identities, and visuals that make your business impossible to ignore.",
-    url: "https://thedevzoo.com/services/graphic-design",
+    url: absoluteUrl("/services/graphic-design"),
   },
   twitter: {
     title: "Graphic Design Services | Devzoo",
@@ -44,17 +45,17 @@ export default function GraphicDesignPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://thedevzoo.com/services" },
-          { "@type": "ListItem", "position": 3, "name": "Graphic Design", "item": "https://thedevzoo.com/services/graphic-design" },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": absoluteUrl("/") },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": absoluteUrl("/services") },
+          { "@type": "ListItem", "position": 3, "name": "Graphic Design", "item": absoluteUrl("/services/graphic-design") },
         ],
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Graphic Design",
-        "provider": { "@id": "https://thedevzoo.com/#organization" },
-        "url": "https://thedevzoo.com/services/graphic-design",
+        "provider": { "@id": ORGANIZATION_ID },
+        "url": absoluteUrl("/services/graphic-design"),
         "description": "Logo design, full brand identity, social media graphic templates, marketing materials, and packaging design for startups and small businesses.",
         "serviceType": "Graphic Design",
         "areaServed": ["US", "GB", "AE", "PK"],

@@ -5,6 +5,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
 import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo edits reels, explainer videos, YouTube content, and ads for creators, coaches, and businesses. Content that gets watched, shared, and remembered.",
-  alternates: { canonical: "https://thedevzoo.com/services/video-editing" },
+  alternates: { canonical: absoluteUrl("/services/video-editing") },
   keywords: [
     "video editing services", "reel editing", "YouTube video editor",
     "explainer video production", "ad creative video", "short form content editing",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Video Editing Services | Devzoo",
     description: "Reels, YouTube content, explainer videos, and ads. Raw footage turned into content that actually gets watched.",
-    url: "https://thedevzoo.com/services/video-editing",
+    url: absoluteUrl("/services/video-editing"),
   },
   twitter: {
     title: "Video Editing Services | Devzoo",
@@ -46,17 +47,17 @@ export default function VideoEditingPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://thedevzoo.com/services" },
-          { "@type": "ListItem", "position": 3, "name": "Video Editing", "item": "https://thedevzoo.com/services/video-editing" },
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": absoluteUrl("/") },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": absoluteUrl("/services") },
+          { "@type": "ListItem", "position": 3, "name": "Video Editing", "item": absoluteUrl("/services/video-editing") },
         ],
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Video Editing",
-        "provider": { "@id": "https://thedevzoo.com/#organization" },
-        "url": "https://thedevzoo.com/services/video-editing",
+        "provider": { "@id": ORGANIZATION_ID },
+        "url": absoluteUrl("/services/video-editing"),
         "description": "Professional video editing for Instagram Reels, TikTok, YouTube long-form and Shorts, explainer videos, ad creatives, captions, colour grading, and sound design.",
         "serviceType": "Video Editing",
         "areaServed": ["US", "GB", "AE", "PK"],

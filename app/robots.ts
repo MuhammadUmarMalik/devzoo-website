@@ -1,15 +1,7 @@
 import type { MetadataRoute } from "next";
+import { SITE_HOST, absoluteUrl } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thedevzoo.com";
-  const hostOnly = (() => {
-    try {
-      return new URL(baseUrl).host;
-    } catch {
-      return "thedevzoo.com";
-    }
-  })();
-
   return {
     rules: [
       {
@@ -26,7 +18,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "PerplexityBot", allow: "/" },
       { userAgent: "CCBot", disallow: "/" },
     ],
-    sitemap: `${baseUrl.replace(/\/$/, "")}/sitemap.xml`,
-    host: hostOnly,
+    sitemap: absoluteUrl("/sitemap.xml"),
+    host: SITE_HOST,
   };
 }

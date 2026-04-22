@@ -4,6 +4,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import StackingCards from "@/components/ui/StackingCards";
 import PageCTA from "@/components/ui/PageCTA";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
 import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo offers website development, digital marketing, graphic design, and video editing for startups, creators, and small businesses. One agency. Everything digital. Done right.",
-  alternates: { canonical: "https://thedevzoo.com/services" },
+  alternates: { canonical: absoluteUrl("/services") },
   keywords: [
     "digital agency services", "website development", "digital marketing agency",
     "graphic design", "video editing", "Devzoo services", "full service digital agency",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     title: "Our Services | Devzoo",
     description:
       "Website development, digital marketing, graphic design, and video editing. One agency. Everything digital. Done right.",
-    url: "https://thedevzoo.com/services",
+    url: absoluteUrl("/services"),
   },
   twitter: {
     title: "Our Services | Devzoo",
@@ -126,10 +127,10 @@ export default function ServicesPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Devzoo Services",
-          url: "https://thedevzoo.com/services",
+          url: absoluteUrl("/services"),
           description:
             "Website development, digital marketing, graphic design, and video editing services for startups and small businesses.",
-          provider: { "@id": "https://thedevzoo.com/#organization" },
+          provider: { "@id": ORGANIZATION_ID },
           breadcrumb: {
             "@type": "BreadcrumbList",
             itemListElement: [
@@ -137,13 +138,13 @@ export default function ServicesPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://thedevzoo.com",
+                item: absoluteUrl("/"),
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Services",
-                item: "https://thedevzoo.com/services",
+                item: absoluteUrl("/services"),
               },
             ],
           },
