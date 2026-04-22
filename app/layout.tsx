@@ -105,9 +105,12 @@ export const metadata: Metadata = {
     site: "@thedevzoo",
   },
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      { url: "/icon.png", sizes: "1276x1277", type: "image/png" },
+      { url: "/favicon.png", sizes: "25x25", type: "image/png" },
+    ],
+    shortcut: "/icon.png",
+    apple: [{ url: "/apple-icon.png", sizes: "1276x1277", type: "image/png" }],
   },
   verification: {
     google: "AktPOBCodwH8KtQR3UhXGbcoBNGcRc3J5PIxRizKMT0",
