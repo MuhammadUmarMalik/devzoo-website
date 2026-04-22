@@ -19,6 +19,7 @@ import PageCTA from "@/components/ui/PageCTA";
 import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 import BrandTicker from "@/components/ui/BrandTicker";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, SITE_URL, absoluteUrl } from "@/lib/site";
 import { CALENDLY_URL } from "@/libs/site-links";
 
 export const metadata: Metadata = {
@@ -27,12 +28,12 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo is a modern digital agency delivering clean websites, digital marketing, graphic design, and video editing for startups and small businesses. No shortcuts. No jargon. Just results.",
-  alternates: { canonical: "https://thedevzoo.com" },
+  alternates: { canonical: SITE_URL },
   openGraph: {
     title: "Devzoo | Website Development, Digital Marketing & Design Agency",
     description:
       "Clean websites, smart marketing, sharp design. Devzoo handles everything your business needs to grow online.",
-    url: "https://thedevzoo.com",
+    url: SITE_URL,
   },
 };
 
@@ -152,11 +153,11 @@ export default function HomePage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Devzoo — Digital Agency for Startups & Small Businesses",
-          url: "https://thedevzoo.com",
+          url: SITE_URL,
           description:
             "Devzoo delivers clean websites, digital marketing, graphic design, and video editing for startups, creators, and small businesses in the US, UK, UAE, and Pakistan.",
-          publisher: { "@id": "https://thedevzoo.com/#organization" },
-          about: { "@id": "https://thedevzoo.com/#organization" },
+          publisher: { "@id": ORGANIZATION_ID },
+          about: { "@id": ORGANIZATION_ID },
           mainEntity: {
             "@type": "ItemList",
             name: "Devzoo Services",
@@ -165,25 +166,25 @@ export default function HomePage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Website Development",
-                url: "https://thedevzoo.com/services/web-development",
+                url: absoluteUrl("/services/web-development"),
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Digital Marketing",
-                url: "https://thedevzoo.com/services/digital-marketing",
+                url: absoluteUrl("/services/digital-marketing"),
               },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: "Graphic Design",
-                url: "https://thedevzoo.com/services/graphic-design",
+                url: absoluteUrl("/services/graphic-design"),
               },
               {
                 "@type": "ListItem",
                 position: 4,
                 name: "Video Editing",
-                url: "https://thedevzoo.com/services/video-editing",
+                url: absoluteUrl("/services/video-editing"),
               },
             ],
           },

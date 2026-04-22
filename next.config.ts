@@ -1,6 +1,5 @@
 import type { NextConfig } from "next";
-
-const BASE = "https://thedevzoo.com";
+import { SITE_URL } from "./lib/site";
 
 const securityHeaders = [
   // Prevent clickjacking
@@ -28,7 +27,7 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
-      `img-src 'self' data: blob: https://cdn.prod.website-files.com ${BASE}`,
+      `img-src 'self' data: blob: https://cdn.prod.website-files.com ${SITE_URL}`,
       "font-src 'self' data:",
       "connect-src 'self'",
       "media-src 'self'",
@@ -60,7 +59,7 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.thedevzoo.com" }],
-        destination: "https://thedevzoo.com/:path*",
+        destination: `${SITE_URL}/:path*`,
         permanent: true,
       },
     ];

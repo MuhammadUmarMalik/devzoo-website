@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, SITE_DOMAIN, SITE_EMAIL, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -9,19 +10,16 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo's privacy policy explains how we collect, use, and protect your personal data when you use our website or services.",
-  alternates: { canonical: "https://thedevzoo.com/privacy-policy" },
+  alternates: { canonical: absoluteUrl("/privacy-policy") },
   openGraph: {
     title: "Privacy Policy | Devzoo",
     description: "How Devzoo collects, uses, and protects your personal information.",
-    url: "https://thedevzoo.com/privacy-policy",
+    url: absoluteUrl("/privacy-policy"),
   },
 };
 
 const LAST_UPDATED = "April 21, 2026";
 const COMPANY = "Devzoo";
-const DOMAIN = "thedevzoo.com";
-const EMAIL = "info@thedevzoo.com";
-
 export default function PrivacyPolicyPage() {
   return (
     <>
@@ -30,8 +28,8 @@ export default function PrivacyPolicyPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Privacy Policy — Devzoo",
-          url: "https://thedevzoo.com/privacy-policy",
-          publisher: { "@id": "https://thedevzoo.com/#organization" },
+          url: absoluteUrl("/privacy-policy"),
+          publisher: { "@id": ORGANIZATION_ID },
         }}
       />
 
@@ -53,7 +51,7 @@ export default function PrivacyPolicyPage() {
 
           <p>
             {COMPANY} (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) operates the website at{" "}
-            <a href={`https://${DOMAIN}`}>{DOMAIN}</a> and provides digital agency services. This Privacy Policy
+            <a href={absoluteUrl("/")}>{SITE_DOMAIN}</a> and provides digital agency services. This Privacy Policy
             explains how we collect, use, disclose, and protect information about you when you visit our website
             or engage us for services.
           </p>
@@ -145,7 +143,7 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p>
             To exercise any of these rights, contact us at{" "}
-            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. We will respond within 30 days.
+            <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>. We will respond within 30 days.
           </p>
 
           <h2>6. Third-Party Links</h2>
@@ -181,11 +179,11 @@ export default function PrivacyPolicyPage() {
           <ul>
             <li>
               <strong>Email:</strong>{" "}
-              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
             </li>
             <li>
               <strong>Website:</strong>{" "}
-              <a href={`https://${DOMAIN}/contact`}>{DOMAIN}/contact</a>
+              <a href={absoluteUrl("/contact")}>{SITE_DOMAIN}/contact</a>
             </li>
           </ul>
 

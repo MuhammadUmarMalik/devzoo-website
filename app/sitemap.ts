@@ -1,13 +1,12 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/lib/case-studies";
+import { SITE_URL, absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thedevzoo.com";
-  const base = baseUrl.replace(/\/$/, "");
   const lastModified = new Date();
 
   const portfolioPages: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
-    url: `${base}/portfolio/${cs.slug}`,
+    url: absoluteUrl(`/portfolio/${cs.slug}`),
     lastModified,
     changeFrequency: "monthly",
     priority: 0.7,
@@ -15,79 +14,79 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: base,
+      url: SITE_URL,
       lastModified,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${base}/services`,
+      url: absoluteUrl("/services"),
       lastModified,
       changeFrequency: "yearly",
       priority: 0.8,
     },
     {
-      url: `${base}/services/web-development`,
+      url: absoluteUrl("/services/web-development"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${base}/services/digital-marketing`,
+      url: absoluteUrl("/services/digital-marketing"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${base}/services/graphic-design`,
+      url: absoluteUrl("/services/graphic-design"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${base}/services/video-editing`,
+      url: absoluteUrl("/services/video-editing"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${base}/portfolio`,
+      url: absoluteUrl("/portfolio"),
       lastModified,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${base}/about`,
+      url: absoluteUrl("/about"),
       lastModified,
       changeFrequency: "yearly",
       priority: 0.7,
     },
     {
-      url: `${base}/pricing`,
+      url: absoluteUrl("/pricing"),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${base}/contact`,
+      url: absoluteUrl("/contact"),
       lastModified,
       changeFrequency: "yearly",
       priority: 0.7,
     },
     {
-      url: `${base}/privacy-policy`,
+      url: absoluteUrl("/privacy-policy"),
       lastModified,
       changeFrequency: "yearly",
       priority: 0.6,
     },
     {
-      url: `${base}/terms`,
+      url: absoluteUrl("/terms"),
       lastModified,
       changeFrequency: "yearly",
       priority: 0.6,
     },
     {
-      url: `${base}/disclaimer`,
+      url: absoluteUrl("/disclaimer"),
       lastModified,
       changeFrequency: "yearly",
       priority: 0.5,

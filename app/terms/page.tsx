@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, SITE_DOMAIN, SITE_EMAIL, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -9,19 +10,16 @@ export const metadata: Metadata = {
   },
   description:
     "Read Devzoo's terms and conditions governing the use of our website and the provision of our digital agency services.",
-  alternates: { canonical: "https://thedevzoo.com/terms" },
+  alternates: { canonical: absoluteUrl("/terms") },
   openGraph: {
     title: "Terms & Conditions | Devzoo",
     description: "The terms governing Devzoo's website use and service engagements.",
-    url: "https://thedevzoo.com/terms",
+    url: absoluteUrl("/terms"),
   },
 };
 
 const LAST_UPDATED = "April 21, 2026";
 const COMPANY = "Devzoo";
-const DOMAIN = "thedevzoo.com";
-const EMAIL = "info@thedevzoo.com";
-
 export default function TermsPage() {
   return (
     <>
@@ -30,8 +28,8 @@ export default function TermsPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Terms & Conditions — Devzoo",
-          url: "https://thedevzoo.com/terms",
-          publisher: { "@id": "https://thedevzoo.com/#organization" },
+          url: absoluteUrl("/terms"),
+          publisher: { "@id": ORGANIZATION_ID },
         }}
       />
 
@@ -53,7 +51,7 @@ export default function TermsPage() {
 
           <p>
             These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your use of the website at{" "}
-            <a href={`https://${DOMAIN}`}>{DOMAIN}</a> and any services provided by {COMPANY}
+            <a href={absoluteUrl("/")}>{SITE_DOMAIN}</a> and any services provided by {COMPANY}
             (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). By accessing our website or engaging
             our services, you agree to be bound by these Terms.
           </p>
@@ -215,11 +213,11 @@ export default function TermsPage() {
           <ul>
             <li>
               <strong>Email:</strong>{" "}
-              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
             </li>
             <li>
               <strong>Website:</strong>{" "}
-              <a href={`https://${DOMAIN}/contact`}>{DOMAIN}/contact</a>
+              <a href={absoluteUrl("/contact")}>{SITE_DOMAIN}/contact</a>
             </li>
           </ul>
 

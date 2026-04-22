@@ -6,6 +6,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import PageCTA from "@/components/ui/PageCTA";
 import BrandTicker from "@/components/ui/BrandTicker";
 import WhyStackingCards from "@/components/ui/WhyStackingCards";
+import { ORGANIZATION_ID, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
     "about Devzoo", "Devzoo founders", "Ehtasham ul Haq", "Muhammad Umar Malik",
     "Awais Hassan", "digital agency team", "who is Devzoo",
   ],
-  alternates: { canonical: "https://thedevzoo.com/about" },
+  alternates: { canonical: absoluteUrl("/about") },
   openGraph: {
     title: "About Devzoo | Digital Agency for Startups & Small Businesses",
     description: "Three founders. One mission. Clean digital work built around your business, not our convenience.",
-    url: "https://thedevzoo.com/about",
+    url: absoluteUrl("/about"),
   },
   twitter: {
     title: "About Devzoo | Digital Agency for Startups & Small Businesses",
@@ -157,18 +158,18 @@ export default function AboutPage() {
         {
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          "url": "https://thedevzoo.com/about",
+          "url": absoluteUrl("/about"),
           "name": "About Devzoo",
           "breadcrumb": {
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://thedevzoo.com" },
-              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://thedevzoo.com/about" },
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": absoluteUrl("/") },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": absoluteUrl("/about") },
             ],
           },
           "mainEntity": {
             "@type": "Organization",
-            "@id": "https://thedevzoo.com/#organization",
+            "@id": ORGANIZATION_ID,
             "name": "Devzoo",
             "founders": [
               { "@type": "Person", "name": "Ehtasham ul Haq", "jobTitle": "Founder & CEO" },

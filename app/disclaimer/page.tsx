@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroSection from "@/components/ui/HeroSection";
 import SectionLabel from "@/components/ui/SectionLabel";
 import JsonLd from "@/components/seo/JsonLd";
+import { ORGANIZATION_ID, SITE_DOMAIN, SITE_EMAIL, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
@@ -9,19 +10,16 @@ export const metadata: Metadata = {
   },
   description:
     "Devzoo's disclaimer covering the accuracy of information on our website, limitations of liability, external links, and results expectations.",
-  alternates: { canonical: "https://thedevzoo.com/disclaimer" },
+  alternates: { canonical: absoluteUrl("/disclaimer") },
   openGraph: {
     title: "Disclaimer | Devzoo",
     description: "Important disclaimers regarding Devzoo's website content and services.",
-    url: "https://thedevzoo.com/disclaimer",
+    url: absoluteUrl("/disclaimer"),
   },
 };
 
 const LAST_UPDATED = "April 21, 2026";
 const COMPANY = "Devzoo";
-const DOMAIN = "thedevzoo.com";
-const EMAIL = "info@thedevzoo.com";
-
 export default function DisclaimerPage() {
   return (
     <>
@@ -30,8 +28,8 @@ export default function DisclaimerPage() {
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Disclaimer — Devzoo",
-          url: "https://thedevzoo.com/disclaimer",
-          publisher: { "@id": "https://thedevzoo.com/#organization" },
+          url: absoluteUrl("/disclaimer"),
+          publisher: { "@id": ORGANIZATION_ID },
         }}
       />
 
@@ -53,7 +51,7 @@ export default function DisclaimerPage() {
 
           <p>
             The information provided on the {COMPANY} website ({" "}
-            <a href={`https://${DOMAIN}`}>{DOMAIN}</a>) is for general informational purposes only.
+            <a href={absoluteUrl("/")}>{SITE_DOMAIN}</a>) is for general informational purposes only.
             While we strive to keep the information accurate and up to date, we make no representations
             or warranties of any kind, express or implied, about the completeness, accuracy, reliability,
             or suitability of the information, products, services, or related graphics on this website.
@@ -138,11 +136,11 @@ export default function DisclaimerPage() {
           <ul>
             <li>
               <strong>Email:</strong>{" "}
-              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
             </li>
             <li>
               <strong>Website:</strong>{" "}
-              <a href={`https://${DOMAIN}/contact`}>{DOMAIN}/contact</a>
+              <a href={absoluteUrl("/contact")}>{SITE_DOMAIN}/contact</a>
             </li>
           </ul>
 
