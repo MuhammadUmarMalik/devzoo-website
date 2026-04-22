@@ -1,29 +1,97 @@
 import type { MetadataRoute } from "next";
 import { caseStudies } from "@/lib/case-studies";
 
-const BASE = "https://thedevzoo.com";
-const LAST_MODIFIED = new Date("2026-04-21");
-
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thedevzoo.com";
+  const base = baseUrl.replace(/\/$/, "");
+  const lastModified = new Date();
+
   const portfolioPages: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
-    url: `${BASE}/portfolio/${cs.slug}`,
-    lastModified: LAST_MODIFIED,
+    url: `${base}/portfolio/${cs.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   return [
-    { url: BASE,                                    lastModified: LAST_MODIFIED },
-    { url: `${BASE}/about`,                         lastModified: LAST_MODIFIED },
-    { url: `${BASE}/services`,                      lastModified: LAST_MODIFIED },
-    { url: `${BASE}/services/web-development`,      lastModified: LAST_MODIFIED },
-    { url: `${BASE}/services/digital-marketing`,    lastModified: LAST_MODIFIED },
-    { url: `${BASE}/services/graphic-design`,       lastModified: LAST_MODIFIED },
-    { url: `${BASE}/services/video-editing`,        lastModified: LAST_MODIFIED },
-    { url: `${BASE}/portfolio`,                     lastModified: LAST_MODIFIED },
-    { url: `${BASE}/pricing`,                       lastModified: LAST_MODIFIED },
-    { url: `${BASE}/contact`,                       lastModified: LAST_MODIFIED },
-    { url: `${BASE}/privacy-policy`,                lastModified: LAST_MODIFIED },
-    { url: `${BASE}/terms`,                         lastModified: LAST_MODIFIED },
-    { url: `${BASE}/disclaimer`,                    lastModified: LAST_MODIFIED },
+    {
+      url: base,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
+      url: `${base}/services`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/services/web-development`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/services/digital-marketing`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/services/graphic-design`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/services/video-editing`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/portfolio`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/about`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/pricing`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${base}/contact`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/privacy-policy`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${base}/terms`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.6,
+    },
+    {
+      url: `${base}/disclaimer`,
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
     ...portfolioPages,
   ];
 }
